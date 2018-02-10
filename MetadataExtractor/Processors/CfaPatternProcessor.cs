@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class CfaPatternProcessor : IMetaDataElementProcessor
+    public class CfaPatternProcessor : IMetaDataElementProcessor
     {
         public int Id => 0xA302;
 

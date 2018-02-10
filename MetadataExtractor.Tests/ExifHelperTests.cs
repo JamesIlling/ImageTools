@@ -17,7 +17,7 @@
             var property = new ExifProperty {Id = 0, Length = 1, Type = 3, Value = BitConverter.GetBytes(value)};
 
             var extracted = ExifHelper.GetShort(property);
-            extracted.Should().BeOfType(typeof(uint));
+            extracted.Should().BeOfType(typeof(ushort));
             extracted.Should().Be(value);
         }
 
@@ -83,7 +83,9 @@
         public void GetRationalWithIndexReturnsExpectedValue(uint nominator, uint denominator, decimal fraction)
         {
             var value =
-                ExifTypeHelper.CreateRational(1,1).Concat(ExifTypeHelper.CreateRational(nominator,denominator)).ToArray();
+                ExifTypeHelper.CreateRational(1, 1)
+                    .Concat(ExifTypeHelper.CreateRational(nominator, denominator))
+                    .ToArray();
             var property = new ExifProperty {Id = 0, Length = 1, Type = 4, Value = value};
 
             var extracted = ExifHelper.GetRational(property, 1);

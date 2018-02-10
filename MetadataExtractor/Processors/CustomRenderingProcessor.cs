@@ -1,14 +1,29 @@
 ﻿namespace MetadataExtractor.Processors
 {
+    using System;
+    using System.Linq;
     using Enums;
+    using Unity.Attributes;
 
-    internal class CustomRenderingProcessor : IMetaDataElementProcessor
+    public class CustomRenderingProcessor : IMetaDataElementProcessor
     {
+        [Dependency]
+        public ILog Log { get; set; }
+
         public int Id => 0xA401;
 
         public void Process(Metadata metadata, ExifProperty property)
         {
-            metadata.CustomRendering = (CustomRenderingEnum) ExifHelper.GetShort(property);
+            var enumValues = Enum.GetValues(typeof(CustomRenderingEnum)).Cast<ushort>();
+            var propertyValue = ExifHelper.GetShort(property);
+            if (enumValues.Contains(propertyValue))
+            {
+                metadata.CustomRendering = (CustomRenderingEnum) propertyValue;
+            }
+            else
+            {
+                Log?.Info("CustomRendering Value:0x" + propertyValue.ToString("X4"));
+            }
         }
     }
 }

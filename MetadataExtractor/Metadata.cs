@@ -20,7 +20,7 @@
         public string Artist { get; set; }
         public string Copyright { get; set; }
         public string ExifVersion { get; set; }
-        public ColourSpaceEnum ColourSpace { get; set; }
+        public ColourSpaceEnum? ColourSpace { get; set; }
         public byte[] Thumbnail { get; set; }
         public CompressionEnum ThumbnailCompression { get; set; }
         public decimal ThumbnailXResolution { get; set; }
@@ -50,25 +50,28 @@
         public decimal FocalPlaneYResolution { get; set; }
         public decimal FocalPlaneXResolution { get; set; }
         public ResolutionUnitEnum FocalPlaneResolutionUnit { get; set; }
-        public CustomRenderingEnum CustomRendering { get; set; }
+        public CustomRenderingEnum? CustomRendering { get; set; }
         public WhiteBalanceEnum WhiteBalance { get; set; }
         public decimal DigitalZoom { get; set; }
-        public ContrastEnum Contrast { get; set; }
+        public ContrastEnum? Contrast { get; set; }
         public SensingMethodEnum SensingMethod { get; set; }
         public SceneCaptureTypeEnum SceneCaptureType { get; set; }
         public GainControlEnum GainControl { get; set; }
         public byte[] CfaPattern { get; set; }
-        public decimal MinFocalLength { get; set; }
-        public decimal MaxFocalLength { get; set; }
-        public decimal MaxFStop { get; set; }
-        public decimal MinFStop { get; set; }
+        public decimal? MinFocalLength { get; set; }
+        public decimal? MaxFocalLength { get; set; }
+        public decimal? MaxFStop { get; set; }
+        public decimal? MinFStop { get; set; }
         public string LensManufacturer { get; set; }
         public byte[] LuminanceTable { get; set; }
         public byte[] ChrominanceTable { get; set; }
-        public bool FlashFired { get; internal set; }
-        public bool RedEyeReduction { get; set; }
-        public bool FlashFunction { get; set; }
+        public bool? FlashFired { get; internal set; }
+        public bool? RedEyeReduction { get; set; }
+        public bool? FlashFunction { get; set; }
         public StrobeReturnEnum StrobeReturn { get; set; }
         public FiringModelEnum FiringMode { get; set; }
+        public OrientationEnum? Orientation { get; set; }
+        public decimal? ReferenceBlackWhite { get; set; }
+        public YCbCrPositioningEnum? YCbCrPositioning { get; set; }
     }
 }

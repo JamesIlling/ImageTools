@@ -1,8 +1,11 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum CustomRenderingEnum
+    public enum CustomRenderingEnum : ushort
     {
         NormalProcess,
-        CustomProcess
+        CustomProcess,
+        HDR = 3,
+        Panorama = 6,
+        Portrait = 8
     }
 }

@@ -1,8 +1,10 @@
 ﻿namespace MetadataExtractor.Tests
 {
-    using System.Collections.Generic;
+    using DependencyFactory;
     using FluentAssertions;
+    using Log;
     using NUnit.Framework;
+    using Processors;
 
     [TestFixture]
     public class ExtractorTests
@@ -10,12 +12,11 @@
         [Test]
         public void HeightAndWidthProcessedWhenNoProcessorsPresent()
         {
-            var extractor = new Extractor
-            {
-                Processors = new List<IMetaDataElementProcessor>()
-            };
+            DependencyInjection.RegisterType<ILog, TestLog>();
+            DependencyInjection.RegisterType<IGetProcessors, NoProcessors>();
 
-            var metadata = extractor.Extract(TestResources.TinyJpeg());
+            var extractor = DependencyInjection.Resolve<Extractor>();
+            var metadata = extractor.Extract(TestResources.LightroomJpeg());
 
             metadata.Height.Should().Be(7);
             metadata.Width.Should().Be(10);
@@ -24,21 +25,12 @@
         [Test]
         public void ProcessorCalledForPropertyIfPresent()
         {
-            var processor = new TestProcessor();
-            var extractor = new Extractor
-            {
-                Processors = new List<IMetaDataElementProcessor> {processor}
-            };
+            DependencyInjection.RegisterType<ILog, TestLog>();
+            DependencyInjection.RegisterType<IGetProcessors, GetTestProcessor>();
+            var extractor = DependencyInjection.Resolve<Extractor>();
 
-            extractor.Extract(TestResources.TinyJpeg());
-            processor.Called.Should().BeTrue();
-        }
-
-        [Test]
-        public void ProcessorsPopulatedOnCreation()
-        {
-            var extractor = new Extractor();
-            extractor.Processors.Should().NotBeEmpty();
+            extractor.Extract(TestResources.LightroomJpeg());
+            GetTestProcessor.Processor.Called.Should().BeTrue();
         }
     }
 }

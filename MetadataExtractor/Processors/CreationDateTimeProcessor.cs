@@ -3,9 +3,10 @@
     using System;
     using System.Globalization;
 
-    internal class CreationDateTimeProcessor : IMetaDataElementProcessor
+    public class CreationDateTimeProcessor : IMetaDataElementProcessor
     {
-        private const string DateTimeFormat = "yyyy:MM:dd hh:mm:ss";
+        // called DateTimeDigitized by the EXIF spec.
+        private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
         public int Id => 0x9004;
 
         public void Process(Metadata metadata, ExifProperty property)

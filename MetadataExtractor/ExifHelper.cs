@@ -36,7 +36,7 @@
             return nominator / (decimal) denominator;
         }
 
-        public static uint GetShort(ExifProperty property)
+        public static ushort GetShort(ExifProperty property)
         {
             return BitConverter.ToUInt16(property.Value, 0);
         }

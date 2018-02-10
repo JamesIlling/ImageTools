@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class CameraManufacturerProcessor : IMetaDataElementProcessor
+    public class CameraManufacturerProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x010F;
 

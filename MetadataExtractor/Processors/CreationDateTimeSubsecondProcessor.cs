@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class CreationDateTimeSubsecondProcessor : IMetaDataElementProcessor
+    public class CreationDateTimeSubsecondProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x9292;
 
@@ -9,8 +9,7 @@
             if (metadata.CreationTime != null)
             {
                 var ms = double.Parse(ExifHelper.GetString(property));
-                metadata.CreationTime =
-                    metadata.CreationTime.Value.AddMilliseconds(ms);
+                metadata.CreationTime = metadata.CreationTime.Value.AddMilliseconds(ms);
             }
         }
     }

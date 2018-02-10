@@ -6,11 +6,4 @@
         Soft,
         Hard
     }
-
-    public enum ContrastEnum
-    {
-        Normal,
-        Soft,
-        Hard
-    }
 }

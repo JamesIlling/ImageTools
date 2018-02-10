@@ -3,20 +3,34 @@
     using System;
     using System.IO;
     using System.Linq;
+    using DependencyFactory;
     using MetadataExtractor;
+    using MetadataExtractor.Processors;
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            //DisplayProcessors();
-            var metadata = ExtractFromFile(@"E:\DSC_5233.jpg");
-            ReflectionHelper.Display(metadata);
+            RegisterDependencies();
+
+            var metadata =
+                ExtractFromFile(@"E:\DSC_5233.jpg");
+
+            var displayer = DependencyInjection.Resolve<IDisplay>();
+            displayer.Display(metadata);
+        }
+
+        private static void RegisterDependencies()
+        {
+            DependencyInjection.RegisterType<ILog, ConsoleLog>();
+            DependencyInjection.RegisterType<IGetProcessors, ReflectionHelper>();
+            DependencyInjection.RegisterType<IDisplay, ConsoleDisplayer>();
         }
 
         private static void DisplayProcessors()
         {
-            var processors = ReflectionHelper.GetAll<IMetaDataElementProcessor>().OrderBy(x => x.Id);
+            var processorLocator = DependencyInjection.Resolve<IGetProcessors>();
+            var processors = processorLocator.GetAll().OrderBy(x => x.Id);
             foreach (var processor in processors)
             {
                 Console.Write(processor.Id.ToString("X4"));
@@ -27,7 +41,7 @@
 
         private static Metadata ExtractFromFile(string path)
         {
-            var extractor = new Extractor();
+            var extractor = DependencyInjection.Resolve<Extractor>();
             if (File.Exists(path))
             {
                 using (var file = File.OpenRead(path))

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ChrominanceTableProcessor : IMetaDataElementProcessor
+    public class ChrominanceTableProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x5091;
 

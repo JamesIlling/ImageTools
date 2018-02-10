@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
-
-namespace MetadataExtractor.Tests
+﻿namespace MetadataExtractor.Tests
 {
+    using System;
+    using System.Linq;
     using System.Text;
 
-    static class ExifTypeHelper
+    internal static class ExifTypeHelper
     {
-        public static  byte[] CreateRational(uint numerator, uint denominator)
+        public static byte[] CreateRational(uint numerator, uint denominator)
         {
             return BitConverter.GetBytes(numerator).Concat(BitConverter.GetBytes(denominator)).ToArray();
         }
@@ -20,6 +19,11 @@ namespace MetadataExtractor.Tests
         public static byte[] CreateString(string text)
         {
             return Encoding.ASCII.GetBytes(text + "\0");
+        }
+
+        public static byte[] GetShort(ushort value)
+        {
+            return BitConverter.GetBytes(value);
         }
     }
 }

@@ -5,11 +5,13 @@
 
     public static class TestResources
     {
-        private const string TinyJpegResourceName = "MetadataExtractor.Tests.Resources.Tiny.jpg";
+        private const string TinyJpegResourceName = "MetadataExtractor.Tests.Resources.Lightroom.jpg";
 
-        public static Stream TinyJpeg()
+        public static Stream LightroomJpeg()
         {
             var assembly = Assembly.GetExecutingAssembly();
+
+            assembly.GetManifestResourceNames();
             return assembly.GetManifestResourceStream(TinyJpegResourceName);
         }
     }

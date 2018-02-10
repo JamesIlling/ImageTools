@@ -1,18 +1,18 @@
 ﻿namespace MetadataExtractor
 {
-    using System.Collections.Generic;
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using Processors;
+    using Unity.Attributes;
 
     public class Extractor
     {
-        public Extractor()
-        {
-            Processors = ReflectionHelper.GetAll<IMetaDataElementProcessor>();
-        }
+        [Dependency]
+        public ILog Log { get; set; }
 
-        public List<IMetaDataElementProcessor> Processors { get; set; }
+        [Dependency]
+        public IGetProcessors ProcessorLocator { get; set; }
 
         public Metadata Extract(Stream image)
         {
@@ -26,8 +26,15 @@
             var properties = bitmap.PropertyItems;
             foreach (var property in properties)
             {
-                var processor = Processors.FirstOrDefault(x => x.Id == property.Id);
-                processor?.Process(metadata, new ExifProperty(property));
+                var processor = ProcessorLocator.GetAll().FirstOrDefault(x => x.Id == property.Id);
+                if (processor != null)
+                {
+                    processor.Process(metadata, new ExifProperty(property));
+                }
+                else
+                {
+                    Log.Info("Unknown element: Id 0x" + property.Id.ToString("X8"));
+                }
             }
             return metadata;
         }

@@ -3,9 +3,10 @@
     using System;
     using System.Globalization;
 
-    internal class CaptureDateTimeProcessor : IMetaDataElementProcessor
+    public class CaptureDateTimeProcessor : IMetaDataElementProcessor
     {
-        private const string DateTimeFormat = "yyyy:MM:dd hh:mm:ss";
+        //(date/time when original image was taken)
+        private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
         public int Id => 0x9003;
 
         public void Process(Metadata metadata, ExifProperty property)

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class CaptureDateTimeSubsecondProcessor : IMetaDataElementProcessor
+    public class CaptureDateTimeSubsecondProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x9291;
 
@@ -8,8 +8,8 @@
         {
             if (metadata.CaptureTime != null)
             {
-                metadata.CaptureTime =
-                    metadata.CaptureTime.Value.AddMilliseconds(double.Parse(ExifHelper.GetString(property)));
+                var ms = double.Parse(ExifHelper.GetString(property));
+                metadata.CaptureTime = metadata.CaptureTime.Value.AddMilliseconds(ms);
             }
         }
     }

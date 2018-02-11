@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class FocalPlaneXResolutionProcessor : IMetaDataElementProcessor
+    public class FocalPlaneXResolutionProcessor : IMetaDataElementProcessor
     {
         public int Id => 0xA20E;
 

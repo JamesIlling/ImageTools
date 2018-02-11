@@ -1,6 +1,6 @@
 namespace MetadataExtractor.Processors
 {
-    internal class FileSourceProcessor : IMetaDataElementProcessor
+    public class FileSourceProcessor : IMetaDataElementProcessor
     {
         public int Id => 0xA300;
 

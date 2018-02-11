@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class FNumberProcessor : IMetaDataElementProcessor
+    public class FNumberProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x829D;
 

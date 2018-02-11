@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class FlashProcessor : IMetaDataElementProcessor
+    public class FlashProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x9209;
 

@@ -6,7 +6,7 @@
 
         public void Process(Metadata metadata, ExifProperty property)
         {
-            metadata.DigitalZoom = ExifHelper.GetRational(property);
+            metadata.DigitalZoomRatio = ExifHelper.GetRational(property);
         }
     }
 }

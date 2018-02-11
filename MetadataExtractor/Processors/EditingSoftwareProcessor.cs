@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class EditingSoftwareProcessor : IMetaDataElementProcessor
+    public class EditingSoftwareProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x0131;
 

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ExposureCompensationProcessor : IMetaDataElementProcessor
+    public class ExposureCompensationProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x9204;
 

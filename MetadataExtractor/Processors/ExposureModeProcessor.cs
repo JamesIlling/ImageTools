@@ -2,7 +2,7 @@
 {
     using Enums;
 
-    internal class ExposureModeProcessor : IMetaDataElementProcessor
+    public class ExposureModeProcessor : IMetaDataElementProcessor
     {
         public int Id => 0xA402;
 

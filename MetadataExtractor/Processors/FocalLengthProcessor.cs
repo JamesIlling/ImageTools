@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class FocalLengthProcessor : IMetaDataElementProcessor
+    public class FocalLengthProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x920A;
 

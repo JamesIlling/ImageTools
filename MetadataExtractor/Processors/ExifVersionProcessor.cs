@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ExifVersionProcessor : IMetaDataElementProcessor
+    public class ExifVersionProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x9000;
 

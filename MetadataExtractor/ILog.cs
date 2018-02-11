@@ -1,7 +1,10 @@
 ﻿namespace MetadataExtractor
 {
+    using System;
+
     public interface ILog
     {
-        void Info(string message);
+        void Warning(string message);
+        void Error(Exception ex);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ExposureModeEnum
+    public enum ExposureModeEnum : ushort
     {
         Auto,
         Manual,

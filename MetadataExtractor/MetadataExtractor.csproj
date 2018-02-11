@@ -88,7 +88,7 @@
     <Compile Include="Processors\CreationDateTimeProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\CustomRenderingProcessor.cs" />
-    <Compile Include="Processors\DigitalZoomRationProcessor.cs" />
+    <Compile Include="Processors\DigitalZoomRatioProcessor.cs" />
     <Compile Include="Processors\EditingSoftwareProcessor.cs" />
     <Compile Include="Processors\ExposureCompensationProcessor.cs" />
     <Compile Include="Enums\ExposureModeEnum.cs" />
@@ -106,7 +106,7 @@
     <Compile Include="Processors\FocalPlaneYResolutionProcessor.cs" />
     <Compile Include="Processors\GainControlProcessor.cs" />
     <Compile Include="Processors\IccProfileProcessor.cs" />
-    <Compile Include="Processors\ILog.cs" />
+    <Compile Include="ILog.cs" />
     <Compile Include="Processors\IsoProcessor.cs" />
     <Compile Include="Processors\LensMaxApertueProcessor.cs" />
     <Compile Include="Processors\LensManufacturerProcessor.cs" />
@@ -136,6 +136,7 @@
     <Compile Include="Processors\OffsetProcessor.cs" />
     <Compile Include="Enums\OrientationEnum.cs" />
     <Compile Include="Processors\OrientationProcessor.cs" />
+    <Compile Include="Processors\RecommendedExposureIndexProcessor.cs" />
     <Compile Include="Processors\ReferenceBlackWhiteProcessor.cs" />
     <Compile Include="Processors\ResolutionUnitProcessor.cs" />
     <Compile Include="Processors\SaturationProcessor.cs" />

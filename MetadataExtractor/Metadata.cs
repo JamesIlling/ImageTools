@@ -40,23 +40,23 @@
         public ExposureModeEnum? ExposureMode { get; set; }
         public decimal? FNumber { get; set; }
         public ExposureProgramEnum? ExposureProgram { get; set; }
-        public SensitivityTypeEnum ?SensitivityType { get; set; }
+        public SensitivityTypeEnum? SensitivityType { get; set; }
         public decimal? ShutterSpeedApexValue { get; set; }
         public decimal? ApertureApexValue { get; set; }
         public decimal? LensMaxAperture { get; set; }
         public LightSourceEnum? Lightsource { get; set; }
         public decimal? FocalLength { get; set; }
         public SubjectDistanceEnum? SubjectDistance { get; set; }
-        public decimal FocalPlaneYResolution { get; set; }
-        public decimal FocalPlaneXResolution { get; set; }
-        public ResolutionUnitEnum FocalPlaneResolutionUnit { get; set; }
+        public decimal? FocalPlaneYResolution { get; set; }
+        public decimal? FocalPlaneXResolution { get; set; }
+        public ResolutionUnitEnum? FocalPlaneResolutionUnit { get; set; }
         public CustomRenderingEnum? CustomRendering { get; set; }
-        public WhiteBalanceEnum WhiteBalance { get; set; }
+        public WhiteBalanceEnum? WhiteBalance { get; set; }
         public decimal? DigitalZoomRatio { get; set; }
         public ContrastEnum? Contrast { get; set; }
-        public SensingMethodEnum SensingMethod { get; set; }
-        public SceneCaptureTypeEnum SceneCaptureType { get; set; }
-        public GainControlEnum GainControl { get; set; }
+        public SensingMethodEnum? SensingMethod { get; set; }
+        public SceneCaptureTypeEnum? SceneCaptureType { get; set; }
+        public GainControlEnum? GainControl { get; set; }
         public byte[] CfaPattern { get; set; }
         public decimal? MinFocalLength { get; set; }
         public decimal? MaxFocalLength { get; set; }
@@ -68,10 +68,11 @@
         public bool? FlashFired { get; internal set; }
         public bool? RedEyeReduction { get; set; }
         public bool? FlashFunction { get; set; }
-        public StrobeReturnEnum StrobeReturn { get; set; }
-        public FiringModelEnum FiringMode { get; set; }
+        public StrobeReturnEnum? StrobeReturn { get; set; }
+        public FiringModelEnum? FiringMode { get; set; }
         public OrientationEnum? Orientation { get; set; }
         public decimal? ReferenceBlackWhite { get; set; }
         public YCbCrPositioningEnum? YCbCrPositioning { get; set; }
+        public uint? RecommendedExposureIndex { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace MetadataExtractor
 {
+    using System;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using Processors;
     using Unity.Attributes;
 
     public class Extractor
@@ -29,11 +29,18 @@
                 var processor = ProcessorLocator.GetAll().FirstOrDefault(x => x.Id == property.Id);
                 if (processor != null)
                 {
-                    processor.Process(metadata, new ExifProperty(property));
+                    try
+                    {
+                        processor.Process(metadata, new ExifProperty(property));
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex);
+                    }
                 }
                 else
                 {
-                    Log.Info("Unknown element: Id 0x" + property.Id.ToString("X8"));
+                    Log.Warning("Unknown element: Id 0x" + property.Id.ToString("X8"));
                 }
             }
             return metadata;

@@ -8,41 +8,41 @@
     using Processors;
 
     [TestFixture]
-    public class ContrastProcessorTests
+    public class ExposureModeProcessorTests
     {
-        private readonly IMetaDataElementProcessor _processor = new ContrastProcessor {Log = new TestLog()};
+        private readonly IMetaDataElementProcessor _processor = new ExposureModeProcessor {Log = new TestLog()};
 
-        [TestCase((ushort) 0x0000, ContrastEnum.Normal)]
-        [TestCase((ushort) 0x0001, ContrastEnum.Soft)]
-        [TestCase((ushort) 0x0002, ContrastEnum.Hard)]
+        [TestCase((ushort) 0x0000, ExposureModeEnum.Auto)]
+        [TestCase((ushort) 0x0001, ExposureModeEnum.Manual)]
+        [TestCase((ushort) 0x0002, ExposureModeEnum.AutoBracket)]
         [TestCase((ushort) 0x0005, null)]
-        public void MetadataFieldPopulated(ushort value, ContrastEnum? result)
+        public void MetadataFieldPopulated(ushort value, ExposureModeEnum? result)
         {
             var metadata = new Metadata();
             var property = new ExifProperty {Id = _processor.Id, Value = ExifTypeHelper.GetShort(value)};
             _processor.Process(metadata, property);
-            metadata.Contrast.Should().BeEquivalentTo(result);
+            metadata.ExposureMode.Should().BeEquivalentTo(result);
         }
 
         [Test]
         public void IndexMatchesExifSpecification()
         {
-            _processor.Id.Should().Be(0xA408);
+            _processor.Id.Should().Be(0xA402);
         }
 
         [Test]
         public void UnknownValueIsLogged()
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x005) };
-            var log = ((TestLog)((ContrastProcessor)_processor).Log).Messages;
+            var property = new ExifProperty {Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x005)};
+            var log = ((TestLog) ((ExposureModeProcessor) _processor).Log).Messages;
             log.Clear();
             _processor.Process(metadata, property);
 
             log.Count.Should().Be(1);
             var message = log.First();
             message.Level.Should().Be("Warning");
-            message.Message.Should().Be(string.Format(ContrastProcessor.Error, 0x005));
+            message.Message.Should().Be(string.Format(ExposureModeProcessor.Error, 0x005));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class DescriptionProcessor : IMetaDataElementProcessor
+    public class DescriptionProcessor : IMetaDataElementProcessor
     {
         public int Id => 0x010E;
 

@@ -7,7 +7,9 @@
 
     public class ColourSpaceProcessor : IMetaDataElementProcessor
     {
-        [Dependency]
+        public const string Error = "Unknown Colour Space value:{0:X4}";
+
+      [Dependency]
         public ILog Log { get; set; }
 
         public int Id => 0xA001;
@@ -22,7 +24,7 @@
             }
             else
             {
-                Log?.Info("ColourSpace Value:0x" + propertyValue.ToString("X4"));
+                Log?.Warning(string.Format(Error,propertyValue));
             }
         }
     }

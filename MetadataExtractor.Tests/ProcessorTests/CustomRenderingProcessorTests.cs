@@ -1,8 +1,9 @@
 ﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
+    using System.Linq;
     using Enums;
     using FluentAssertions;
-    using Log;
+    using Logging;
     using NUnit.Framework;
     using Processors;
 
@@ -20,15 +21,24 @@
         public void MetadataFieldPopulated(ushort value, CustomRenderingEnum? result)
         {
             var metadata = new Metadata();
-            var property = new ExifProperty {Id = _processor.Id, Value = ExifTypeHelper.GetShort(value)};
-
-            ((TestLog) ((CustomRenderingProcessor) _processor).Log).Messages.Clear();
+            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(value) };
             _processor.Process(metadata, property);
             metadata.CustomRendering.Should().BeEquivalentTo(result);
-            if (metadata.CustomRendering == null)
-            {
-                ((TestLog) ((CustomRenderingProcessor) _processor).Log).Messages.Count.Should().Be(1);
-            }
+        }
+
+        [Test]
+        public void UnknownValueIsLogged()
+        {
+            var metadata = new Metadata();
+            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x005) };
+            var log = ((TestLog) ((CustomRenderingProcessor) _processor).Log).Messages;
+            log.Clear();
+            _processor.Process(metadata, property);
+
+            log.Count.Should().Be(1);
+            var message =log.First();
+            message.Level.Should().Be("Warning");
+            message.Message.Should().Be(string.Format(CustomRenderingProcessor.Error, 0x005));
         }
 
         [Test]

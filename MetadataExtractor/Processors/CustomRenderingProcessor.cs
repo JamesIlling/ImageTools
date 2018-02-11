@@ -7,6 +7,7 @@
 
     public class CustomRenderingProcessor : IMetaDataElementProcessor
     {
+        public const string Error = "Unknown Custom Rendering value:{0:X4}";
         [Dependency]
         public ILog Log { get; set; }
 
@@ -22,7 +23,8 @@
             }
             else
             {
-                Log?.Info("CustomRendering Value:0x" + propertyValue.ToString("X4"));
+
+                Log?.Warning(string.Format(Error,propertyValue));
             }
         }
     }

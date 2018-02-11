@@ -14,7 +14,8 @@
             RegisterDependencies();
 
             var metadata =
-                ExtractFromFile(@"E:\DSC_5233.jpg");
+                ExtractFromFile(@"C:\Users\James\Source\Repos\ImageTools\MetadataExtractor.Tests\Resources\ACDSee.jpg");
+               
 
             var displayer = DependencyInjection.Resolve<IDisplay>();
             displayer.Display(metadata);

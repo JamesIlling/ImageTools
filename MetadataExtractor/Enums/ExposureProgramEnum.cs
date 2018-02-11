@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ExposureProgramEnum
+    public enum ExposureProgramEnum : ushort
     {
         NotDefined,
         Manual,

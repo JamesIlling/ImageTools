@@ -1,4 +1,5 @@
-﻿namespace MetadataExtractor.Tests.ProcessorTests
+﻿
+namespace MetadataExtractor.Tests.ProcessorTests
 {
     using System;
     using FluentAssertions;
@@ -6,26 +7,26 @@
     using Processors;
 
     [TestFixture]
-    public class ReferenceBlackWhiteProcessorTests
+    public class DigitalZoomRatioProcessorTests
     {
-        private readonly IMetaDataElementProcessor _processor = new ReferenceBlackWhiteProcessor();
+        private readonly IMetaDataElementProcessor _processor = new DigitalZoomRatioProcessor();
 
         [Test]
         public void IndexMatchesExifSpecification()
         {
-            _processor.Id.Should().Be(0x0214);
+            _processor.Id.Should().Be(0xA404);
         }
 
         [Test]
         public void MetadataFieldPopulated()
         {
-            var value = ExifTypeHelper.CreateRational(1, 4);
+            var rational = ExifTypeHelper.CreateRational(4, 8);
             var metadata = new Metadata();
-            var property = new ExifProperty {Id = _processor.Id, Value = value};
+            var property = new ExifProperty { Id = _processor.Id, Value = rational };
 
             _processor.Process(metadata, property);
 
-            metadata.ReferenceBlackWhite.Should().Be(0.25m);
+            metadata.DigitalZoomRatio.Should().Be(0.5m);
         }
 
         [Test]

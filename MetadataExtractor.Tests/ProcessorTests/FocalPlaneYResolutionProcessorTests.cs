@@ -6,14 +6,14 @@
     using Processors;
 
     [TestFixture]
-    public class ReferenceBlackWhiteProcessorTests
+    public class FocalPlaneYResolutionProcessorTests
     {
-        private readonly IMetaDataElementProcessor _processor = new ReferenceBlackWhiteProcessor();
+        private readonly IMetaDataElementProcessor _processor = new FocalPlaneYResolutionProcessor();
 
         [Test]
         public void IndexMatchesExifSpecification()
         {
-            _processor.Id.Should().Be(0x0214);
+            _processor.Id.Should().Be(0xA20F);
         }
 
         [Test]
@@ -21,11 +21,11 @@
         {
             var value = ExifTypeHelper.CreateRational(1, 4);
             var metadata = new Metadata();
-            var property = new ExifProperty {Id = _processor.Id, Value = value};
+            var property = new ExifProperty { Id = _processor.Id, Value = value };
 
             _processor.Process(metadata, property);
 
-            metadata.ReferenceBlackWhite.Should().Be(0.25m);
+            metadata.FocalPlaneYResolution.Should().Be(0.25m);
         }
 
         [Test]

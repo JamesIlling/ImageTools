@@ -1,6 +1,7 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using System;
+    using Enums;
 
     public class FlashProcessor : IMetaDataElementProcessor
     {

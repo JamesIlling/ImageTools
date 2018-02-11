@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class DigitalZoomRationProcessor : IMetaDataElementProcessor
+    public class DigitalZoomRatioProcessor : IMetaDataElementProcessor
     {
         public int Id => 0xA404;
 

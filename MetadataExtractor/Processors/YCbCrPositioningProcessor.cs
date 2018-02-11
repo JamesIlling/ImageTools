@@ -7,6 +7,8 @@
 
     public class YCbCrPositioningProcessor : IMetaDataElementProcessor
     {
+        public const string Error = "Unknown YCbCr Positioning value:{0:X4}";
+
         [Dependency]
         public ILog Log { get; set; }
 
@@ -22,7 +24,7 @@
             }
             else
             {
-                Log?.Info("YCbCrPositioningEnum Value:0x" + propertyValue.ToString("X4"));
+                Log?.Warning(string.Format(Error,propertyValue));
             }
         }
     }

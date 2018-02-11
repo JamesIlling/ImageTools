@@ -1,28 +1,20 @@
 ﻿namespace ImageTools
 {
     using System;
+    using MetadataExtractor;
     using MetadataExtractor.Processors;
 
     public class ConsoleLog : ILog
     {
-        public void Debug(string message)
-        {
-            Console.WriteLine("Debug:" + message);
-        }
-
-        public void Info(string message)
-        {
-            Console.WriteLine("Info:" + message);
-        }
 
         public void Warning(string message)
         {
             Console.WriteLine("Warning:" + message);
         }
 
-        public void Error(string message)
+        public void Error(Exception ex)
         {
-            Console.WriteLine("Error:" + message);
+            Console.WriteLine("Error:" + ex.Message +" at" +ex.StackTrace);
         }
     }
 }

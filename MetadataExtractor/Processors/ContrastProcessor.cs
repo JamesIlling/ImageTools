@@ -7,6 +7,8 @@
 
     public class ContrastProcessor : IMetaDataElementProcessor
     {
+        public const string Error = "Unknown Contrast value:{0:X4}";
+
         [Dependency]
         public ILog Log { get; set; }
 
@@ -22,7 +24,7 @@
             }
             else
             {
-                Log?.Info("Contrast Value:0x" + propertyValue.ToString("X4"));
+                Log?.Warning(string.Format(Error,propertyValue));
             }
         }
     }

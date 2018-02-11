@@ -2,7 +2,7 @@
 {
     using DependencyFactory;
     using FluentAssertions;
-    using Log;
+    using Logging;
     using NUnit.Framework;
     using Processors;
 

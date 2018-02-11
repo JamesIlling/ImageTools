@@ -1,4 +1,4 @@
-﻿namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Enums
 {
     public enum StrobeReturnEnum
     {

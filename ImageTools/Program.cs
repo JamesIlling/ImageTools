@@ -5,7 +5,6 @@
     using System.Linq;
     using DependencyFactory;
     using MetadataExtractor;
-    using MetadataExtractor.Processors;
 
     internal class Program
     {
@@ -15,7 +14,7 @@
 
             var metadata =
                 ExtractFromFile(@"C:\Users\James\Source\Repos\ImageTools\MetadataExtractor.Tests\Resources\ACDSee.jpg");
-               
+
 
             var displayer = DependencyInjection.Resolve<IDisplay>();
             displayer.Display(metadata);

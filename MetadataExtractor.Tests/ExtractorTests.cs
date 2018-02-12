@@ -4,7 +4,6 @@
     using FluentAssertions;
     using Logging;
     using NUnit.Framework;
-    using Processors;
 
     [TestFixture]
     public class ExtractorTests

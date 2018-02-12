@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using Processors;
 
     public class TestLog : ILog
     {

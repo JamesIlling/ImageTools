@@ -96,12 +96,12 @@
     <Compile Include="Processors\ExposureProgramProcessor.cs" />
     <Compile Include="Processors\FileSourceProcessor.cs" />
     <Compile Include="Enums\StrobeReturnEnum.cs" />
-    <Compile Include="Enums\FiringModelEnum.cs" />
+    <Compile Include="Enums\FiringModeEnum.cs" />
     <Compile Include="Processors\FlashProcessor.cs" />
     <Compile Include="Processors\FNumberProcessor.cs" />
     <Compile Include="Processors\FocalLengthProcessor.cs" />
     <Compile Include="Processors\FocalLength35MmEquivalentProcessor.cs" />
-    <Compile Include="Processors\FocalPlaneResolutionUnit.cs" />
+    <Compile Include="Processors\FocalPlaneResolutionUnitProcessor.cs" />
     <Compile Include="Processors\FocalPlaneXResolutionProcessor.cs" />
     <Compile Include="Processors\FocalPlaneYResolutionProcessor.cs" />
     <Compile Include="Processors\GainControlProcessor.cs" />

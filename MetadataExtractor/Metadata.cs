@@ -2,7 +2,6 @@
 {
     using System;
     using Enums;
-    using Processors;
 
     public class Metadata
     {
@@ -69,7 +68,7 @@
         public bool? RedEyeReduction { get; set; }
         public bool? FlashFunction { get; set; }
         public StrobeReturnEnum? StrobeReturn { get; set; }
-        public FiringModelEnum? FiringMode { get; set; }
+        public FiringModeEnum? FiringMode { get; set; }
         public OrientationEnum? Orientation { get; set; }
         public decimal? ReferenceBlackWhite { get; set; }
         public YCbCrPositioningEnum? YCbCrPositioning { get; set; }

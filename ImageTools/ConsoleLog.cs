@@ -2,7 +2,6 @@
 {
     using System;
     using MetadataExtractor;
-    using MetadataExtractor.Processors;
 
     public class ConsoleLog : ILog
     {

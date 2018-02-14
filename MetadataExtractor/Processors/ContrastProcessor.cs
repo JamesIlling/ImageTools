@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ContrastProcessor : IMetaDataElementProcessor
+    public class ContrastProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Contrast value:{0:X4}";
+        public string Error =>"Unknown Contrast value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

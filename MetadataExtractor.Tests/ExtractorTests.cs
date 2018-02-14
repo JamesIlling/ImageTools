@@ -15,7 +15,7 @@
             DependencyInjection.RegisterType<IGetProcessors, NoProcessors>();
 
             var extractor = DependencyInjection.Resolve<Extractor>();
-            var metadata = extractor.Extract(TestResources.LightroomJpeg());
+            var metadata = extractor.ExtractFromImageProperties(TestResources.LightroomJpeg());
 
             metadata.Height.Should().Be(7);
             metadata.Width.Should().Be(10);
@@ -28,7 +28,7 @@
             DependencyInjection.RegisterType<IGetProcessors, GetTestProcessor>();
             var extractor = DependencyInjection.Resolve<Extractor>();
 
-            extractor.Extract(TestResources.LightroomJpeg());
+            extractor.ExtractFromImageProperties(TestResources.LightroomJpeg());
             GetTestProcessor.Processor.Called.Should().BeTrue();
         }
     }

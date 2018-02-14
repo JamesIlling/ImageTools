@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum GainControlEnum
+    public enum GainControlEnum : ushort
     {
         None,
         LowGainUp,

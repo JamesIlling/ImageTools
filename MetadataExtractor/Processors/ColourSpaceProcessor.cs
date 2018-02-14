@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ColourSpaceProcessor : IMetaDataElementProcessor
+    public class ColourSpaceProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Colour Space value:{0:X4}";
+        public string Error => "Unknown Colour Space value:{0:X4}";
 
       [Dependency]
         public ILog Log { get; set; }

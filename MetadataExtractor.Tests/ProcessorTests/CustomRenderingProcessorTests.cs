@@ -1,16 +1,17 @@
 ﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
-    using System.Linq;
     using Enums;
     using FluentAssertions;
-    using Logging;
     using NUnit.Framework;
     using Processors;
 
     [TestFixture]
-    public class CustomRenderingProcessorTests
+    public class CustomRenderingProcessorTests : EnumTests<CustomRenderingProcessor>
     {
-        private readonly IMetaDataElementProcessor _processor = new CustomRenderingProcessor {Log = new TestLog()};
+        public CustomRenderingProcessorTests()
+            : base(0xA401, "CustomRendering")
+        {}
+
 
         [TestCase((ushort) 0x0000, CustomRenderingEnum.NormalProcess)]
         [TestCase((ushort) 0x0001, CustomRenderingEnum.CustomProcess)]
@@ -21,30 +22,9 @@
         public void MetadataFieldPopulated(ushort value, CustomRenderingEnum? result)
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(value) };
-            _processor.Process(metadata, property);
+            var property = new ExifProperty {Id = Processor.Id, Value = ExifTypeHelper.GetShort(value)};
+            Processor.Process(metadata, property);
             metadata.CustomRendering.Should().BeEquivalentTo(result);
-        }
-
-        [Test]
-        public void UnknownValueIsLogged()
-        {
-            var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x005) };
-            var log = ((TestLog) ((CustomRenderingProcessor) _processor).Log).Messages;
-            log.Clear();
-            _processor.Process(metadata, property);
-
-            log.Count.Should().Be(1);
-            var message =log.First();
-            message.Level.Should().Be("Warning");
-            message.Message.Should().Be(string.Format(CustomRenderingProcessor.Error, 0x005));
-        }
-
-        [Test]
-        public void IndexMatchesExifSpecification()
-        {
-            _processor.Id.Should().Be(0xa401);
         }
     }
 }

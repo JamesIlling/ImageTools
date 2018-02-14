@@ -1,12 +1,14 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class FNumberProcessor : IMetaDataElementProcessor
+    public class FNumberProcessor : ISupportQueries
     {
-        public int Id => 0x829D;
-
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/subifd:{ushort=33437}";
+        public void Process(Metadata metadata, object property)
         {
-            metadata.FNumber = ExifHelper.GetRational(property);
+            if (property != null)
+            {
+                metadata.FNumber = ExifHelper.GetRational(property);
+            }
         }
     }
 }

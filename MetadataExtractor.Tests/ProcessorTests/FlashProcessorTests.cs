@@ -9,9 +9,12 @@ namespace MetadataExtractor.Tests.ProcessorTests
     using Processors;
 
     [TestFixture]
-    public class FlashProcessorTests
+    public class FlashProcessorTests : ProcessorTests<FlashProcessor>
     {
-        private readonly IMetaDataElementProcessor _processor = new FlashProcessor { Log = new TestLog() };
+        public FlashProcessorTests()
+            :base(0x9209,string.Empty)
+        {
+        }
 
         [TestCase((ushort)0x0000, false,true,false,StrobeReturnEnum.NoStrobeReturn,FiringModeEnum.Unknown)]
         [TestCase((ushort)0x0001, true, true, false, StrobeReturnEnum.NoStrobeReturn, FiringModeEnum.Unknown)]
@@ -43,8 +46,8 @@ namespace MetadataExtractor.Tests.ProcessorTests
         public void MetadataFieldPopulated(ushort value, bool flashFired, bool flashFunction, bool redEyeReduction, StrobeReturnEnum strobeReturn, FiringModeEnum firingMode)
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(value) };
-            _processor.Process(metadata, property);
+            var property = new ExifProperty { Id = Processor.Id, Value = ExifTypeHelper.GetShort(value) };
+            Processor.Process(metadata, property);
             metadata.FlashFired.Should().Be(flashFired);
             metadata.FlashFunction.Should().Be(flashFunction);
             metadata.RedEyeReduction.Should().Be(redEyeReduction);
@@ -56,21 +59,15 @@ namespace MetadataExtractor.Tests.ProcessorTests
         public void UnknownValueIsLogged()
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x0002) };
-            var log = ((TestLog)((FlashProcessor)_processor).Log).Messages;
+            var property = new ExifProperty { Id = Processor.Id, Value = ExifTypeHelper.GetShort(0x0002) };
+            var log = ((TestLog)((FlashProcessor)Processor).Log).Messages;
             log.Clear();
-            _processor.Process(metadata, property);
+            Processor.Process(metadata, property);
 
             log.Count.Should().Be(1);
             var message = log.First();
             message.Level.Should().Be("Warning");
             message.Message.Should().Be(string.Format(FlashProcessor.StrobeReturnError, 0x0002));
-        }
-
-        [Test]
-        public void IndexMatchesExifSpecification()
-        {
-            _processor.Id.Should().Be(0x9209);
         }
     }
 }

@@ -1,12 +1,15 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class DigitalZoomRatioProcessor : IMetaDataElementProcessor
+    public class DigitalZoomRatioProcessor : ISupportQueries
     {
-        public int Id => 0xA404;
+        public string Query => "/app1/ifd/exif/subifd:{ushort=41988}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public  void Process(Metadata metadata, object property)
         {
-            metadata.DigitalZoomRatio = ExifHelper.GetRational(property);
+            if (property != null)
+            {
+                metadata.DigitalZoomRatio = ExifHelper.GetRational(property);
+            }
         }
     }
 }

@@ -7,8 +7,13 @@
     using NUnit.Framework;
     using Processors;
 
-    public class YCbCrPositioningProcessorTests
+    [TestFixture]
+    public class YCbCrPositioningProcessorTests : EnumTests<YCbCrPositioningProcessor>
     {
+        public YCbCrPositioningProcessorTests()
+            : base(0x213, "YCbCrPositioning")
+        {}
+
         private readonly IMetaDataElementProcessor _processor = new YCbCrPositioningProcessor {Log = new TestLog()};
 
         [TestCase((ushort) 0x0001, YCbCrPositioningEnum.Centered)]
@@ -17,30 +22,9 @@
         public void MetadataFieldPopulated(ushort value, YCbCrPositioningEnum? result)
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(value) };
+            var property = new ExifProperty {Id = _processor.Id, Value = ExifTypeHelper.GetShort(value)};
             _processor.Process(metadata, property);
             metadata.YCbCrPositioning.Should().BeEquivalentTo(result);
-        }
-
-        [Test]
-        public void UnknownValueIsLogged()
-        {
-            var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x005) };
-            var log = ((TestLog)((YCbCrPositioningProcessor)_processor).Log).Messages;
-            log.Clear();
-            _processor.Process(metadata, property);
-
-            log.Count.Should().Be(1);
-            var message = log.First();
-            message.Level.Should().Be("Warning");
-            message.Message.Should().Be(string.Format(YCbCrPositioningProcessor.Error, 0x005));
-        }
-
-        [Test]
-        public void IndexMatchesExifSpecification()
-        {
-            _processor.Id.Should().Be(0x213);
         }
     }
 }

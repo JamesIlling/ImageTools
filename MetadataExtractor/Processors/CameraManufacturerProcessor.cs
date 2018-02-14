@@ -1,12 +1,16 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class CameraManufacturerProcessor : IMetaDataElementProcessor
+    public class CameraManufacturerProcessor : ISupportQueries
     {
-        public int Id => 0x010F;
+        public string Query => "/app1/ifd/{ushort=271}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.CameraManufacturer = ExifHelper.GetString(property);
+            if (property != null)
+            {
+                metadata.CameraManufacturer = ExifHelper.GetString(property);
+            }
         }
     }
 }

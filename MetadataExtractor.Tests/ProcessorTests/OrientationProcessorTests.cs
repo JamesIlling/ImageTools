@@ -1,16 +1,16 @@
 ﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
-    using System.Linq;
     using Enums;
     using FluentAssertions;
-    using Logging;
     using NUnit.Framework;
     using Processors;
 
     [TestFixture]
-    public class OrientationProcessorTests
+    public class OrientationProcessorTests : EnumTests<OrientationProcessor>
     {
-        private readonly IMetaDataElementProcessor _processor = new OrientationProcessor {Log = new TestLog()};
+        public OrientationProcessorTests()
+            : base(0x0112, "Orientation")
+        {}
 
         [TestCase((ushort) 0x0001, OrientationEnum.Horizontal)]
         [TestCase((ushort) 0x0002, OrientationEnum.MirrorHorizontal)]
@@ -24,31 +24,9 @@
         public void MetadataFieldPopulated(ushort value, OrientationEnum? result)
         {
             var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(value) };
-            _processor.Process(metadata, property);
+            var property = new ExifProperty {Id = Processor.Id, Value = ExifTypeHelper.GetShort(value)};
+            Processor.Process(metadata, property);
             metadata.Orientation.Should().BeEquivalentTo(result);
-        }
-
-
-        [Test]
-        public void UnknownValueIsLogged()
-        {
-            var metadata = new Metadata();
-            var property = new ExifProperty { Id = _processor.Id, Value = ExifTypeHelper.GetShort(0x009) };
-            var log = ((TestLog)((OrientationProcessor)_processor).Log).Messages;
-            log.Clear();
-            _processor.Process(metadata, property);
-
-            log.Count.Should().Be(1);
-            var message = log.First();
-            message.Level.Should().Be("Warning");
-            message.Message.Should().Be(string.Format(OrientationProcessor.Error, 0x009));
-        }
-
-        [Test]
-        public void IndexMatchesExifSpecification()
-        {
-            _processor.Id.Should().Be(0x0112);
         }
     }
 }

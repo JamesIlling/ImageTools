@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class OrientationProcessor : IMetaDataElementProcessor
-    {        
-        public const string Error = "Unknown Orientation value:{0:X4}";
+    public class OrientationProcessor : IErrorableMetaDataElementProcessor
+    {
+        public string Error => "Unknown Orientation value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
@@ -24,7 +24,7 @@
             }
             else
             {
-                Log?.Warning(string.Format(Error,propertyValue));
+                Log?.Warning(string.Format(Error, propertyValue));
             }
         }
     }

@@ -1,13 +1,14 @@
 ﻿namespace MetadataExtractor.Tests.ProcessorTests
+
 {
     using NUnit.Framework;
     using Processors;
 
     [TestFixture]
-    public class ArtistProcessorTests : StringTests<ArtistProcessor>
+    public class IsoProcessorTests : ShortTests<IsoProcessor>
     {
-        public ArtistProcessorTests()
-            : base(0x013B, "Artist")
+        public IsoProcessorTests()
+            : base(0x8827, "Iso")
         {}
     }
 }

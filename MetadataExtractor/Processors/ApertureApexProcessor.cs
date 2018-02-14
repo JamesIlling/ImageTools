@@ -1,12 +1,15 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ApertureApexProcessor : IMetaDataElementProcessor
+    public class ApertureApexProcessor : ISupportQueries
     {
-        public int Id => 0x9202;
+        public string Query => "/app1/ifd/exif/subifd:{ushort=37378}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public  void Process(Metadata metadata, object property)
         {
-            metadata.ApertureApexValue = ExifHelper.GetRational(property);
+            if (property != null)
+            {
+                metadata.ApertureApexValue = ExifHelper.GetRational(property);
+            }
         }
     }
 }

@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class CustomRenderingProcessor : IMetaDataElementProcessor
+    public class CustomRenderingProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Custom Rendering value:{0:X4}";
+        public string Error => "Unknown Custom Rendering value:{0:X4}";
         [Dependency]
         public ILog Log { get; set; }
 

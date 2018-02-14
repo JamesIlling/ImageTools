@@ -14,12 +14,25 @@
         {
             return Encoding.ASCII.GetString(item.Value).Trim('\0');
         }
+        public static string GetString(object item)
+        {
+            var text = item as string;
+            return text?.Trim('\0');
+        }
 
         public static decimal GetRational(ExifProperty item, int index)
         {
             var nominator = BitConverter.ToUInt32(item.Value, 8 * index);
             var denominator = BitConverter.ToUInt32(item.Value, 8 * index + 4);
             return nominator / (decimal) denominator;
+        }
+
+        public static decimal GetRational(object item)
+        {
+            var value = (ulong) item;
+            var nominator = value & uint.MaxValue;
+            var denominator=value >> 32;
+            return nominator/(decimal)denominator;
         }
 
         public static decimal GetRational(ExifProperty item)

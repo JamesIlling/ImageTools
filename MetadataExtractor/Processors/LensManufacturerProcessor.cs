@@ -1,12 +1,16 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class LensManufacturerProcessor : IMetaDataElementProcessor
+    public class LensManufacturerProcessor : ISupportQueries
     {
-        public int Id => 0xA433;
+        public string Query => "/app1/ifd/exif/subifd:{ushort=42035}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.LensManufacturer = ExifHelper.GetString(property);
+            if (property != null)
+            {
+                metadata.LensManufacturer = ExifHelper.GetString(property);
+            }
         }
     }
 }

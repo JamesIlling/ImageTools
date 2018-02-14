@@ -76,6 +76,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteArrayTests.cs" />
+    <Compile Include="ProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeSubsecondProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
     <Compile Include="GetTestProcessor.cs" />
@@ -113,11 +115,20 @@
     <Compile Include="ProcessorTests\FocalPlaneResolutionUnitTests.cs" />
     <Compile Include="ProcessorTests\FocalPlaneYResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\FocalPlaneXResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GainControlProcessorTests.cs" />
+    <Compile Include="ProcessorTests\IccProfileProcessorTests.cs" />
+    <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
     <Compile Include="ProcessorTests\OrientationProcessorTests.cs" />
     <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
     <Compile Include="ProcessorTests\ReferenceBlackWhiteProcessorTests.cs" />
     <Compile Include="ProcessorTests\SerialNumberProcessorTests.cs" />
+    <Compile Include="LongTests.cs" />
+    <Compile Include="SignedRationalTests.cs" />
     <Compile Include="ProcessorTests\YCbCrPositioningProcessorTests.cs" />
+    <Compile Include="RationalTests.cs" />
+    <Compile Include="ShortTests.cs" />
+    <Compile Include="EnumTests.cs" />
+    <Compile Include="StringTests.cs" />
     <Compile Include="TestResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestProcessor.cs" />

@@ -13,7 +13,7 @@
             RegisterDependencies();
 
             var metadata =
-                ExtractFromFile(@"C:\Users\James\Source\Repos\ImageTools\MetadataExtractor.Tests\Resources\ACDSee.jpg");
+                ExtractFromFile(@"e:\portfolio\20180203T122608.jpg");
 
 
             var displayer = DependencyInjection.Resolve<IDisplay>();
@@ -46,7 +46,7 @@
             {
                 using (var file = File.OpenRead(path))
                 {
-                    return extractor.Extract(file);
+                    return Extractor.ExtractFromWindowsImagingComponent(file);
                 }
             }
             return null;

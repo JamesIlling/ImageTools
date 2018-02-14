@@ -1,12 +1,15 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ExposureTimeProcessor : IMetaDataElementProcessor
+    public class ExposureTimeProcessor : ISupportQueries
     {
-        public int Id => 0x829A;
+        public string Query => "/app1/ifd/exif/subifd:{ushort=33434}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ExposureTime = ExifHelper.GetSignedRational(property);
+            if (property != null)
+            {
+                metadata.ExposureTime = ExifHelper.GetRational(property);
+            }
         }
     }
 }

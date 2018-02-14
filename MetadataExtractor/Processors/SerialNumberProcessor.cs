@@ -1,12 +1,18 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class SerialNumberProcessor : IMetaDataElementProcessor
+    public class SerialNumberProcessor : ISupportQueries
     {
-        public int Id => 0xA431;
+        public string Query => "/app1/ifd/exif/subifd:{uint=42033}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
-            metadata.CameraSerialNumber = ExifHelper.GetString(property);
+            if (property != null)
+            {
+                if (string.IsNullOrEmpty(metadata.CameraSerialNumber))
+                {
+                    metadata.CameraSerialNumber = ExifHelper.GetString(property);
+                }
+            }
         }
     }
 }

@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class YCbCrPositioningProcessor : IMetaDataElementProcessor
+    public class YCbCrPositioningProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown YCbCr Positioning value:{0:X4}";
+        public string Error => "Unknown YCbCr Positioning value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
@@ -24,7 +24,7 @@
             }
             else
             {
-                Log?.Warning(string.Format(Error,propertyValue));
+                Log?.Warning(string.Format(Error, propertyValue));
             }
         }
     }

@@ -1,12 +1,19 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ExifVersionProcessor : IMetaDataElementProcessor
-    {
-        public int Id => 0x9000;
+    using System.Text;
+    using System.Windows.Media.Imaging;
 
-        public void Process(Metadata metadata, ExifProperty property)
+    public class ExifVersionProcessor : ISupportQueries
+    {
+        public string Query => "/app1/ifd/exif/subifd:{ushort=36864}";
+
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ExifVersion = ExifHelper.GetString(property);
+            if (property != null)
+            {
+                metadata.ExifVersion = Encoding.ASCII.GetString(((BitmapMetadataBlob) property).GetBlobValue());            
+            }
         }
     }
 }

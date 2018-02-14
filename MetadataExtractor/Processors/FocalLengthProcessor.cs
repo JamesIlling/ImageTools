@@ -1,12 +1,15 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class FocalLengthProcessor : IMetaDataElementProcessor
+    public class FocalLengthProcessor : ISupportQueries
     {
-        public int Id => 0x920A;
+        public string Query => "/app1/ifd/exif/subifd:{ushort=37386}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public  void Process(Metadata metadata, object property)
         {
-            metadata.FocalLength = ExifHelper.GetRational(property);
+            if (property != null)
+            {
+                metadata.FocalLength = ExifHelper.GetRational(property);
+            }
         }
     }
 }

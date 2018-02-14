@@ -1,12 +1,15 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ArtistProcessor : IMetaDataElementProcessor
+    public class ArtistProcessor : ISupportQueries
     {
-        public int Id => 0x013B;
+        public string Query => "/app1/ifd/{ushort=315}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
-            metadata.Artist = ExifHelper.GetString(property);
+            if (property != null)
+            {
+                metadata.Artist = ExifHelper.GetString(property);
+            }
         }
     }
 }

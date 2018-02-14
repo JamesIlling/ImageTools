@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureModeProcessor : IMetaDataElementProcessor
+    public class ExposureModeProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Exposure mode value:{0:X4}";
+        public string Error => "Unknown Exposure mode value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

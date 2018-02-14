@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureProgramProcessor : IMetaDataElementProcessor
+    public class ExposureProgramProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Exposure program value:{0:X4}";
+        public string Error => "Unknown Exposure program value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

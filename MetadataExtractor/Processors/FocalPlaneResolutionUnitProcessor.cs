@@ -5,9 +5,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FocalPlaneResolutionUnitProcessor : IMetaDataElementProcessor
+    public class FocalPlaneResolutionUnitProcessor : IErrorableMetaDataElementProcessor
     {
-        public const string Error = "Unknown Focal Plane Unit value:{0:X4}";
+        public string Error => "Unknown Focal Plane Unit value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

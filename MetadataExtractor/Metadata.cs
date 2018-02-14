@@ -24,7 +24,7 @@
         public CompressionEnum? ThumbnailCompression { get; set; }
         public decimal? ThumbnailXResolution { get; set; }
         public decimal? ThumbnailYResolution { get; set; }
-        public ResolutionUnitEnum ThumbnailResolutionUnit { get; set; }
+        public ResolutionUnitEnum? ThumbnailResolutionUnit { get; set; }
         public string Lens { get; set; }
         public string CameraSerialNumber { get; set; }
         public string LensSerialNumber { get; set; }
@@ -33,7 +33,7 @@
         public string EditingSoftware { get; set; }
         public DateTime? ModifiedTime { get; set; }
         public DateTime? CreationTime { get; set; }
-        public static uint? Iso { get; set; }
+        public uint? Iso { get; set; }
         public decimal? ExposureCompensation { get; set; }
         public MeteringModeEnum? MeteringMode { get; set; }
         public ExposureModeEnum? ExposureMode { get; set; }
@@ -73,5 +73,7 @@
         public decimal? ReferenceBlackWhite { get; set; }
         public YCbCrPositioningEnum? YCbCrPositioning { get; set; }
         public uint? RecommendedExposureIndex { get; set; }
+        public byte[] IccProfile { get; set; }
+        public string[] Keywords { get; set; }
     }
 }

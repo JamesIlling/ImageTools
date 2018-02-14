@@ -26,7 +26,7 @@
             return BitConverter.GetBytes(value);
         }
 
-        public static byte[] CreateLong(uint val)
+        public static byte[] GetLong(uint val)
         {
             return BitConverter.GetBytes(val);
         }

@@ -56,7 +56,7 @@
         public SensingMethodEnum? SensingMethod { get; set; }
         public SceneCaptureTypeEnum? SceneCaptureType { get; set; }
         public GainControlEnum? GainControl { get; set; }
-        public byte[] CfaPattern { get; set; }
+        public ColourFilterArrayEnum[,] ColourFilterArrayPattern { get; set; }
         public decimal? MinFocalLength { get; set; }
         public decimal? MaxFocalLength { get; set; }
         public decimal? MaxFStop { get; set; }

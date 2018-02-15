@@ -3,13 +3,15 @@
     using System;
     using System.Globalization;
 
-    public class CaptureDateTimeProcessor : IMetaDataElementProcessor
+    public class CaptureDateTimeProcessor : ISupportQueries
     {
         //(date/time when original image was taken)
         private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
-        public int Id => 0x9003;
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/subifd:{uint=36867}";
+
+
+        public void Process(Metadata metadata, object property)
         {
             var captureTime = ExifHelper.GetString(property);
             if (DateTime.TryParseExact(captureTime, DateTimeFormat, CultureInfo.InvariantCulture,

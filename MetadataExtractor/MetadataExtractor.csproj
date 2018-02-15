@@ -39,6 +39,7 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,8 +86,8 @@
     <Compile Include="Enums\SubjectDistanceEnum.cs" />
     <Compile Include="ExifProperty.cs" />
     <Compile Include="Processors\ApertureApexProcessor.cs" />
+    <Compile Include="Enums\ColourFilterArrayEnum.cs" />
     <Compile Include="Processors\CfaPatternProcessor.cs" />
-    <Compile Include="Processors\ChrominanceTableProcessor.cs" />
     <Compile Include="Processors\ContrastProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeSubsecondProcessor.cs" />
@@ -108,10 +109,10 @@
     <Compile Include="Processors\FocalPlaneXResolutionProcessor.cs" />
     <Compile Include="Processors\FocalPlaneYResolutionProcessor.cs" />
     <Compile Include="Processors\GainControlProcessor.cs" />
-    <Compile Include="Processors\IccProfileProcessor.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="Processors\IsoProcessor.cs" />
-    <Compile Include="Processors\ISupportQueries.cs" />
+    <Compile Include="ISupportErrorableQueries.cs" />
+    <Compile Include="ISupportQueries.cs" />
     <Compile Include="Processors\KeywordProcessor.cs" />
     <Compile Include="Processors\LensMaxApertueProcessor.cs" />
     <Compile Include="Processors\LensManufacturerProcessor.cs" />

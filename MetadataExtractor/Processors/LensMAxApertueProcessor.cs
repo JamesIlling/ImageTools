@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class LensMaxApertueProcessor : IMetaDataElementProcessor
+    public class LensMaxApertueProcessor : ISupportQueries
     {
-        public int Id => 0x9205;
+        public string Query=> "/app1/ifd/exif/subifd:{uint=37381}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             metadata.LensMaxAperture = ExifHelper.GetRational(property);
         }

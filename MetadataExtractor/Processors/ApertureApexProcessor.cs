@@ -2,7 +2,7 @@
 {
     public class ApertureApexProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{ushort=37378}";
+        public string Query => "/app1/ifd/exif/subifd:{uint=37378}";
 
         public  void Process(Metadata metadata, object property)
         {

@@ -5,16 +5,18 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ColourSpaceProcessor : IErrorableMetaDataElementProcessor
+    public class ColourSpaceProcessor : ISupportErrorableQueries
     {
         public string Error => "Unknown Colour Space value:{0:X4}";
 
-      [Dependency]
+        public string Query => "/app1/ifd/exif/subifd:{uint=40961}";
+
+        [Dependency]
         public ILog Log { get; set; }
 
         public int Id => 0xA001;
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             var enumValues = Enum.GetValues(typeof(ColourSpaceEnum)).Cast<ushort>();
             var propertyValue = ExifHelper.GetShort(property);

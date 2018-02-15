@@ -5,16 +5,16 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FocalPlaneResolutionUnitProcessor : IErrorableMetaDataElementProcessor
+    public class FocalPlaneResolutionUnitProcessor : ISupportErrorableQueries
     {
         public string Error => "Unknown Focal Plane Unit value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
 
-        public int Id => 0xA210;
+        public string Query => "/app1/ifd/exif/subifd:{uint=41488}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             var enumValues = Enum.GetValues(typeof(ResolutionUnitEnum)).Cast<ushort>();
             var propertyValue = ExifHelper.GetShort(property);

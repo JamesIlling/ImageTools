@@ -5,15 +5,16 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureProgramProcessor : IErrorableMetaDataElementProcessor
+    public class ExposureProgramProcessor : ISupportErrorableQueries
     {
         public string Error => "Unknown Exposure program value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
-        public int Id => 0x8822;
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/subifd:{uint=34850}";
+
+        public void Process(Metadata metadata, object property)
         {
             var enumValues = Enum.GetValues(typeof(ExposureProgramEnum)).Cast<ushort>();
             var propertyValue = ExifHelper.GetShort(property);

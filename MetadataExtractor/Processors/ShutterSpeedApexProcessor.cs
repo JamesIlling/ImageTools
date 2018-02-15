@@ -1,12 +1,11 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ShutterSpeedApexProcessor : IMetaDataElementProcessor
+    public class ShutterSpeedApexProcessor : ISupportQueries
     {
-        public int Id => 0x9201;
-
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/subifd:{uint=37377}";
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ShutterSpeedApexValue = ExifHelper.GetRational(property);
+            metadata.ShutterSpeedApexValue = ExifHelper.GetSignedRational(property);
         }
     }
 }

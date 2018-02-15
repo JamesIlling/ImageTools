@@ -1,4 +1,4 @@
-﻿namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor
 {
     public interface ISupportQueries
     {

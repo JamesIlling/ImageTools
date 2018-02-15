@@ -5,16 +5,16 @@
     using Enums;
     using Unity.Attributes;
 
-    public class GainControlProcessor : IErrorableMetaDataElementProcessor
+    public class GainControlProcessor : ISupportErrorableQueries
     {
         public string Error => "Unknown Gain Control value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
 
-        public int Id => 0xA407;
+        public string Query => "/app1/ifd/exif/subifd:{uint=41991}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             var enumValues = Enum.GetValues(typeof(GainControlEnum)).Cast<ushort>();
             var propertyValue = ExifHelper.GetShort(property);

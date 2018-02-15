@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ExposureCompensationProcessor : IMetaDataElementProcessor
+    public class ExposureCompensationProcessor : ISupportQueries
     {
-        public int Id => 0x9204;
+        public string Query => "/app1/ifd/exif/subifd:{uint=37380}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             metadata.ExposureCompensation = ExifHelper.GetSignedRational(property);
         }

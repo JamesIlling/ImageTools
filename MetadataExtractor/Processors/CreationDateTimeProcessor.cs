@@ -3,13 +3,13 @@
     using System;
     using System.Globalization;
 
-    public class CreationDateTimeProcessor : IMetaDataElementProcessor
+    public class CreationDateTimeProcessor : ISupportQueries
     {
         // called DateTimeDigitized by the EXIF spec.
         private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
-        public int Id => 0x9004;
+        public string Query => "/app1/ifd/exif/subifd:{uint=36868}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             var captureTime = ExifHelper.GetString(property);
             if (DateTime.TryParseExact(captureTime, DateTimeFormat, CultureInfo.InvariantCulture,

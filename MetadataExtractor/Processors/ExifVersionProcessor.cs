@@ -5,14 +5,13 @@
 
     public class ExifVersionProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{ushort=36864}";
-
+        public string Query => "/app1/ifd/exif/subifd:{uint=36864}";
 
         public void Process(Metadata metadata, object property)
         {
             if (property != null)
             {
-                metadata.ExifVersion = Encoding.ASCII.GetString(((BitmapMetadataBlob) property).GetBlobValue());            
+                metadata.ExifVersion = Encoding.ASCII.GetString(((BitmapMetadataBlob) property).GetBlobValue());
             }
         }
     }

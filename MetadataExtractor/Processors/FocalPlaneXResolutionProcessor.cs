@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class FocalPlaneXResolutionProcessor : IMetaDataElementProcessor
+    public class FocalPlaneXResolutionProcessor : ISupportQueries
     {
-        public int Id => 0xA20E;
+        public string Query => "/app1/ifd/exif/subifd:{uint=41486}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             metadata.FocalPlaneXResolution = ExifHelper.GetRational(property);
         }

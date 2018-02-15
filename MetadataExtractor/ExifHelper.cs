@@ -14,6 +14,7 @@
         {
             return Encoding.ASCII.GetString(item.Value).Trim('\0');
         }
+
         public static string GetString(object item)
         {
             var text = item as string;
@@ -31,8 +32,8 @@
         {
             var value = (ulong) item;
             var nominator = value & uint.MaxValue;
-            var denominator=value >> 32;
-            return nominator/(decimal)denominator;
+            var denominator = value >> 32;
+            return nominator / (decimal) denominator;
         }
 
         public static decimal GetRational(ExifProperty item)
@@ -42,11 +43,24 @@
             return nominator / (decimal) denominator;
         }
 
+        public static decimal GetSignedRational(object item)
+        {
+            var value = (long) item;
+            var nominator = Convert.ToUInt32(value & uint.MaxValue);
+            var denominator = Convert.ToUInt32(value >> 32);
+            return nominator / (decimal) denominator;
+        }
+
         public static decimal GetSignedRational(ExifProperty item)
         {
             var nominator = BitConverter.ToInt32(item.Value, 0);
             var denominator = BitConverter.ToInt32(item.Value, 4);
             return nominator / (decimal) denominator;
+        }
+
+        public static ushort GetShort(object property)
+        {
+            return (ushort) property;
         }
 
         public static ushort GetShort(ExifProperty property)

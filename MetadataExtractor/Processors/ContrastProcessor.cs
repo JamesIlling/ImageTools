@@ -5,16 +5,16 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ContrastProcessor : IErrorableMetaDataElementProcessor
+    public class ContrastProcessor : ISupportErrorableQueries
     {
-        public string Error =>"Unknown Contrast value:{0:X4}";
+        public string Error => "Unknown Contrast value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
 
-        public int Id => 0xA408;
+        public string Query => "/app1/ifd/exif/subifd:{uint=41992}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             var enumValues = Enum.GetValues(typeof(ContrastEnum)).Cast<ushort>();
             var propertyValue = ExifHelper.GetShort(property);
@@ -24,7 +24,7 @@
             }
             else
             {
-                Log?.Warning(string.Format(Error,propertyValue));
+                Log?.Warning(string.Format(Error, propertyValue));
             }
         }
     }

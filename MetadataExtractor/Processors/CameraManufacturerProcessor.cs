@@ -2,7 +2,7 @@
 {
     public class CameraManufacturerProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/{ushort=271}";
+        public string Query => "/app1/ifd/{uint=271}";
 
 
         public void Process(Metadata metadata, object property)

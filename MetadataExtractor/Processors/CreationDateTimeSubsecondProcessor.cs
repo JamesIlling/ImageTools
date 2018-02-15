@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class CreationDateTimeSubsecondProcessor : IMetaDataElementProcessor
+    public class CreationDateTimeSubsecondProcessor : ISupportQueries
     {
-        public int Id => 0x9292;
+        public string Query => "/app1/ifd/exif/subifd:{uint=37522}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             if (metadata.CreationTime != null)
             {

@@ -5,16 +5,16 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FlashProcessor : IMetaDataElementProcessor
+    public class FlashProcessor : ISupportErrorableQueries
     {
-        public const string FiringModeError = "Unknown Firing Mode value:{0:X4}";
-        public const string StrobeReturnError = "Unknown Strobe Return value:{0:X4}";
+
+        public string Error => "Unknown Strobe Return value:{0:X4}";
         [Dependency]
         public ILog Log { get; set; }
 
-        public int Id => 0x9209;
+        public string Query=> "/app1/ifd/exif/subifd:{uint=37385}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             ushort val = 0x0001;
             var value = ExifHelper.GetShort(property);
@@ -29,7 +29,7 @@
             }
             else
             {
-                Log?.Warning(string.Format(StrobeReturnError, strobePropertyValue));
+                Log?.Warning(string.Format(Error, strobePropertyValue));
             }
 
             val = 0x0018;

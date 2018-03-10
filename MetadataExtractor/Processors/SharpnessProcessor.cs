@@ -1,14 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class SharpnessProcessor : IMetaDataElementProcessor
+    public class SharpnessProcessor : EnumProcessor<SharpnessEnum>, ISupportErrorableQueries
     {
-        public int Id => 0xA40A;
+        public string Error => "Unknown Sharpness value:{0:X4}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/{ushort=41994}";
+
+        [Dependency]
+        public ILog Log { get; set; }
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.Sharpness = (SharpnessEnum) ExifHelper.GetShort(property);
+            metadata.Sharpness = Process(property, Log, Error);
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class YResolutionProcessor : IMetaDataElementProcessor
-    {
-        public int Id => 0x11B;
+    using System;
+    using System.Windows.Media.Imaging;
 
-        public void Process(Metadata metadata, ExifProperty property)
+    internal class YResolutionProcessor : ISupportQueries
+    {
+        public string Query => "/app1/ifd/{ushort=283}";
+        public void Process(Metadata metadata, object property)
         {
             metadata.YResolution = ExifHelper.GetRational(property);
         }

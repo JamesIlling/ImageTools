@@ -1,14 +1,21 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class SubjectDistanceProcessor : IMetaDataElementProcessor
+    public class SubjectDistanceProcessor : EnumProcessor<SubjectDistanceEnum>, ISupportErrorableQueries
     {
-        public int Id => 0xA40C;
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Error => "Unknown Subject distance value:{0:X4}";
+
+        public string Query => "/app1/ifd/exif/{ushort=41996}";
+
+        [Dependency]
+        public ILog Log { get; set; }
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.SubjectDistance = (SubjectDistanceEnum) ExifHelper.GetShort(property);
+            metadata.SubjectDistance = Process(property, Log, Error);
         }
     }
 }

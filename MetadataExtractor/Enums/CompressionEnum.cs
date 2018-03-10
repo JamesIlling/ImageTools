@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum CompressionEnum
+    public enum CompressionEnum :ushort
     {
         Unknown = 0,
         Uncompressed = 1,

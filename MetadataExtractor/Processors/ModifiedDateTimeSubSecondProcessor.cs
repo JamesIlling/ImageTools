@@ -1,17 +1,18 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ModifiedDateTimeSubsecondProcessor : IMetaDataElementProcessor
-
+    public class ModifiedDateTimeSubsecondProcessor : ISupportQueries
     {
-        public int Id => 0x9290;
-
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/{ushort=37520}";
+        public void Process(Metadata metadata, object property)
         {
             if (metadata.ModifiedTime != null)
             {
-                var ms = double.Parse(ExifHelper.GetString(property));
-                metadata.ModifiedTime =
-                    metadata.ModifiedTime.Value.AddMilliseconds(ms);
+                if (property != null)
+                {
+                    var ms = double.Parse(ExifHelper.GetString(property));
+                    metadata.ModifiedTime =
+                        metadata.ModifiedTime.Value.AddMilliseconds(ms);
+                }
             }
         }
     }

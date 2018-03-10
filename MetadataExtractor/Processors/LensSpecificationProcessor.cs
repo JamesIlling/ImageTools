@@ -1,18 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class LensSpecificationProcessor : IMetaDataElementProcessor
+    public  class LensSpecificationProcessor : ISupportQueries
     {
-        public int Id => 0xA432;
+        public string Query => "/app1/ifd/exif/{ushort=42034}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
-            if (property.Length == 4)
-            {
-                metadata.MinFocalLength = ExifHelper.GetRational(property, 0);
-                metadata.MaxFocalLength = ExifHelper.GetRational(property, 1);
-                metadata.MinFStop = ExifHelper.GetRational(property, 2);
-                metadata.MaxFStop = ExifHelper.GetRational(property, 3);
-            }
+            var value = (long[]) property;
+
+             if (value.Length == 4)
+             {
+                 metadata.MinFocalLength = ExifHelper.GetSignedRational(value[0]);
+                 metadata.MaxFocalLength = ExifHelper.GetSignedRational(value[1]);
+                 metadata.MinFStop = ExifHelper.GetSignedRational(value[2]);
+                 metadata.MaxFStop = ExifHelper.GetSignedRational(value[3]);
+             }
         }
     }
 }

@@ -76,62 +76,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByteArrayTests.cs" />
-    <Compile Include="ProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CreationDateTimeSubsecondProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
-    <Compile Include="GetTestProcessor.cs" />
-    <Compile Include="ExifHelperTests.cs" />
-    <Compile Include="ExtractorTests.cs" />
-    <Compile Include="Logging\LogEntry.cs" />
-    <Compile Include="Logging\TestLog.cs" />
-    <Compile Include="NoProcessors.cs" />
-    <Compile Include="ProcessorTests\ArtistProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ApertureApexProcessorTests.cs" />
-    <Compile Include="ExifTypeHelper.cs" />
-    <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CameraSerialProcessorTest.cs" />
-    <Compile Include="ProcessorTests\CaptureDateTimeProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CaptureDateTimeSubsecondProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CfaPatternProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ChrominanceTableProcessorTests.cs" />
+    <Compile Include="EnumTest.cs" />
     <Compile Include="ProcessorTests\ColourSpaceProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ContrastProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CopyrightProcessorTests.cs" />
-    <Compile Include="ProcessorTests\CustomRenderingProcessorTests.cs" />
-    <Compile Include="ProcessorTests\DescriptionProcessorTests.cs" />
-    <Compile Include="ProcessorTests\DigitalZoomRatioProcessorTests.cs" />
-    <Compile Include="ProcessorTests\EditingSoftwareProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ExposureCompensationProcessorTests.cs" />
     <Compile Include="ProcessorTests\ExposureModeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ExposureProgramProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ExposureTimeProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FlashProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FNumberProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FocalLengthProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FocalPlaneResolutionUnitTests.cs" />
-    <Compile Include="ProcessorTests\FocalPlaneYResolutionProcessorTests.cs" />
-    <Compile Include="ProcessorTests\FocalPlaneXResolutionProcessorTests.cs" />
-    <Compile Include="ProcessorTests\GainControlProcessorTests.cs" />
-    <Compile Include="ProcessorTests\IccProfileProcessorTests.cs" />
-    <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\MeteringModeProcessorTests.cs" />
     <Compile Include="ProcessorTests\OrientationProcessorTests.cs" />
-    <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ReferenceBlackWhiteProcessorTests.cs" />
-    <Compile Include="ProcessorTests\SerialNumberProcessorTests.cs" />
-    <Compile Include="LongTests.cs" />
-    <Compile Include="SignedRationalTests.cs" />
+    <Compile Include="ProcessorTests\ResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailCompressionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\WhiteBalanceProcessorTests.cs" />
     <Compile Include="ProcessorTests\YCbCrPositioningProcessorTests.cs" />
-    <Compile Include="RationalTests.cs" />
-    <Compile Include="ShortTests.cs" />
-    <Compile Include="EnumTests.cs" />
-    <Compile Include="StringTests.cs" />
-    <Compile Include="TestResources.cs" />
+    <Compile Include="TestClasses\Enum.cs" />
+    <Compile Include="ExtractorTests.cs" />
+    <Compile Include="ProcessorTests.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\TestLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestProcessor.cs" />
+    <Compile Include="TestClasses\TestProcessor.cs" />
+    <Compile Include="TestClasses\TestProcessorLocator.cs" />
+    <Compile Include="TestResources.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -156,6 +120,7 @@
     <EmbeddedResource Include="Resources\ACDSee.jpg" />
     <EmbeddedResource Include="Resources\D800e.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -2,7 +2,7 @@
 {
     public class FocalLengthProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{uint=37386}";
+        public string Query => "/app1/ifd/exif/{ushort=37386}";
 
         public  void Process(Metadata metadata, object property)
         {

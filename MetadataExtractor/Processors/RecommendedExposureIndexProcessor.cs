@@ -1,11 +1,14 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class RecommendedExposureIndexProcessor : IMetaDataElementProcessor
+    public class RecommendedExposureIndexProcessor : ISupportQueries
     {
-        public int Id => 0x8832;
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/{ushort=34866}";
+        public void Process(Metadata metadata, object property)
         {
-            metadata.RecommendedExposureIndex = ExifHelper.GetLong(property);
+            if (property != null)
+            {
+                metadata.RecommendedExposureIndex = ExifHelper.GetLong(property);
+            }
         }
     }
 }

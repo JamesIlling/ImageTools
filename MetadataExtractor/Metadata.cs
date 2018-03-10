@@ -2,6 +2,7 @@
 {
     using System;
     using Enums;
+    using Processors;
 
     public class Metadata
     {
@@ -19,12 +20,7 @@
         public string Artist { get; set; }
         public string Copyright { get; set; }
         public string ExifVersion { get; set; }
-        public ColourSpaceEnum? ColourSpace { get; set; }
-        public byte[] Thumbnail { get; set; }
-        public CompressionEnum? ThumbnailCompression { get; set; }
-        public decimal? ThumbnailXResolution { get; set; }
-        public decimal? ThumbnailYResolution { get; set; }
-        public ResolutionUnitEnum? ThumbnailResolutionUnit { get; set; }
+        public ColourSpaceEnum? ColourSpace { get; set; }              
         public string Lens { get; set; }
         public string CameraSerialNumber { get; set; }
         public string LensSerialNumber { get; set; }
@@ -62,8 +58,6 @@
         public decimal? MaxFStop { get; set; }
         public decimal? MinFStop { get; set; }
         public string LensManufacturer { get; set; }
-        public byte[] LuminanceTable { get; set; }
-        public byte[] ChrominanceTable { get; set; }
         public bool? FlashFired { get; internal set; }
         public bool? RedEyeReduction { get; set; }
         public bool? FlashFunction { get; set; }
@@ -75,5 +69,13 @@
         public uint? RecommendedExposureIndex { get; set; }
         public byte[] IccProfile { get; set; }
         public string[] Keywords { get; set; }
+        public SceneTypeEnum? ScenceType { get; set; }
+        public CompressionEnum? ThumbnailCompression { get; set; }
+        public ResolutionUnitEnum? ThumbnailResolutionUnit { get; set; }
+        public decimal? ThumbnailXResolution { get; set; }
+        public decimal? ThumbnailYResolution { get; set; }
+        public uint? ThumbnailSize { get; set; }
+        public uint? ThumbnailOffset { get; set; }
+        public FileSourceEnum? FileSource { get; set; }
     }
 }

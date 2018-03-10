@@ -1,31 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    using System;
-    using System.Linq;
     using Enums;
     using Unity.Attributes;
 
-    public class OrientationProcessor : IErrorableMetaDataElementProcessor
+    public class OrientationProcessor : EnumProcessor<OrientationEnum>, ISupportErrorableQueries
     {
         public string Error => "Unknown Orientation value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
 
-        public int Id => 0x0112;
+        public string Query => "/app1/ifd/{uint=274}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
-            var enumValues = Enum.GetValues(typeof(OrientationEnum)).Cast<ushort>();
-            var propertyValue = ExifHelper.GetShort(property);
-            if (enumValues.Contains(propertyValue))
-            {
-                metadata.Orientation = (OrientationEnum) propertyValue;
-            }
-            else
-            {
-                Log?.Warning(string.Format(Error, propertyValue));
-            }
+            metadata.Orientation = Process(property, Log, Error);
         }
     }
 }

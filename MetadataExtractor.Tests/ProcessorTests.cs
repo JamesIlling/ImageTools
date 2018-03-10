@@ -1,26 +1,26 @@
 namespace MetadataExtractor.Tests
 {
+    using DependencyFactory;
     using FluentAssertions;
+    using Logging;
     using NUnit.Framework;
 
-    public abstract class ProcessorTests<T> where T : IMetaDataElementProcessor
+    public abstract class ProcessorTests<T> where T : ISupportQueries
     {
-        protected IMetaDataElementProcessor Processor { get; }
-        private int Id { get; }
-        protected string Result { get; }
-
-        protected ProcessorTests(int id, string result)
+        protected ProcessorTests(string query)
         {
-            Processor = (IMetaDataElementProcessor)DependencyFactory.DependencyInjection.Resolve(typeof(T));
-            Id = id;
-            Result = result;
+            DependencyInjection.RegisterType<ILog,TestLog>();
+            Processor = (ISupportQueries) DependencyInjection.Resolve(typeof(T));
+            Query = query;
         }
+
+        protected ISupportQueries Processor { get; }
+        protected string Query { get; set; }
 
         [Test]
-        public void IndexMatchesExifSpecification()
+        public void QueryIsExpected()
         {
-            Processor.Id.Should().Be(Id);
+            Processor.Query.Should().Be(Query);
         }
-
     }
 }

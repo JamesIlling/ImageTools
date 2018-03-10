@@ -1,14 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class SaturationProcessor : IMetaDataElementProcessor
+    public class SaturationProcessor : EnumProcessor<SaturationEnum>, ISupportErrorableQueries
     {
-        public int Id => 0xA409;
+        public string Error => "Unknown Saturation value:{0:X4}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/exif/{ushort=41993}";
+
+        [Dependency]
+        public ILog Log { get; set; }
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.Saturation = (SaturationEnum) ExifHelper.GetShort(property);
+            metadata.Saturation = Process(property, Log, Error);
         }
     }
 }

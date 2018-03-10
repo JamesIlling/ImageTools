@@ -1,0 +1,15 @@
+﻿namespace MetadataExtractor.Tests.ProcessorTests
+{
+    using Enums;
+    using NUnit.Framework;
+    using Processors;
+
+    [TestFixture]
+    public class MeteringModeProcessorTests : EnumTest<MeteringModeProcessor, MeteringModeEnum,ushort>
+    {
+        public MeteringModeProcessorTests()
+            :base(x=>x.MeteringMode,"/app1/ifd/exif/{ushort=37383}")
+        {
+        }
+    }
+}

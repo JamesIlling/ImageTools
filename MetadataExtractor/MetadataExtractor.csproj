@@ -71,8 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\YCbCrPositioningEnum.cs" />
-    <Compile Include="IErrorableMetaDataElementProcessor.cs" />
-    <Compile Include="IGetProcessors.cs" />
     <Compile Include="Enums\ContrastEnum.cs" />
     <Compile Include="Enums\CustomRenderingEnum.cs" />
     <Compile Include="Enums\ExposureProgramEnum.cs" />
@@ -84,7 +82,12 @@
     <Compile Include="Enums\SharpnessEnum.cs" />
     <Compile Include="Enums\SaturationEnum.cs" />
     <Compile Include="Enums\SubjectDistanceEnum.cs" />
-    <Compile Include="ExifProperty.cs" />
+    <Compile Include="Enums\FileSourceEnum.cs" />
+    <Compile Include="Explorer.cs" />
+    <Compile Include="IExploreMetadata.cs" />
+    <Compile Include="IExtractMetadata.cs" />
+    <Compile Include="IGetProcessors.cs" />
+    <Compile Include="MetadataItem.cs" />
     <Compile Include="Processors\ApertureApexProcessor.cs" />
     <Compile Include="Enums\ColourFilterArrayEnum.cs" />
     <Compile Include="Processors\CfaPatternProcessor.cs" />
@@ -98,9 +101,9 @@
     <Compile Include="Enums\ExposureModeEnum.cs" />
     <Compile Include="Processors\ExposureModeProcessor.cs" />
     <Compile Include="Processors\ExposureProgramProcessor.cs" />
-    <Compile Include="Processors\FileSourceProcessor.cs" />
     <Compile Include="Enums\StrobeReturnEnum.cs" />
     <Compile Include="Enums\FiringModeEnum.cs" />
+    <Compile Include="Processors\FileSourceProcessor.cs" />
     <Compile Include="Processors\FlashProcessor.cs" />
     <Compile Include="Processors\FNumberProcessor.cs" />
     <Compile Include="Processors\FocalLengthProcessor.cs" />
@@ -120,7 +123,6 @@
     <Compile Include="Processors\CameraSerialProcessor.cs" />
     <Compile Include="Enums\CompressionEnum.cs" />
     <Compile Include="Extractor.cs" />
-    <Compile Include="IMetaDataElementProcessor.cs" />
     <Compile Include="Processors\LensModelProcessor.cs" />
     <Compile Include="Metadata.cs" />
     <Compile Include="Processors\ArtistProcessor.cs" />
@@ -135,11 +137,9 @@
     <Compile Include="Processors\ExposureTimeProcessor.cs" />
     <Compile Include="Processors\LensSpecificationProcessor.cs" />
     <Compile Include="Processors\LightSourceProcessor.cs" />
-    <Compile Include="Processors\LuminanceTableProcessor.cs" />
     <Compile Include="Processors\MeteringModeProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeProcessor.cs" />
-    <Compile Include="Processors\OffsetProcessor.cs" />
     <Compile Include="Enums\OrientationEnum.cs" />
     <Compile Include="Processors\OrientationProcessor.cs" />
     <Compile Include="Processors\RecommendedExposureIndexProcessor.cs" />
@@ -148,6 +148,7 @@
     <Compile Include="Processors\SaturationProcessor.cs" />
     <Compile Include="Enums\SensingMethodEnum.cs" />
     <Compile Include="Processors\SceneCaptureTypeProcessor.cs" />
+    <Compile Include="Enums\SceneTypeEnum.cs" />
     <Compile Include="Processors\SceneTypeProcessor.cs" />
     <Compile Include="Processors\SensingMethodProcessor.cs" />
     <Compile Include="Processors\SensitivityTypeProcessor.cs" />
@@ -156,13 +157,14 @@
     <Compile Include="Processors\ShutterSpeedApexProcessor.cs" />
     <Compile Include="Processors\CaptureDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\SubjectDistanceProcessor.cs" />
+    <Compile Include="EnumProcessor.cs" />
+    <Compile Include="Enums\WhiteBalanceEnum.cs" />
     <Compile Include="Processors\ThumbnailCompressionProcessor.cs" />
     <Compile Include="Processors\ThumbnailOffsetProcessor.cs" />
-    <Compile Include="Processors\ThumbnailProcessor.cs" />
     <Compile Include="Processors\ThumbnailResolutionUnitProcessor.cs" />
-    <Compile Include="Processors\ThumbnailYResolutionProcessor.cs" />
+    <Compile Include="Processors\ThumbnailSizeProcessor.cs" />
     <Compile Include="Processors\ThumbnailXResolutionProcessor.cs" />
-    <Compile Include="Enums\WhiteBalanceEnum.cs" />
+    <Compile Include="Processors\ThumbnailYResolutionProcessor.cs" />
     <Compile Include="Processors\WhiteBalanceProcessor.cs" />
     <Compile Include="Processors\XResolutionProcessor.cs" />
     <Compile Include="Processors\YCbCrPositioningProcessor.cs" />

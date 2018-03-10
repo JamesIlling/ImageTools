@@ -8,7 +8,7 @@
         //(date/time when original image was taken)
         private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
 
-        public string Query => "/app1/ifd/exif/subifd:{uint=36867}";
+        public string Query => "/app1/ifd/exif/{ushort=36867}";
 
 
         public void Process(Metadata metadata, object property)

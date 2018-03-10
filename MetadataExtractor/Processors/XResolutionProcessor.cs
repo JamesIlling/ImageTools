@@ -1,10 +1,9 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class XResolutionProcessor : IMetaDataElementProcessor
+    public class XResolutionProcessor : ISupportQueries
     {
-        public int Id => 0x011A;
-
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/{ushort=282}";
+        public void Process(Metadata metadata, object property)
         {
             metadata.XResolution = ExifHelper.GetRational(property);
         }

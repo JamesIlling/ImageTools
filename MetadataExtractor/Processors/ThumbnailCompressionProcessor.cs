@@ -1,14 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class ThumbnailCompressionProcessor : IMetaDataElementProcessor
+    public class ThumbnailCompressionProcessor : EnumProcessor<CompressionEnum>, ISupportErrorableQueries
     {
-        public int Id => 0x5023;
+        public string Error => "Unknown thumbnail compression value:{0:X4}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/thumb/{ushort=259}";
+
+        [Dependency]
+        public ILog Log { get; set; }
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ThumbnailCompression = (CompressionEnum) ExifHelper.GetShort(property);
+            metadata.ThumbnailCompression = Process(property, Log, Error);
         }
     }
 }

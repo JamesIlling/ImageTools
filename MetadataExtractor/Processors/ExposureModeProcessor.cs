@@ -1,31 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    using System;
-    using System.Linq;
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureModeProcessor : ISupportErrorableQueries
+    public class ExposureModeProcessor : EnumProcessor<ExposureModeEnum>, ISupportErrorableQueries
     {
         public string Error => "Unknown Exposure mode value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
 
-        public string Query => "/app1/ifd/exif/subifd:{uint=41986}";
+        public string Query => "/app1/ifd/exif/{ushort=41986}";
 
         public void Process(Metadata metadata, object property)
         {
-            var enumValues = Enum.GetValues(typeof(ExposureModeEnum)).Cast<ushort>();
-            var propertyValue = ExifHelper.GetShort(property);
-            if (enumValues.Contains(propertyValue))
-            {
-                metadata.ExposureMode = (ExposureModeEnum) propertyValue;
-            }
-            else
-            {
-                Log?.Warning(string.Format(Error, propertyValue));
-            }
+            metadata.ExposureMode = Process(property, Log, Error);
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ThumbnailXResolutionProcessor : IMetaDataElementProcessor
+    internal class ThumbnailXResolutionProcessor : ISupportQueries
     {
-        public int Id => 0x502D;
+        public string Query => "/app1/thumb/{ushort=282}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public void Process(Metadata metadata, object property)
         {
             metadata.ThumbnailXResolution = ExifHelper.GetRational(property);
         }

@@ -5,7 +5,7 @@
 
     public class ExifVersionProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{uint=36864}";
+        public string Query => "/app1/ifd/exif/{ushort=36864}";
 
         public void Process(Metadata metadata, object property)
         {

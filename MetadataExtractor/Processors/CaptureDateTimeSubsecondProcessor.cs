@@ -2,7 +2,7 @@
 {
     public class CaptureDateTimeSubsecondProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{uint=37521}";
+        public string Query => "/app1/ifd/exif/{ushort=37521}";
 
         public void Process(Metadata metadata, object property)
         {

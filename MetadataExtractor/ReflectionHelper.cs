@@ -6,12 +6,7 @@
     using DependencyFactory;
 
     public class ReflectionHelper : IGetProcessors
-    {
-        public List<IMetaDataElementProcessor> GetAll()
-        {
-            return GetAll<IMetaDataElementProcessor>();
-        }
-
+    {     
         public List<T> GetAll<T>()
         {
             var asms = AppDomain.CurrentDomain.GetAssemblies();

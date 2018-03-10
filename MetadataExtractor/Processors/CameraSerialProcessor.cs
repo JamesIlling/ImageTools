@@ -2,7 +2,7 @@
 {
     public class CameraSerialProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/{uint=50735}";
+        public string Query => "/app1/ifd/{ushort=50735}";
 
         public void Process(Metadata metadata, object property)
         {

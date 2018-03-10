@@ -2,7 +2,7 @@
 {
     public class LensManufacturerProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/exif/subifd:{uint=42035}";
+        public string Query => "/app1/ifd/exif/{ushort=42035}";
 
 
         public void Process(Metadata metadata, object property)

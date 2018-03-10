@@ -1,14 +1,20 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class LightSourceProcessor : IMetaDataElementProcessor
+    public class LightSourceProcessor : EnumProcessor<LightSourceEnum>, ISupportQueries
     {
-        public int Id => 0x9208;
+        public string Error => "Unknown Lightsource value:{0:X4}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        [Dependency]
+        public ILog Log { get; set; }
+
+        public string Query => "/app1/ifd/exif/{ushort=37384}";
+
+        public void Process(Metadata metadata, object property)
         {
-            metadata.Lightsource = (LightSourceEnum) ExifHelper.GetShort(property);
+            metadata.Lightsource = Process(property, Log, Error);
         }
     }
 }

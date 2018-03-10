@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum MeteringModeEnum
+    public enum MeteringModeEnum : ushort
     {
         Unknown = 0,
         Average = 1,

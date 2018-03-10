@@ -1,12 +1,14 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    public class ReferenceBlackWhiteProcessor : IMetaDataElementProcessor
+    public class ReferenceBlackWhiteProcessor : ISupportQueries
     {
-        public int Id => 0x0214;
-
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/{uint=532}";
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ReferenceBlackWhite = ExifHelper.GetRational(property);
+            if (property != null)
+            {
+                metadata.ReferenceBlackWhite = ExifHelper.GetRational(property);
+            }
         }
     }
 }

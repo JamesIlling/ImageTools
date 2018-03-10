@@ -3,13 +3,14 @@
     using System;
     using System.Globalization;
 
-    internal class ModifiedDateTimeProcessor : IMetaDataElementProcessor
+    public class ModifiedDateTimeProcessor : ISupportQueries
 
     {
-        private const string DateTimeFormat = "yyyy:MM:dd hh:mm:ss";
-        public int Id => 0x0132;
+        private const string DateTimeFormat = "yyyy:MM:dd HH:mm:ss";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/{ushort=306}";
+
+        public void Process(Metadata metadata, object property)
         {
             var captureTime = ExifHelper.GetString(property);
             if (DateTime.TryParseExact(captureTime, DateTimeFormat, CultureInfo.InvariantCulture,

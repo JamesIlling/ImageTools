@@ -1,35 +1,36 @@
 ﻿namespace MetadataExtractor.Tests
 {
-    using DependencyFactory;
+    using System.Linq;
     using FluentAssertions;
-    using Logging;
     using NUnit.Framework;
+    using TestClasses;
 
     [TestFixture]
     public class ExtractorTests
     {
         [Test]
-        public void HeightAndWidthProcessedWhenNoProcessorsPresent()
+        public void ExtractorUsesProcessorLocator()
         {
-            DependencyInjection.RegisterType<ILog, TestLog>();
-            DependencyInjection.RegisterType<IGetProcessors, NoProcessors>();
+            var extractor = new Extractor {ProcessorLocator = new TestProcessorLocator()};
+            var test = extractor.ProcessorLocator as TestProcessorLocator;
 
-            var extractor = DependencyInjection.Resolve<Extractor>();
-            var metadata = extractor.ExtractFromImageProperties(TestResources.LightroomJpeg());
-
-            metadata.Height.Should().Be(7);
-            metadata.Width.Should().Be(10);
+            extractor.ExtractMetadata(TestResources.LightroomJpeg());
+            test.Should().NotBeNull();
+            test.Called.Should().BeTrue();
         }
 
         [Test]
-        public void ProcessorCalledForPropertyIfPresent()
+        public void ExtractorUsesProcessor()
         {
-            DependencyInjection.RegisterType<ILog, TestLog>();
-            DependencyInjection.RegisterType<IGetProcessors, GetTestProcessor>();
-            var extractor = DependencyInjection.Resolve<Extractor>();
+            var extractor = new Extractor { ProcessorLocator = new TestProcessorLocator(new TestProcessor()) };
+            var test = extractor.ProcessorLocator as TestProcessorLocator;
 
-            extractor.ExtractFromImageProperties(TestResources.LightroomJpeg());
-            GetTestProcessor.Processor.Called.Should().BeTrue();
+            extractor.ExtractMetadata(TestResources.LightroomJpeg());
+            var items = test.GetAll<ISupportQueries>();
+            items.Count.Should().Be(1);
+            items.Cast<TestProcessor>().First().Called.Should().BeTrue();
+
+
         }
     }
 }

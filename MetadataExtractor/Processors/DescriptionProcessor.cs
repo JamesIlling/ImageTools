@@ -2,7 +2,7 @@
 {
     public class DescriptionProcessor : ISupportQueries
     {
-        public string Query => "/app1/ifd/{uint=270}";
+        public string Query => "/app1/ifd/{ushort=270}";
 
 
         public void Process(Metadata metadata, object property)

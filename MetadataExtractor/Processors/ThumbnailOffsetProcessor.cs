@@ -1,10 +1,12 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ThumbnailOffsetProcessor : IMetaDataElementProcessor
+    internal class ThumbnailOffsetProcessor : ISupportQueries
     {
-        public int Id => 0x0202;
+        public string Query => "/app1/thumb/{ushort=513}";
 
-        public void Process(Metadata metadata, ExifProperty property)
-        {}
+        public void Process(Metadata metadata, object property)
+        {
+            metadata.ThumbnailOffset = ExifHelper.GetLong(property);
+        }
     }
 }

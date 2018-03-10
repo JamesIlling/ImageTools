@@ -1,14 +1,19 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using Enums;
+    using Unity.Attributes;
 
-    internal class ResolutionUnitProcessor : IMetaDataElementProcessor
+    public class ResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>,ISupportErrorableQueries
     {
-        public int Id => 0x128;
+        public string Error => "Unknown Resolution unit value:{0:X4}";
 
-        public void Process(Metadata metadata, ExifProperty property)
+        public string Query => "/app1/ifd/{ushort=296}";
+
+        [Dependency]
+        public ILog Log { get; set; }
+        public void Process(Metadata metadata, object property)
         {
-            metadata.ResolutionUnit = (ResolutionUnitEnum) ExifHelper.GetShort(property);
+            metadata.ResolutionUnit = Process(property, Log, Error);
         }
     }
 }

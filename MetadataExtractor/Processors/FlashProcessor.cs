@@ -5,14 +5,14 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FlashProcessor : ISupportErrorableQueries
+    public class FlashProcessor : EnumProcessor<StrobeReturnEnum>, ISupportQueries
     {
 
         public string Error => "Unknown Strobe Return value:{0:X4}";
         [Dependency]
         public ILog Log { get; set; }
 
-        public string Query=> "/app1/ifd/exif/subifd:{uint=37385}";
+        public string Query=> "/app1/ifd/exif/{ushort=37385}";
 
         public void Process(Metadata metadata, object property)
         {
@@ -22,15 +22,7 @@
 
             val = 0x0006;
             var strobePropertyValue = (ushort)(value & val);
-            var strobReturnValues = Enum.GetValues(typeof(StrobeReturnEnum)).Cast<ushort>();
-            if (strobReturnValues.Contains(strobePropertyValue))
-            {
-                metadata.StrobeReturn = (StrobeReturnEnum)strobePropertyValue;
-            }
-            else
-            {
-                Log?.Warning(string.Format(Error, strobePropertyValue));
-            }
+            metadata.StrobeReturn = Process(strobePropertyValue, Log, Error);
 
             val = 0x0018;
             var firingModePropertyValue = (ushort)(value & val);

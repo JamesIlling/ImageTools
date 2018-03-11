@@ -3,9 +3,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FocalPlaneResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>, ISupportQueries
+    public class FocalPlaneResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Focal Plane Unit value:{0:X4}";
+        public string Error => "Unknown focal plane resolution unit value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

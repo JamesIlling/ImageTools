@@ -3,9 +3,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class CustomRenderingProcessor : EnumProcessor<CustomRenderingEnum>, ISupportQueries
+    public class CustomRenderingProcessor : EnumProcessor<CustomRenderingEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Custom Rendering value:{0:X4}";
+        public string Error => "Unknown custom rendering value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

@@ -5,11 +5,10 @@
     using Processors;
 
     [TestFixture]
-    public class YCbCrPositioningProcessorTests : EnumTest<YCbCrPositioningProcessor, YCbCrPositioningEnum,ushort>
+    public class YCbCrPositioningProcessorTests : EnumTests<YCbCrPositioningProcessor, YCbCrPositioningEnum, ushort>
     {
         public YCbCrPositioningProcessorTests()
-            :base(x=>x.YCbCrPositioning, "/app1/ifd/exif/{uint=531}")
-        {
-        }
+            : base(x => x.YCbCrPositioning, "/app1/ifd/exif/{uint=531}")
+        {}
     }
 }

@@ -3,9 +3,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class LightSourceProcessor : EnumProcessor<LightSourceEnum>, ISupportQueries
+    public class LightSourceProcessor : EnumProcessor<LightSourceEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Lightsource value:{0:X4}";
+        public string Error => "Unknown light source value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

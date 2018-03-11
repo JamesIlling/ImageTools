@@ -19,7 +19,7 @@
             {
                 for (var column = 0; column < width; column++)
                 {
-                    array[row, column] = (ColourFilterArrayEnum) grid[4 + (row * width) + column];
+                    array[row, column] = (ColourFilterArrayEnum) grid[4 + row * width + column];
                 }
             }
             metadata.ColourFilterArrayPattern = array;

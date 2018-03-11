@@ -13,9 +13,9 @@
             {"/app1/{ushort=0}", "/app1/ifd"},
             {"/app1/ifd/{ushort=34665}", "/app1/ifd/exif"},
             {"/app1/{ushort=1}", "/app1/thumb"},
-            {"/app13/{ushort=0}","/app13/irb" },
-            {"/app13/irb/{ulonglong=61857348781060}","/app13/irb/8bimiptc" },
-            {"/app13/irb/{ulonglong=61857348781037}","/app13/irb/8bimResInfo" },
+            {"/app13/{ushort=0}", "/app13/irb"},
+            {"/app13/irb/{ulonglong=61857348781060}", "/app13/irb/8bimiptc"},
+            {"/app13/irb/{ulonglong=61857348781037}", "/app13/irb/8bimResInfo"}
         };
 
         [Dependency]
@@ -52,7 +52,8 @@
                 {
                     var fullPath = bitmapMetadata.Location + path;
 
-                    fullPath = Replacements.Aggregate(fullPath, (current, replacement) => current.Replace(replacement.Key, replacement.Value));
+                    fullPath = Replacements.Aggregate(fullPath,
+                        (current, replacement) => current.Replace(replacement.Key, replacement.Value));
                     if (!processors.Contains(fullPath))
                     {
                         missing.Add(new MetadataItem(item?.GetType().Name, fullPath));

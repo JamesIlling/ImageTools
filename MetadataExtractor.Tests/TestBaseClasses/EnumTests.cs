@@ -9,20 +9,21 @@
     using NUnit.Framework;
     using TestClasses;
 
-    public abstract class EnumTest<TProcessor, TEnum, TBase> : ProcessorTests<TProcessor>
+    public abstract class EnumTests<TProcessor, TEnum, TBase> : ProcessorTests<TProcessor>
         where TProcessor : ISupportErrorableQueries
         where TEnum : struct, IConvertible
     {
         private readonly Func<Metadata, Nullable<TEnum>> _getMetadataElement;
 
-        public EnumTest(Func<Metadata, Nullable<TEnum>> getMetadataElement, string query)
+        public EnumTests(Func<Metadata, Nullable<TEnum>> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;
         }
 
 
-        [Test, TestCaseSource(nameof(InvalidValue))]
+        [Test]
+        [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueNotWrittenToMetadata(TBase input, TEnum? expected)
         {
             var processor = DependencyInjection.Resolve<TProcessor>();
@@ -34,7 +35,8 @@
             result.Should().Be(expected);
         }
 
-        [Test, TestCaseSource(nameof(InvalidValue))]
+        [Test]
+        [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(TBase input, TEnum? expected)
         {
             var processor = DependencyInjection.Resolve<TProcessor>() as ISupportErrorableQueries;
@@ -53,7 +55,8 @@
             logEntry.Message.Should().Be(string.Format(processor.Error, input));
         }
 
-        [Test, TestCaseSource(nameof(ValidValues))]
+        [Test]
+        [TestCaseSource(nameof(ValidValues))]
         public void ValidValueWrittenToMetadata(TBase input, TEnum? expected)
         {
             var processor = DependencyInjection.Resolve<TProcessor>();
@@ -63,6 +66,21 @@
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
+        }
+
+        [Test]
+        public void ErrorMessageContainsTypeName()
+        {
+            var processor = DependencyInjection.Resolve<TProcessor>();
+
+            var name = processor.GetType().Name.Replace("Processor", "");
+            var toreplace = name.Where(char.IsUpper);
+            name =
+                toreplace.Aggregate(name, (current, item) => current.Replace(item.ToString(), " " + char.ToLower(item)))
+                    .Trim();
+
+            var error = $"Unknown {name} value:{{0:X4}}";
+            processor.Error.Should().Be(error);
         }
 
         public static IEnumerable ValidValues()

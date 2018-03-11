@@ -5,7 +5,7 @@
 
     public class ThumbnailResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown thumbnail resolution value:{0:X4}";
+        public string Error => "Unknown thumbnail resolution unit value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

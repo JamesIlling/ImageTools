@@ -76,17 +76,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumTest.cs" />
+    <Compile Include="ProcessorTests\ApertureApexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ArtistProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
+    <Compile Include="ProcessorTests\DigitalZoomRatioProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FNumberProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalLengthProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneYResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneXResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensMaxApertueProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ReferenceBlackWhiteProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SharpnessProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailXResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailYResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\EnumTests.cs" />
+    <Compile Include="ProcessorTests\SensingMethodProcessorTests.cs" />
     <Compile Include="ProcessorTests\ColourSpaceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ContrastProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CustomRenderingProcessorTests.cs" />
     <Compile Include="ProcessorTests\ExposureModeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ExposureProgramProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GainControlProcessorTEsts.cs" />
+    <Compile Include="ProcessorTests\LightSourceProcessorTests.cs" />
     <Compile Include="ProcessorTests\MeteringModeProcessorTests.cs" />
     <Compile Include="ProcessorTests\OrientationProcessorTests.cs" />
     <Compile Include="ProcessorTests\ResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SaturationProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SceneCaptureTypeProcessorTest.cs" />
+    <Compile Include="ProcessorTests\SensitivityTypeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SubjectDistanceProcessorTEsts.cs" />
     <Compile Include="ProcessorTests\ThumbnailCompressionProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailResolutionUnitProcessorTests.cs" />
     <Compile Include="ProcessorTests\WhiteBalanceProcessorTests.cs" />
     <Compile Include="ProcessorTests\YCbCrPositioningProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\RationalTests.cs" />
+    <Compile Include="TestBaseClasses\StringTests.cs" />
     <Compile Include="TestClasses\Enum.cs" />
     <Compile Include="ExtractorTests.cs" />
     <Compile Include="ProcessorTests.cs" />

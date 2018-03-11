@@ -5,7 +5,7 @@
 
     public class SaturationProcessor : EnumProcessor<SaturationEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Saturation value:{0:X4}";
+        public string Error => "Unknown saturation value:{0:X4}";
 
         public string Query => "/app1/ifd/exif/{ushort=41993}";
 

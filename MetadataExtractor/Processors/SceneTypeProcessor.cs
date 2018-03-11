@@ -12,12 +12,13 @@
 
         [Dependency]
         public ILog Log { get; set; }
+
         public void Process(Metadata metadata, object property)
         {
             var value = property as BitmapMetadataBlob;
             if (value != null)
             {
-                metadata.ScenceType = Process((ushort)value.GetBlobValue()[0], Log, Error);
+                metadata.SceneType = Process((ushort)value.GetBlobValue()[0], Log, Error);
             }
         }
     }

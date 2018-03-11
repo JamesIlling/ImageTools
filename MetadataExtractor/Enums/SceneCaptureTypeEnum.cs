@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SceneCaptureTypeEnum
+    public enum SceneCaptureTypeEnum : ushort
     {
         Standard,
         Landscape,

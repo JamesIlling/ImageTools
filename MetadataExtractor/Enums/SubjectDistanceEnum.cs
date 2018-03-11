@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SubjectDistanceEnum
+    public enum SubjectDistanceEnum : ushort
     {
         Unknown,
         Macro,

@@ -4,12 +4,9 @@
     {
         public string Query => "/app1/ifd/exif/{ushort=41988}";
 
-        public  void Process(Metadata metadata, object property)
+        public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.DigitalZoomRatio = ExifHelper.GetRational(property);
-            }
+            metadata.DigitalZoomRatio = ExifHelper.GetRational(property);
         }
     }
 }

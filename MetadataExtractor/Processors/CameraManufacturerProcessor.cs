@@ -7,10 +7,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.CameraManufacturer = ExifHelper.GetString(property);
-            }
+            metadata.CameraManufacturer = ExifHelper.GetString(property);
         }
     }
 }

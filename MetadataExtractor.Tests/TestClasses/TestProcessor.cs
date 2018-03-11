@@ -1,9 +1,9 @@
 ﻿namespace MetadataExtractor.Tests.TestClasses
 {
-    class TestProcessor : ISupportQueries
+    internal class TestProcessor : ISupportQueries
     {
-        public string Query => "/app1/Thumb/{}";
         public bool Called { get; private set; }
+        public string Query => "/app1/Thumb/{}";
 
         public void Process(Metadata metadata, object property)
         {

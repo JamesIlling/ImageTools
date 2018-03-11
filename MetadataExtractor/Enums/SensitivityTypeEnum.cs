@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SensitivityTypeEnum
+    public enum SensitivityTypeEnum : ushort
     {
         Unknown = 0,
         StandardOutputSensitivity,

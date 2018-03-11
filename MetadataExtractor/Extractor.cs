@@ -5,7 +5,7 @@
     using System.Windows.Media.Imaging;
     using Unity.Attributes;
 
-  public class Extractor : IExtractMetadata
+    public class Extractor : IExtractMetadata
     {
         [Dependency]
         public IGetProcessors ProcessorLocator { get; set; }

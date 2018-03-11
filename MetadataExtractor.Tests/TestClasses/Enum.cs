@@ -39,14 +39,12 @@
             var converter = TypeDescriptor.GetConverter(typeof(TBase));
             if (converter.CanConvertFrom(value.GetType()))
             {
-                return (TBase)converter.ConvertFrom(value);
-
+                return (TBase) converter.ConvertFrom(value);
             }
             converter = TypeDescriptor.GetConverter(typeof(int));
             if (converter.CanConvertTo(typeof(TBase)))
             {
-                return (TBase)converter.ConvertTo(value, typeof(TBase));
-
+                return (TBase) converter.ConvertTo(value, typeof(TBase));
             }
 
             return default(TBase);
@@ -57,14 +55,12 @@
             var converter = TypeDescriptor.GetConverter(typeof(TEnum));
             if (converter.CanConvertFrom(item.GetType()))
             {
-                return (TEnum?)converter.ConvertFrom(item);
-
+                return (TEnum?) converter.ConvertFrom(item);
             }
             converter = TypeDescriptor.GetConverter(typeof(TBase));
             if (converter.CanConvertTo(typeof(TEnum)))
             {
-                return (TEnum?)converter.ConvertTo(item, typeof(TEnum?));
-
+                return (TEnum?) converter.ConvertTo(item, typeof(TEnum?));
             }
 
             return null;
@@ -90,7 +86,7 @@
             {
                 var type = Enum.GetUnderlyingType(typeof(TEnum));
                 var converter = TypeDescriptor.GetConverter(type);
-                var convertTo = converter.ConvertTo(item,type);
+                var convertTo = converter.ConvertTo(item, type);
                 if (convertTo != null)
                 {
                     return (TEnum) convertTo;

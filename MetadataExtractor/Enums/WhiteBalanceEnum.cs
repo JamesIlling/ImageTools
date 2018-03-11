@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum WhiteBalanceEnum :ushort
+    public enum WhiteBalanceEnum : ushort
     {
         Auto,
         Manual

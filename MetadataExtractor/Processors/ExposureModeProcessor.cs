@@ -5,7 +5,7 @@
 
     public class ExposureModeProcessor : EnumProcessor<ExposureModeEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Exposure mode value:{0:X4}";
+        public string Error => "Unknown exposure mode value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

@@ -6,7 +6,7 @@
 
     [TestFixture]
 
-    public class ThumbnailResolutionUnitProcessorTests:EnumTest<ThumbnailResolutionUnitProcessor,ResolutionUnitEnum,ushort>
+    public class ThumbnailResolutionUnitProcessorTests:EnumTests<ThumbnailResolutionUnitProcessor,ResolutionUnitEnum,ushort>
     {
         public ThumbnailResolutionUnitProcessorTests()
             :base(x=>x.ThumbnailResolutionUnit, "/app1/thumb/{ushort=296}")

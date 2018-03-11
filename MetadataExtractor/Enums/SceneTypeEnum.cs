@@ -1,7 +1,7 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SceneTypeEnum
+    public enum SceneTypeEnum : ushort
     {
-        DirectlyPhotographed=1
+        DirectlyPhotographed = 1
     }
 }

@@ -5,7 +5,7 @@
 
     public class YCbCrPositioningProcessor : EnumProcessor<YCbCrPositioningEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown YCbCr Positioning value:{0:X4}";
+        public string Error => "Unknown y cb cr positioning value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

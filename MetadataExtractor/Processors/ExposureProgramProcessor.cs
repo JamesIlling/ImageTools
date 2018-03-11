@@ -5,7 +5,7 @@
 
     public class ExposureProgramProcessor : EnumProcessor<ExposureProgramEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Exposure program value:{0:X4}";
+        public string Error => "Unknown exposure program value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }
@@ -14,7 +14,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            metadata.ExposureProgram =  Process(property, Log, Error);
+            metadata.ExposureProgram = Process(property, Log, Error);
         }
     }
 }

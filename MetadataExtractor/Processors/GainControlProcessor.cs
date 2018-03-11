@@ -1,13 +1,11 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    using System;
-    using System.Linq;
     using Enums;
     using Unity.Attributes;
 
-    public class GainControlProcessor : EnumProcessor<GainControlEnum>, ISupportQueries
+    public class GainControlProcessor : EnumProcessor<GainControlEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Gain Control value:{0:X4}";
+        public string Error => "Unknown gain control value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Processors
 {
-    internal class ThumbnailXResolutionProcessor : ISupportQueries
+    public class ThumbnailXResolutionProcessor : ISupportQueries
     {
         public string Query => "/app1/thumb/{ushort=282}";
 

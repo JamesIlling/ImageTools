@@ -2,7 +2,6 @@
 {
     using System;
     using Enums;
-    using Processors;
 
     public class Metadata
     {
@@ -20,7 +19,7 @@
         public string Artist { get; set; }
         public string Copyright { get; set; }
         public string ExifVersion { get; set; }
-        public ColourSpaceEnum? ColourSpace { get; set; }              
+        public ColourSpaceEnum? ColourSpace { get; set; }
         public string Lens { get; set; }
         public string CameraSerialNumber { get; set; }
         public string LensSerialNumber { get; set; }
@@ -69,7 +68,7 @@
         public uint? RecommendedExposureIndex { get; set; }
         public byte[] IccProfile { get; set; }
         public string[] Keywords { get; set; }
-        public SceneTypeEnum? ScenceType { get; set; }
+        public SceneTypeEnum? SceneType { get; set; }
         public CompressionEnum? ThumbnailCompression { get; set; }
         public ResolutionUnitEnum? ThumbnailResolutionUnit { get; set; }
         public decimal? ThumbnailXResolution { get; set; }

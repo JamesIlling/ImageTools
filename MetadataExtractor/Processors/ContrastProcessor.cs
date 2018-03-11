@@ -3,9 +3,9 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ContrastProcessor : EnumProcessor<ContrastEnum>, ISupportQueries
+    public class ContrastProcessor : EnumProcessor<ContrastEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Contrast value:{0:X4}";
+        public string Error => "Unknown contrast value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

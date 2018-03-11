@@ -5,8 +5,7 @@
 
     public class SubjectDistanceProcessor : EnumProcessor<SubjectDistanceEnum>, ISupportErrorableQueries
     {
-
-        public string Error => "Unknown Subject distance value:{0:X4}";
+        public string Error => "Unknown subject distance value:{0:X4}";
 
         public string Query => "/app1/ifd/exif/{ushort=41996}";
 

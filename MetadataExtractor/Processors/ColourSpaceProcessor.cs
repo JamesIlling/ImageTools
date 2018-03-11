@@ -5,7 +5,7 @@
 
     public class ColourSpaceProcessor : EnumProcessor<ColourSpaceEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Colour Space value:{0:X4}";
+        public string Error => "Unknown colour space value:{0:X4}";
 
         public string Query => "/app1/ifd/exif/{ushort=40961}";
 

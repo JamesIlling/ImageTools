@@ -5,7 +5,7 @@
 
     public class OrientationProcessor : EnumProcessor<OrientationEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Orientation value:{0:X4}";
+        public string Error => "Unknown orientation value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

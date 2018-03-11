@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SaturationEnum
+    public enum SaturationEnum : ushort
     {
         Normal,
         Low,

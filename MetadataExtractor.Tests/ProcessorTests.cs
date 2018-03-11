@@ -9,7 +9,7 @@ namespace MetadataExtractor.Tests
     {
         protected ProcessorTests(string query)
         {
-            DependencyInjection.RegisterType<ILog,TestLog>();
+            DependencyInjection.RegisterType<ILog, TestLog>();
             Processor = (ISupportQueries) DependencyInjection.Resolve(typeof(T));
             Query = query;
         }

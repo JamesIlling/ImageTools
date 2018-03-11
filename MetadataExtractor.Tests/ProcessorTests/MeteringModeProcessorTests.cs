@@ -5,11 +5,10 @@
     using Processors;
 
     [TestFixture]
-    public class MeteringModeProcessorTests : EnumTest<MeteringModeProcessor, MeteringModeEnum,ushort>
+    public class MeteringModeProcessorTests : EnumTests<MeteringModeProcessor, MeteringModeEnum, ushort>
     {
         public MeteringModeProcessorTests()
-            :base(x=>x.MeteringMode,"/app1/ifd/exif/{ushort=37383}")
-        {
-        }
+            : base(x => x.MeteringMode, "/app1/ifd/exif/{ushort=37383}")
+        {}
     }
 }

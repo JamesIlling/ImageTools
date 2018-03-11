@@ -5,7 +5,7 @@
 
     public class SharpnessProcessor : EnumProcessor<SharpnessEnum>, ISupportErrorableQueries
     {
-        public string Error => "Unknown Sharpness value:{0:X4}";
+        public string Error => "Unknown sharpness value:{0:X4}";
 
         public string Query => "/app1/ifd/exif/{ushort=41994}";
 

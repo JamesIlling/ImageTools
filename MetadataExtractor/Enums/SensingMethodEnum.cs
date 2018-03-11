@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SensingMethodEnum
+    public enum SensingMethodEnum : ushort
     {
         Unknown,
         NotDefined,

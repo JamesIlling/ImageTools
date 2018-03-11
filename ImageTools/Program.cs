@@ -43,7 +43,7 @@
             {
                 using (var file = File.OpenRead(path))
                 {
-                   return process(file);
+                    return process(file);
                 }
             }
             return null;

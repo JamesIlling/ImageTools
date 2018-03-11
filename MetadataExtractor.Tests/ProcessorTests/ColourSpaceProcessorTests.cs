@@ -5,11 +5,10 @@
     using Processors;
 
     [TestFixture]
-    public class ColourSpaceProcessorTests : EnumTest<ColourSpaceProcessor,ColourSpaceEnum,ushort>
+    public class ColourSpaceProcessorTests : EnumTests<ColourSpaceProcessor, ColourSpaceEnum, ushort>
     {
         public ColourSpaceProcessorTests()
-            :base(x=>x.ColourSpace, "/app1/ifd/exif/{ushort=40961}")
-        {
-        }
+            : base(x => x.ColourSpace, "/app1/ifd/exif/{ushort=40961}")
+        {}
     }
 }

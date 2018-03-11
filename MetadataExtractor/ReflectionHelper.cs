@@ -6,7 +6,7 @@
     using DependencyFactory;
 
     public class ReflectionHelper : IGetProcessors
-    {     
+    {
         public List<T> GetAll<T>()
         {
             var asms = AppDomain.CurrentDomain.GetAssemblies();

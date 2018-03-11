@@ -1,16 +1,14 @@
-﻿
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using NUnit.Framework;
     using Processors;
 
     [TestFixture]
-    public class ThumbnailCompressionProcessorTests : EnumTest<ThumbnailCompressionProcessor,CompressionEnum,ushort>
+    public class ThumbnailCompressionProcessorTests : EnumTests<ThumbnailCompressionProcessor, CompressionEnum, ushort>
     {
         public ThumbnailCompressionProcessorTests()
-            :base(x=>x.ThumbnailCompression, "/app1/thumb/{ushort=259}")
-        {
-        }
+            : base(x => x.ThumbnailCompression, "/app1/thumb/{ushort=259}")
+        {}
     }
 }

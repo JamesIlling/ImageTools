@@ -12,9 +12,10 @@
         {
             Messages.Add(new LogEntry {Level = "Warning", Message = message});
         }
+
         public void Error(Exception ex)
         {
-            Messages.Add(new LogEntry { Level = "Error",Message= ex.Message + " at" + ex.StackTrace});
+            Messages.Add(new LogEntry {Level = "Error", Message = ex.Message + " at" + ex.StackTrace});
         }
     }
 }

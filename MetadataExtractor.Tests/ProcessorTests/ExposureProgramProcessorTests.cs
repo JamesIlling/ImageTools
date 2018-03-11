@@ -5,11 +5,10 @@
     using Processors;
 
     [TestFixture]
-    public class ExposureProgramProcessorTests:EnumTest<ExposureProgramProcessor, ExposureProgramEnum,ushort>
+    public class ExposureProgramProcessorTests : EnumTests<ExposureProgramProcessor, ExposureProgramEnum, ushort>
     {
         public ExposureProgramProcessorTests()
-            :base(x=>x.ExposureProgram, "/app1/ifd/exif/{ushort=34850}")
-        {
-        }
+            : base(x => x.ExposureProgram, "/app1/ifd/exif/{ushort=34850}")
+        {}
     }
 }

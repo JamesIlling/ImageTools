@@ -6,7 +6,6 @@
 
     public abstract class EnumProcessor<T> where T : struct, IConvertible, IComparable, IFormattable
     {
-
         public T? Process(object value, ILog log, string error)
         {
             if (value != null)

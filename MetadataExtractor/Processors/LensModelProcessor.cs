@@ -7,10 +7,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.Lens = ExifHelper.GetString(property);
-            }
+            metadata.Lens = ExifHelper.GetString(property);
         }
     }
 }

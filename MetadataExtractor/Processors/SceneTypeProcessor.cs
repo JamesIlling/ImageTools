@@ -4,7 +4,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SceneTypeProcessor : EnumProcessor<SceneTypeEnum>,ISupportErrorableQueries
+    public class SceneTypeProcessor : EnumProcessor<SceneTypeEnum>, ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=41729}";
 
@@ -18,7 +18,7 @@
             var value = property as BitmapMetadataBlob;
             if (value != null)
             {
-                metadata.SceneType = Process((ushort)value.GetBlobValue()[0], Log, Error);
+                metadata.SceneType = Process((ushort) value.GetBlobValue()[0], Log, Error);
             }
         }
     }

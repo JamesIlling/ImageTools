@@ -9,7 +9,6 @@
     {
         public ArtistProcessorTests()
             : base(x => x.Artist, "/app1/ifd/{ushort=315}")
-        {
-        }
+        {}
     }
 }

@@ -6,10 +6,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.Artist = ExifHelper.GetString(property);
-            }
+            metadata.Artist = ExifHelper.GetString(property);
         }
     }
 }

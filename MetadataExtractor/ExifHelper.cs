@@ -26,12 +26,16 @@
             return null;
         }
 
-        public static decimal GetSignedRational(object item)
+        public static decimal? GetSignedRational(object item)
         {
-            var value = (long) item;
-            var nominator = Convert.ToUInt32(value & uint.MaxValue);
-            var denominator = Convert.ToUInt32(value >> 32);
-            return nominator / (decimal) denominator;
+            if (item != null)
+            {
+                var value = (long) item;
+                var nominator = BitConverter.ToInt32(BitConverter.GetBytes(value & uint.MaxValue), 0);
+                var denominator = Convert.ToInt32(value >> 32);
+                return nominator / (decimal) denominator;
+            }
+            return null;
         }
 
         public static ushort GetShort(object property)

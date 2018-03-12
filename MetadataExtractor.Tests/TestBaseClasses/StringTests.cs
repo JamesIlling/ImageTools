@@ -5,7 +5,7 @@
     using FluentAssertions;
     using NUnit.Framework;
 
-    public abstract class StringTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor: ISupportQueries
+    public abstract class StringTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {
         private readonly Func<Metadata, string> _getMetadataElement;
 

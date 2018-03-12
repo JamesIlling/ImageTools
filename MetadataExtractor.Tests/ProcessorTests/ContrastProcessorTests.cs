@@ -1,16 +1,14 @@
-﻿
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using NUnit.Framework;
     using Processors;
 
     [TestFixture]
-    public class ContrastProcessorTests  :EnumTests<ContrastProcessor, ContrastEnum,ushort>
+    public class ContrastProcessorTests : EnumTests<ContrastProcessor, ContrastEnum, ushort>
     {
         public ContrastProcessorTests()
-            :base(x=>x.Contrast, "/app1/ifd/exif/{ushort=41992}")
-        {
-        }
+            : base(x => x.Contrast, "/app1/ifd/exif/{ushort=41992}")
+        {}
     }
 }

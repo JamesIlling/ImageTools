@@ -6,10 +6,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.EditingSoftware = ExifHelper.GetString(property);
-            }
+            metadata.EditingSoftware = ExifHelper.GetString(property);
         }
     }
 }

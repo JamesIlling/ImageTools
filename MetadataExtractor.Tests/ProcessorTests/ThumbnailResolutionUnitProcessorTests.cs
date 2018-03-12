@@ -5,12 +5,11 @@
     using Processors;
 
     [TestFixture]
-
-    public class ThumbnailResolutionUnitProcessorTests:EnumTests<ThumbnailResolutionUnitProcessor,ResolutionUnitEnum,ushort>
+    public class ThumbnailResolutionUnitProcessorTests :
+        EnumTests<ThumbnailResolutionUnitProcessor, ResolutionUnitEnum, ushort>
     {
         public ThumbnailResolutionUnitProcessorTests()
-            :base(x=>x.ThumbnailResolutionUnit, "/app1/thumb/{ushort=296}")
-        {
-        }
+            : base(x => x.ThumbnailResolutionUnit, "/app1/thumb/{ushort=296}")
+        {}
     }
 }

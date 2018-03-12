@@ -6,10 +6,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.Copyright = ExifHelper.GetString(property);
-            }
+            metadata.Copyright = ExifHelper.GetString(property);
         }
     }
 }

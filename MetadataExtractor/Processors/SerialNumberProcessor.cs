@@ -6,12 +6,9 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
+            if (string.IsNullOrEmpty(metadata.CameraSerialNumber))
             {
-                if (string.IsNullOrEmpty(metadata.CameraSerialNumber))
-                {
-                    metadata.CameraSerialNumber = ExifHelper.GetString(property);
-                }
+                metadata.CameraSerialNumber = ExifHelper.GetString(property);
             }
         }
     }

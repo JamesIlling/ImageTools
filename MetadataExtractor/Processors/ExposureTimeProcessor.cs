@@ -6,10 +6,7 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
-            {
-                metadata.ExposureTime = ExifHelper.GetRational(property);
-            }
+            metadata.ExposureTime = ExifHelper.GetRational(property);
         }
     }
 }

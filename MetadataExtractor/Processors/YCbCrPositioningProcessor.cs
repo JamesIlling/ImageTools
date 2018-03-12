@@ -10,7 +10,7 @@
         [Dependency]
         public ILog Log { get; set; }
 
-        public string Query => "/app1/ifd/exif/{uint=531}";
+        public string Query => "/app1/ifd/{ushort=531}";
 
         public void Process(Metadata metadata, object property)
         {

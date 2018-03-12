@@ -83,6 +83,10 @@
       <Project>{947656D4-A13B-475E-AAF3-D3570264D040}</Project>
       <Name>DependencyFactory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MetadataExtractor.Tests\MetadataExtractor.Tests.csproj">
+      <Project>{109A0943-EEB0-49E7-A577-4BE4CAF7063A}</Project>
+      <Name>MetadataExtractor.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MetadataExtractor\MetadataExtractor.csproj">
       <Project>{0A5E5F36-5B73-4B5A-9D3B-9B3EED0C0C2A}</Project>
       <Name>MetadataExtractor</Name>

@@ -11,8 +11,10 @@
         private static readonly Dictionary<string, string> Replacements = new Dictionary<string, string>
         {
             {"/app1/{ushort=0}", "/app1/ifd"},
-            {"/app1/ifd/{ushort=34665}", "/app1/ifd/exif"},
             {"/app1/{ushort=1}", "/app1/thumb"},
+            {"/app1/ifd/{ushort=34665}", "/app1/ifd/exif"},
+            {"/app1/ifd/exif/{ushort=40965}", "/app1/ifd/exif/interop"},
+            {"/app1/ifd/{ushort=34853}", "/app1/ifd/gps"},
             {"/app13/{ushort=0}", "/app13/irb"},
             {"/app13/irb/{ulonglong=61857348781060}", "/app13/irb/8bimiptc"},
             {"/app13/irb/{ulonglong=61857348781037}", "/app13/irb/8bimResInfo"}

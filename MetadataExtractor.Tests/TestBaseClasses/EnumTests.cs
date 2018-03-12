@@ -55,6 +55,19 @@
             logEntry.Message.Should().Be(string.Format(processor.Error, input));
         }
 
+
+        [Test]
+        public void NoValueStoredIfPropertyIsNull()
+        {
+            var processor = DependencyInjection.Resolve<TProcessor>();
+            var metadata = new Metadata();
+
+            processor.Process(metadata, null);
+
+            var result = _getMetadataElement(metadata);
+            result.Should().BeNull();
+        }
+
         [Test]
         [TestCaseSource(nameof(ValidValues))]
         public void ValidValueWrittenToMetadata(TBase input, TEnum? expected)

@@ -1,7 +1,7 @@
-﻿namespace MetadataExtractor
-{
-    using System;
+﻿using System;
 
+namespace MetadataExtractor
+{
     public static class ExifHelper
     {
         public static string GetString(object item)
@@ -38,18 +38,24 @@
             return null;
         }
 
-        public static ushort GetShort(object property)
+        public static ushort? GetShort(object property)
         {
-            if (property is byte)
+            if (property != null)
             {
+                if (property is byte)
+                    return Convert.ToUInt16(property);
                 return Convert.ToUInt16(property);
             }
-            return (ushort) property;
+            return null;
         }
 
-        public static uint GetLong(object property)
+        public static uint? GetLong(object property)
         {
-            return (uint) property;
+            if (property != null)
+            {
+                return (uint) property;
+            }
+            return null;
         }
     }
 }

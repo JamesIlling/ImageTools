@@ -142,6 +142,8 @@
     <Compile Include="Processors\ModifiedDateTimeProcessor.cs" />
     <Compile Include="Enums\OrientationEnum.cs" />
     <Compile Include="Processors\OrientationProcessor.cs" />
+    <Compile Include="Processors\PixelYDimensionProcessor.cs" />
+    <Compile Include="Processors\PixelXDimensionProcessor.cs" />
     <Compile Include="Processors\RecommendedExposureIndexProcessor.cs" />
     <Compile Include="Processors\ReferenceBlackWhiteProcessor.cs" />
     <Compile Include="Processors\ResolutionUnitProcessor.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Processors\ThumbnailSizeProcessor.cs" />
     <Compile Include="Processors\ThumbnailXResolutionProcessor.cs" />
     <Compile Include="Processors\ThumbnailYResolutionProcessor.cs" />
+    <Compile Include="Processors\UserCommentProcessor.cs" />
     <Compile Include="Processors\WhiteBalanceProcessor.cs" />
     <Compile Include="Processors\XResolutionProcessor.cs" />
     <Compile Include="Processors\YCbCrPositioningProcessor.cs" />

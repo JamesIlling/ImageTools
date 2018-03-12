@@ -5,7 +5,7 @@
 
     public class Metadata
     {
-        public uint? FocalLengthIn35MmFormat { get; set; }
+        public ushort? FocalLengthIn35MmFormat { get; set; }
         public DateTime? CaptureTime { get; set; }
         public string CameraManufacturer { get; set; }
         public string CameraModel { get; set; }
@@ -28,7 +28,7 @@
         public string EditingSoftware { get; set; }
         public DateTime? ModifiedTime { get; set; }
         public DateTime? CreationTime { get; set; }
-        public uint? Iso { get; set; }
+        public ushort? Iso { get; set; }
         public decimal? ExposureCompensation { get; set; }
         public MeteringModeEnum? MeteringMode { get; set; }
         public ExposureModeEnum? ExposureMode { get; set; }
@@ -63,7 +63,7 @@
         public StrobeReturnEnum? StrobeReturn { get; set; }
         public FiringModeEnum? FiringMode { get; set; }
         public OrientationEnum? Orientation { get; set; }
-        public decimal? ReferenceBlackWhite { get; set; }
+        public decimal[] ReferenceBlackWhite { get; set; }
         public YCbCrPositioningEnum? YCbCrPositioning { get; set; }
         public uint? RecommendedExposureIndex { get; set; }
         public byte[] IccProfile { get; set; }
@@ -76,5 +76,6 @@
         public uint? ThumbnailSize { get; set; }
         public uint? ThumbnailOffset { get; set; }
         public FileSourceEnum? FileSource { get; set; }
+        public string UserComment { get; set; }
     }
 }

@@ -81,6 +81,10 @@
     <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraSerialProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
+    <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailOffsetProcessorTests.cs" />
+    <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
     <Compile Include="ProcessorTests\CopyrightProcessorTests.cs" />
     <Compile Include="ProcessorTests\DescriptionProcessorTests.cs" />
     <Compile Include="ProcessorTests\DigitalZoomRatioProcessorTests.cs" />
@@ -99,10 +103,13 @@
     <Compile Include="ProcessorTests\SerialNumberProcessorTests.cs" />
     <Compile Include="ProcessorTests\SharpnessProcessorTests.cs" />
     <Compile Include="ProcessorTests\ShutterSpeedApexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailSizeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailXResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailYResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\ShortTests.cs" />
+    <Compile Include="TestBaseClasses\LongTests.cs" />
     <Compile Include="TestBaseClasses\EnumTests.cs" />
     <Compile Include="ProcessorTests\SensingMethodProcessorTests.cs" />
     <Compile Include="ProcessorTests\ColourSpaceProcessorTests.cs" />

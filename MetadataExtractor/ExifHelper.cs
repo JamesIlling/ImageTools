@@ -41,9 +41,7 @@ namespace MetadataExtractor
         public static ushort? GetShort(object property)
         {
             if (property != null)
-            {
-                if (property is byte)
-                    return Convert.ToUInt16(property);
+            {              
                 return Convert.ToUInt16(property);
             }
             return null;

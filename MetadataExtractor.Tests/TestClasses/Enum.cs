@@ -50,22 +50,6 @@
             return default(TBase);
         }
 
-        private static TEnum? ConvertFromBase(TBase item)
-        {
-            var converter = TypeDescriptor.GetConverter(typeof(TEnum));
-            if (converter.CanConvertFrom(item.GetType()))
-            {
-                return (TEnum?) converter.ConvertFrom(item);
-            }
-            converter = TypeDescriptor.GetConverter(typeof(TBase));
-            if (converter.CanConvertTo(typeof(TEnum)))
-            {
-                return (TEnum?) converter.ConvertTo(item, typeof(TEnum?));
-            }
-
-            return null;
-        }
-
         private static int GetBaseMin()
         {
             return Convert.ToInt32(typeof(TBase)

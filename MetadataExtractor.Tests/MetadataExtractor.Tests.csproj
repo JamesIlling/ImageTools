@@ -42,6 +42,7 @@
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -81,8 +82,18 @@
     <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraSerialProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CaptureDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CaptureDateTimeSubSecondProcessor.cs" />
+    <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
+    <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FileSourceProcessorTests.cs" />
     <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
     <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
+    <Compile Include="ProcessorTests\PixelXDimensionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\PixelYDimensionProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailOffsetProcessorTests.cs" />
     <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
     <Compile Include="ProcessorTests\CopyrightProcessorTests.cs" />
@@ -106,8 +117,12 @@
     <Compile Include="ProcessorTests\ThumbnailSizeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailXResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailYResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\UserCommentProcessorTests.cs" />
     <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\DateTimeExtension.cs" />
+    <Compile Include="TestBaseClasses\DateTimeSubSecondsTests.cs" />
+    <Compile Include="TestBaseClasses\DateTimeTests.cs" />
     <Compile Include="TestBaseClasses\ShortTests.cs" />
     <Compile Include="TestBaseClasses\LongTests.cs" />
     <Compile Include="TestBaseClasses\EnumTests.cs" />

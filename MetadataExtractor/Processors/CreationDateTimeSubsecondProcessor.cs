@@ -8,8 +8,15 @@
         {
             if (metadata.CreationTime != null)
             {
-                var ms = double.Parse(ExifHelper.GetString(property));
-                metadata.CreationTime = metadata.CreationTime.Value.AddMilliseconds(ms);
+                var value = ExifHelper.GetString(property);
+                if (value != null)
+                {
+                    var ms = double.TryParse(value, out double milliseconds);
+                    if (ms && milliseconds >= 0)
+                    {
+                        metadata.CreationTime = metadata.CreationTime.Value.AddMilliseconds(milliseconds);
+                    }
+                }
             }
         }
     }

@@ -10,8 +10,8 @@
         public string CameraManufacturer { get; set; }
         public string CameraModel { get; set; }
         public decimal? ExposureTime { get; set; }
-        public int? Height { get; set; }
-        public int? Width { get; set; }
+        public ushort? Height { get; set; }
+        public ushort? Width { get; set; }
         public string Description { get; set; }
         public decimal? XResolution { get; set; }
         public decimal? YResolution { get; set; }

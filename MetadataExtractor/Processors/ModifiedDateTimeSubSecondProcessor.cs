@@ -8,11 +8,16 @@
         {
             if (metadata.ModifiedTime != null)
             {
-                if (property != null)
-                {
-                    var ms = double.Parse(ExifHelper.GetString(property));
-                    metadata.ModifiedTime =
-                        metadata.ModifiedTime.Value.AddMilliseconds(ms);
+                { var value = ExifHelper.GetString(property);
+                    if (value != null)
+                    {
+                        var ms = double.TryParse(value, out double milliseconds);
+                        if (ms && milliseconds >= 0)
+                        {
+                            metadata.ModifiedTime =
+                                metadata.ModifiedTime.Value.AddMilliseconds(milliseconds);
+                        }
+                    }
                 }
             }
         }

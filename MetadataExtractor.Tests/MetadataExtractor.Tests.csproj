@@ -91,6 +91,7 @@
     <Compile Include="ProcessorTests\FlashProcessorTest.cs" />
     <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
     <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensSpecificationProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
     <Compile Include="ProcessorTests\PixelXDimensionProcessorTests.cs" />
@@ -154,7 +155,7 @@
     <Compile Include="TestBaseClasses\StringTests.cs" />
     <Compile Include="TestClasses\Enum.cs" />
     <Compile Include="ExtractorTests.cs" />
-    <Compile Include="ProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\ProcessorTests.cs" />
     <Compile Include="Logging\LogEntry.cs" />
     <Compile Include="Logging\TestLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,7 +186,9 @@
     <EmbeddedResource Include="Resources\ACDSee.jpg" />
     <EmbeddedResource Include="Resources\D800e.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Eos5DMkIV.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

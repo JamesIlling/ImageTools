@@ -24,10 +24,6 @@
                 {
                     log?.Warning(string.Format(error, propertyValue));
                 }
-                else
-                {
-                    log?.Warning(string.Format(error, prop.GetBlobValue().FirstOrDefault()));
-                }
             }
             return null;
         }

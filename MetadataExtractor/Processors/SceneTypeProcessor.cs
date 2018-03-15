@@ -8,7 +8,7 @@
     {
         public string Query => "/app1/ifd/exif/{ushort=41729}";
 
-        public string Error => "Unknown Scene type value:{0:X4}";
+        public string Error => "Unknown scene type value:{0:X4}";
 
         [Dependency]
         public ILog Log { get; set; }

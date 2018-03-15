@@ -94,6 +94,7 @@
     <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
     <Compile Include="ProcessorTests\PixelXDimensionProcessorTests.cs" />
     <Compile Include="ProcessorTests\PixelYDimensionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SceneTypeProcessorTest.cs" />
     <Compile Include="ProcessorTests\ThumbnailOffsetProcessorTests.cs" />
     <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
     <Compile Include="ProcessorTests\CopyrightProcessorTests.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="ProcessorTests\UserCommentProcessorTests.cs" />
     <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\BitmapMetadataBlobEnumTests.cs" />
     <Compile Include="TestBaseClasses\DateTimeExtension.cs" />
     <Compile Include="TestBaseClasses\DateTimeSubSecondsTests.cs" />
     <Compile Include="TestBaseClasses\DateTimeTests.cs" />

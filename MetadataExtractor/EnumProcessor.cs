@@ -3,6 +3,7 @@
     using System;
     using System.Globalization;
     using System.Linq;
+    using System.Windows.Media.Imaging;
 
     public abstract class EnumProcessor<T> where T : struct, IConvertible, IComparable, IFormattable
     {
@@ -17,7 +18,16 @@
                 {
                     return conversion.First();
                 }
-                log?.Warning(string.Format(error, propertyValue));
+
+                var prop = value as BitmapMetadataBlob;
+                if (prop == null)
+                {
+                    log?.Warning(string.Format(error, propertyValue));
+                }
+                else
+                {
+                    log?.Warning(string.Format(error, prop.GetBlobValue().FirstOrDefault()));
+                }
             }
             return null;
         }

@@ -13,9 +13,9 @@
         where TProcessor : ISupportErrorableQueries
         where TEnum : struct, IConvertible
     {
-        private readonly Func<Metadata, Nullable<TEnum>> _getMetadataElement;
+        private readonly Func<Metadata, TEnum?> _getMetadataElement;
 
-        public EnumTests(Func<Metadata, Nullable<TEnum>> getMetadataElement, string query)
+        public EnumTests(Func<Metadata, TEnum?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;

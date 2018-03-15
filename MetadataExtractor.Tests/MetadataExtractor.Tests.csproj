@@ -88,6 +88,7 @@
     <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
     <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
     <Compile Include="ProcessorTests\FileSourceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FlashProcessorTest.cs" />
     <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
     <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />

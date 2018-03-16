@@ -64,8 +64,8 @@
 
             var expected = new[,]
             {
-                {ColourFilterArrayEnum.Red, ColourFilterArrayEnum.Green},
-                {ColourFilterArrayEnum.Blue, ColourFilterArrayEnum.Cyan}
+                {ColourFilterArray.Red, ColourFilterArray.Green},
+                {ColourFilterArray.Blue, ColourFilterArray.Cyan}
             };
 
             var metadata = new Metadata();
@@ -89,8 +89,8 @@
 
             var expected = new[,]
             {
-                {ColourFilterArrayEnum.Magenta, ColourFilterArrayEnum.Yellow},
-                {ColourFilterArrayEnum.White, ColourFilterArrayEnum.Red}
+                {ColourFilterArray.Magenta, ColourFilterArray.Yellow},
+                {ColourFilterArray.White, ColourFilterArray.Red}
             };
 
             var metadata = new Metadata();

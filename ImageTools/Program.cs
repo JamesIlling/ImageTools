@@ -6,7 +6,7 @@
     using MetadataExtractor;
     using MetadataExtractor.Tests;
 
-    internal class Program
+    internal static class Program
     {
         private static void Main(string[] args)
         {

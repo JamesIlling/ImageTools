@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SceneCaptureTypeProcessor : EnumProcessor<SceneCaptureTypeEnum>, ISupportErrorableQueries
+    public class SceneCaptureTypeProcessor : EnumProcessor<SceneCaptureType>, ISupportErrorableQueries
     {
         public string Error => "Unknown scene capture type value:{0:X4}";
 

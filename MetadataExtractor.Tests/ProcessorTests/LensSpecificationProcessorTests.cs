@@ -106,19 +106,8 @@
         }
 
         [Test]
-        [TestCaseSource(nameof(SignData))]
-        public void SignsCancelOutCorrectly(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
-        {
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, input);
-
-            var result = getMetadata(metadata);
-            result.Should().Be(expected);
-        }
-
-        [Test]
         [TestCaseSource(nameof(ValidData))]
+        [TestCaseSource(nameof(SignData))]
         public void ValidValueWrittenToMetadata(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
         {
             var metadata = new Metadata();

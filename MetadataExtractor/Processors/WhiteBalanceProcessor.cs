@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class WhiteBalanceProcessor : EnumProcessor<WhiteBalanceEnum>, ISupportErrorableQueries
+    public class WhiteBalanceProcessor : EnumProcessor<WhiteBalance>, ISupportErrorableQueries
     {
         public string Error => "Unknown white balance value:{0:X4}";
 

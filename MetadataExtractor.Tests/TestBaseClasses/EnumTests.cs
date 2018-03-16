@@ -8,7 +8,7 @@
     using NUnit.Framework;
     using TestClasses;
 
-    public abstract class EnumTests<TProcessor, TEnum, TBase> : ErrorableProcessorTests<TProcessor>
+    public abstract class EnumTests<TProcessor, TEnum> : ErrorableProcessorTests<TProcessor>
         where TProcessor : ISupportErrorableQueries
         where TEnum : struct, IConvertible
     {
@@ -23,19 +23,19 @@
 
         [Test]
         [TestCaseSource(nameof(InvalidValue))]
-        public void InvalidValueNotWrittenToMetadata(TBase input, TEnum? expected)
+        public void InvalidValueNotWrittenToMetadata(ushort input)
         {
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
-            result.Should().Be(expected);
+            result.Should().BeNull();
         }
 
         [Test]
         [TestCaseSource(nameof(InvalidValue))]
-        public void InvalidValueLogged(TBase input, TEnum? expected)
+        public void InvalidValueLogged(ushort input)
         {
             var testLogger = Processor.Log as TestLog;
             Assert.NotNull(testLogger);
@@ -43,8 +43,6 @@
 
             Processor.Process(metadata, input);
 
-            Processor.Should().NotBeNull();
-            testLogger.Should().NotBeNull();
             testLogger.Messages.Count.Should().Be(1);
             var logEntry = testLogger.Messages.FirstOrDefault();
             Assert.NotNull(logEntry);
@@ -66,7 +64,7 @@
 
         [Test]
         [TestCaseSource(nameof(ValidValues))]
-        public void ValidValueWrittenToMetadata(TBase input, TEnum? expected)
+        public void ValidValueWrittenToMetadata(ushort input, TEnum? expected)
         {
             var metadata = new Metadata();
 
@@ -76,15 +74,15 @@
             result.Should().Be(expected);
         }
 
-        private static IEnumerable ValidValues()
+        public static IEnumerable ValidValues()
         {
-            return Enum<TEnum, TBase>.Values()
-                .Select(value => new TestCaseData(value, Enum<TEnum, TBase>.Value(value)));
+            return Enum<TEnum, ushort>.Values()
+                .Select(value => new TestCaseData(value, Enum<TEnum, ushort>.Value(value)));
         }
 
-        private static IEnumerable InvalidValue()
+        public static IEnumerable InvalidValue()
         {
-            yield return new TestCaseData(Enum<TEnum, TBase>.GetInvalidValue(), null);
+            yield return new TestCaseData(Enum<TEnum, ushort>.GetInvalidValue());
         }
     }
 }

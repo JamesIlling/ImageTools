@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SceneTypeEnum : byte
+    public enum SceneType : byte
     {
         DirectlyPhotographed = 1
     }

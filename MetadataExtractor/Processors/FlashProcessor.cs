@@ -5,7 +5,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class FlashProcessor : EnumProcessor<StrobeReturnEnum>, ISupportErrorableQueries
+    public class FlashProcessor : EnumProcessor<StrobeReturn>, ISupportErrorableQueries
     {
         private static readonly List<ushort> Valid = new List<ushort>
         {
@@ -65,7 +65,7 @@
 
                 val = 0x0018;
                 var firingModePropertyValue = (ushort) (value & val);
-                metadata.FiringMode = (FiringModeEnum) firingModePropertyValue;
+                metadata.FiringMode = (FiringMode) firingModePropertyValue;
 
                 val = 0x0020;
                 metadata.FlashFunction = (Convert.ToInt32(value) & val) == 0x0000;

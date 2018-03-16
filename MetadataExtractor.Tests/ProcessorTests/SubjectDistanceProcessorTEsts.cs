@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class SubjectDistanceProcessorTests : EnumTests<SubjectDistanceProcessor, SubjectDistanceEnum, ushort>
+    public class SubjectDistanceProcessorTests : EnumTests<SubjectDistanceProcessor, SubjectDistance>
     {
         public SubjectDistanceProcessorTests()
             : base(x => x.SubjectDistance, "/app1/ifd/exif/{ushort=41996}")

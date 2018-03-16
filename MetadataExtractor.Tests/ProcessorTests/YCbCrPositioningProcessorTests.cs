@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class YCbCrPositioningProcessorTests : EnumTests<YCbCrPositioningProcessor, YCbCrPositioningEnum, ushort>
+    public class YCbCrPositioningProcessorTests : EnumTests<YCbCrPositioningProcessor, YCbCrPositioning>
     {
         public YCbCrPositioningProcessorTests()
             : base(x => x.YCbCrPositioning, "/app1/ifd/{ushort=531}")

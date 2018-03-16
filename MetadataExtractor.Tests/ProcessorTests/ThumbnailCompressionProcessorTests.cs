@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class ThumbnailCompressionProcessorTests : EnumTests<ThumbnailCompressionProcessor, CompressionEnum, ushort>
+    public class ThumbnailCompressionProcessorTests : EnumTests<ThumbnailCompressionProcessor, Compression>
     {
         public ThumbnailCompressionProcessorTests()
             : base(x => x.ThumbnailCompression, "/app1/thumb/{ushort=259}")

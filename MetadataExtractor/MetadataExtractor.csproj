@@ -70,27 +70,27 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\ComponentConfigurationEnum.cs" />
-    <Compile Include="Enums\YCbCrPositioningEnum.cs" />
-    <Compile Include="Enums\ContrastEnum.cs" />
-    <Compile Include="Enums\CustomRenderingEnum.cs" />
-    <Compile Include="Enums\ExposureProgramEnum.cs" />
-    <Compile Include="Enums\GainControlEnum.cs" />
-    <Compile Include="Enums\LightSourceEnum.cs" />
-    <Compile Include="Enums\MeteringModeEnum.cs" />
-    <Compile Include="Enums\SceneCaptureTypeEnum.cs" />
-    <Compile Include="Enums\SensitivityTypeEnum.cs" />
-    <Compile Include="Enums\SharpnessEnum.cs" />
-    <Compile Include="Enums\SaturationEnum.cs" />
-    <Compile Include="Enums\SubjectDistanceEnum.cs" />
-    <Compile Include="Enums\FileSourceEnum.cs" />
+    <Compile Include="Enums\ComponentConfiguration.cs" />
+    <Compile Include="Enums\YCbCrPositioning.cs" />
+    <Compile Include="Enums\Contrast.cs" />
+    <Compile Include="Enums\CustomRendering.cs" />
+    <Compile Include="Enums\ExposureProgram.cs" />
+    <Compile Include="Enums\GainControl.cs" />
+    <Compile Include="Enums\LightSource.cs" />
+    <Compile Include="Enums\MeteringMode.cs" />
+    <Compile Include="Enums\SceneCaptureType.cs" />
+    <Compile Include="Enums\SensitivityType.cs" />
+    <Compile Include="Enums\Sharpness.cs" />
+    <Compile Include="Enums\Saturation.cs" />
+    <Compile Include="Enums\SubjectDistance.cs" />
+    <Compile Include="Enums\FileSource.cs" />
     <Compile Include="Explorer.cs" />
     <Compile Include="IExploreMetadata.cs" />
     <Compile Include="IExtractMetadata.cs" />
     <Compile Include="IGetProcessors.cs" />
     <Compile Include="MetadataItem.cs" />
     <Compile Include="Processors\ApertureApexProcessor.cs" />
-    <Compile Include="Enums\ColourFilterArrayEnum.cs" />
+    <Compile Include="Enums\ColourFilterArray.cs" />
     <Compile Include="Processors\CfaPatternProcessor.cs" />
     <Compile Include="Processors\ContrastProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeProcessor.cs" />
@@ -99,11 +99,11 @@
     <Compile Include="Processors\DigitalZoomRatioProcessor.cs" />
     <Compile Include="Processors\EditingSoftwareProcessor.cs" />
     <Compile Include="Processors\ExposureCompensationProcessor.cs" />
-    <Compile Include="Enums\ExposureModeEnum.cs" />
+    <Compile Include="Enums\ExposureMode.cs" />
     <Compile Include="Processors\ExposureModeProcessor.cs" />
     <Compile Include="Processors\ExposureProgramProcessor.cs" />
-    <Compile Include="Enums\StrobeReturnEnum.cs" />
-    <Compile Include="Enums\FiringModeEnum.cs" />
+    <Compile Include="Enums\StrobeReturn.cs" />
+    <Compile Include="Enums\FiringMode.cs" />
     <Compile Include="Processors\FileSourceProcessor.cs" />
     <Compile Include="Processors\FlashPixVersionProcessor.cs" />
     <Compile Include="Processors\FlashProcessor.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="Processors\LensManufacturerProcessor.cs" />
     <Compile Include="Processors\LensSerialProcessor.cs" />
     <Compile Include="Processors\CameraSerialProcessor.cs" />
-    <Compile Include="Enums\CompressionEnum.cs" />
+    <Compile Include="Enums\Compression.cs" />
     <Compile Include="Extractor.cs" />
     <Compile Include="Processors\LensModelProcessor.cs" />
     <Compile Include="Metadata.cs" />
@@ -133,7 +133,7 @@
     <Compile Include="Processors\CameraModelProcessor.cs" />
     <Compile Include="Processors\CameraManufacturerProcessor.cs" />
     <Compile Include="Processors\CaptureDateTimeProcessor.cs" />
-    <Compile Include="Enums\ColourSpaceEnum.cs" />
+    <Compile Include="Enums\ColourSpace.cs" />
     <Compile Include="Processors\ColourSpaceProcessor.cs" />
     <Compile Include="Processors\CopyrightProcessor.cs" />
     <Compile Include="Processors\DescriptionProcessor.cs" />
@@ -144,7 +144,7 @@
     <Compile Include="Processors\MeteringModeProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeProcessor.cs" />
-    <Compile Include="Enums\OrientationEnum.cs" />
+    <Compile Include="Enums\Orientation.cs" />
     <Compile Include="Processors\OrientationProcessor.cs" />
     <Compile Include="Processors\OwnerNameProcessor.cs" />
     <Compile Include="Processors\PixelYDimensionProcessor.cs" />
@@ -153,9 +153,9 @@
     <Compile Include="Processors\ReferenceBlackWhiteProcessor.cs" />
     <Compile Include="Processors\ResolutionUnitProcessor.cs" />
     <Compile Include="Processors\SaturationProcessor.cs" />
-    <Compile Include="Enums\SensingMethodEnum.cs" />
+    <Compile Include="Enums\SensingMethod.cs" />
     <Compile Include="Processors\SceneCaptureTypeProcessor.cs" />
-    <Compile Include="Enums\SceneTypeEnum.cs" />
+    <Compile Include="Enums\SceneType.cs" />
     <Compile Include="Processors\SceneTypeProcessor.cs" />
     <Compile Include="Processors\SensingMethodProcessor.cs" />
     <Compile Include="Processors\SensitivityTypeProcessor.cs" />
@@ -165,7 +165,7 @@
     <Compile Include="Processors\CaptureDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\SubjectDistanceProcessor.cs" />
     <Compile Include="EnumProcessor.cs" />
-    <Compile Include="Enums\WhiteBalanceEnum.cs" />
+    <Compile Include="Enums\WhiteBalance.cs" />
     <Compile Include="Processors\ThumbnailCompressionProcessor.cs" />
     <Compile Include="Processors\ThumbnailOffsetProcessor.cs" />
     <Compile Include="Processors\ThumbnailResolutionUnitProcessor.cs" />
@@ -181,7 +181,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExifHelper.cs" />
     <Compile Include="ReflectionHelper.cs" />
-    <Compile Include="Enums\ResolutionUnitEnum.cs" />
+    <Compile Include="Enums\ResolutionUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

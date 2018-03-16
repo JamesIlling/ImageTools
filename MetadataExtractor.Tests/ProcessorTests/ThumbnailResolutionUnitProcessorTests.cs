@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class ThumbnailResolutionUnitProcessorTests :
-        EnumTests<ThumbnailResolutionUnitProcessor, ResolutionUnitEnum, ushort>
+        EnumTests<ThumbnailResolutionUnitProcessor, ResolutionUnit>
     {
         public ThumbnailResolutionUnitProcessorTests()
             : base(x => x.ThumbnailResolutionUnit, "/app1/thumb/{ushort=296}")

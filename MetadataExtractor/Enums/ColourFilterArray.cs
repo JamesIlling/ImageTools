@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ColourFilterArrayEnum : byte
+    public enum ColourFilterArray : byte
     {
         Red,
         Green,

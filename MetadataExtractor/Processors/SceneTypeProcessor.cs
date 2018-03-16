@@ -4,7 +4,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SceneTypeProcessor : EnumProcessor<SceneTypeEnum>, ISupportErrorableQueries
+    public class SceneTypeProcessor : EnumProcessor<SceneType>, ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=41729}";
 

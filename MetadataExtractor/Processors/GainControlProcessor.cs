@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class GainControlProcessor : EnumProcessor<GainControlEnum>, ISupportErrorableQueries
+    public class GainControlProcessor : EnumProcessor<GainControl>, ISupportErrorableQueries
     {
         public string Error => "Unknown gain control value:{0:X4}";
 

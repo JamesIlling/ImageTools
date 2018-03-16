@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum CustomRenderingEnum : ushort
+    public enum CustomRendering : ushort
     {
         NormalProcess,
         CustomProcess,

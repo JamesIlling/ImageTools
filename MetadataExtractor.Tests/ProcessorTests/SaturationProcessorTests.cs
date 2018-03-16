@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class SaturationProcessorTests : EnumTests<SaturationProcessor, SaturationEnum, ushort>
+    public class SaturationProcessorTests : EnumTests<SaturationProcessor, Saturation>
 
     {
         public SaturationProcessorTests()

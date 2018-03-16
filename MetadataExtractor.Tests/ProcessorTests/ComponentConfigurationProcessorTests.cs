@@ -62,7 +62,7 @@
 
         [Test]
         [TestCaseSource(nameof(ValidValues))]
-        public void ValidValueWrittenToMetadata(byte input, ComponentConfigurationEnum expected)
+        public void ValidValueWrittenToMetadata(byte input, ComponentConfiguration expected)
         {
             var metadata = new Metadata();
             var data = new BitmapMetadataBlob(new byte[] {input, 0x00, 0x00, 0x00});
@@ -75,13 +75,13 @@
 
         private static IEnumerable ValidValues()
         {
-            return Enum<ComponentConfigurationEnum, byte>.Values()
-                .Select(value => new TestCaseData(value, Enum<ComponentConfigurationEnum, byte>.Value(value)));
+            return Enum<ComponentConfiguration, byte>.Values()
+                .Select(value => new TestCaseData(value, Enum<ComponentConfiguration, byte>.Value(value)));
         }
 
         private static IEnumerable InvalidValue()
         {
-            yield return new TestCaseData(Enum<ComponentConfigurationEnum, byte>.GetInvalidValue());
+            yield return new TestCaseData(Enum<ComponentConfiguration, byte>.GetInvalidValue());
         }
     }
 }

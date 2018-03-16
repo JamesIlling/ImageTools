@@ -4,7 +4,7 @@ namespace MetadataExtractor.Processors
     using Enums;
     using Unity.Attributes;
 
-    public class FileSourceProcessor : EnumProcessor<FileSourceEnum>, ISupportErrorableQueries
+    public class FileSourceProcessor : EnumProcessor<FileSource>, ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=41728}";
         public string Error => "Unknown file source value:{0:X4}";

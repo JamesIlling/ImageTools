@@ -1,6 +1,7 @@
 ﻿namespace MetadataExtractor.Processors
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Media.Imaging;
     using Enums;
@@ -12,35 +13,47 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
+            if (property != null && property is BitmapMetadataBlob data)
             {
-                if (property is BitmapMetadataBlob data)
+                var grid = data.GetBlobValue();
+
+                var height = BitConverter.ToUInt16(grid, 0);
+                var width = BitConverter.ToUInt16(grid, 2);
+
+                if (!GridSizeIsValid(grid, height, width))
                 {
-                    var grid = data.GetBlobValue();
+                    height = ToOtherEndianess(height);
+                    width = ToOtherEndianess(width);
+                }
 
-                    var height = BitConverter.ToUInt16(grid, 0);
-                    var width = BitConverter.ToUInt16(grid, 2);
-
-                    if (height * width + 4 != grid.Length)
-                    {
-                        height = BitConverter.ToUInt16(BitConverter.GetBytes(height).Reverse().ToArray(), 0);
-                        width = BitConverter.ToUInt16(BitConverter.GetBytes(width).Reverse().ToArray(), 0);
-                    }
-
-                    if (height * width + 4 == grid.Length)
-                    {
-                        var array = new ColourFilterArrayEnum[height, width];
-                        for (var row = 0; row < height; row++)
-                        {
-                            for (var column = 0; column < width; column++)
-                            {
-                                array[row, column] = (ColourFilterArrayEnum) grid[4 + row * width + column];
-                            }
-                        }
-                        metadata.ColourFilterArrayPattern = array;
-                    }
+                if (GridSizeIsValid(grid, height, width))
+                {
+                    metadata.ColourFilterArrayPattern = BuildArray(grid, height, width);
                 }
             }
+        }
+
+        private static ColourFilterArray[,] BuildArray(IReadOnlyList<byte> grid, ushort height, ushort width)
+        {
+            var array = new ColourFilterArray[height, width];
+            for (var row = 0; row < height; row++)
+            {
+                for (var column = 0; column < width; column++)
+                {
+                    array[row, column] = (ColourFilterArray) grid[4 + row * width + column];
+                }
+            }
+            return array;
+        }
+
+        private static bool GridSizeIsValid(IReadOnlyCollection<byte> grid, ushort height, ushort width)
+        {
+            return height * width + 4 == grid.Count;
+        }
+
+        private static ushort ToOtherEndianess(ushort value)
+        {
+            return BitConverter.ToUInt16(BitConverter.GetBytes(value).Reverse().ToArray(), 0);
         }
     }
 }

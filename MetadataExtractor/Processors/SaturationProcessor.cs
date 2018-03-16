@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SaturationProcessor : EnumProcessor<SaturationEnum>, ISupportErrorableQueries
+    public class SaturationProcessor : EnumProcessor<Saturation>, ISupportErrorableQueries
     {
         public string Error => "Unknown saturation value:{0:X4}";
 

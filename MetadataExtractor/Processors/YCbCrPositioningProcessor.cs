@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class YCbCrPositioningProcessor : EnumProcessor<YCbCrPositioningEnum>, ISupportErrorableQueries
+    public class YCbCrPositioningProcessor : EnumProcessor<YCbCrPositioning>, ISupportErrorableQueries
     {
         public string Error => "Unknown y cb cr positioning value:{0:X4}";
 

@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>, ISupportErrorableQueries
+    public class ResolutionUnitProcessor : EnumProcessor<ResolutionUnit>, ISupportErrorableQueries
     {
         public string Error => "Unknown resolution unit value:{0:X4}";
 

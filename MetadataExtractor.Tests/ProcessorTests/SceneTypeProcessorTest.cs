@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class SceneTypeProcessorTest : BitmapMetadataBlobEnumTests<SceneTypeProcessor, SceneTypeEnum>
+    public class SceneTypeProcessorTest : BitmapMetadataBlobEnumTests<SceneTypeProcessor, SceneType>
     {
         public SceneTypeProcessorTest()
             : base(x => x.SceneType, "/app1/ifd/exif/{ushort=41729}")

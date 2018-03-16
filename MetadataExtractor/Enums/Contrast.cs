@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ContrastEnum : ushort
+    public enum Contrast : ushort
     {
         Normal,
         Soft,

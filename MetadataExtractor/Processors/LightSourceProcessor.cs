@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class LightSourceProcessor : EnumProcessor<LightSourceEnum>, ISupportErrorableQueries
+    public class LightSourceProcessor : EnumProcessor<LightSource>, ISupportErrorableQueries
     {
         public string Error => "Unknown light source value:{0:X4}";
 

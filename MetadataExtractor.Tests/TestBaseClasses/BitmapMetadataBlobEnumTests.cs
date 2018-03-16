@@ -23,19 +23,19 @@
 
         [Test]
         [TestCaseSource(nameof(InvalidValue))]
-        public void InvalidValueNotWrittenToMetadata(BitmapMetadataBlob input, TEnum? expected)
+        public void InvalidValueNotWrittenToMetadata(BitmapMetadataBlob input)
         {
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
-            result.Should().Be(expected);
+            result.Should().BeNull();
         }
 
         [Test]
         [TestCaseSource(nameof(InvalidValue))]
-        public void InvalidValueLogged(BitmapMetadataBlob input, TEnum? expected)
+        public void InvalidValueLogged(BitmapMetadataBlob input)
         {
             var testLogger = Processor.Log as TestLog;
             var metadata = new Metadata();
@@ -74,14 +74,14 @@
             result.Should().Be(expected);
         }
 
-        private static IEnumerable ValidValues()
+        public static IEnumerable ValidValues()
         {
             return Enum<TEnum, byte>.Values().Select(value => new TestCaseData(new BitmapMetadataBlob(new[] {value}), Enum<TEnum, byte>.Value(value)));
         }
 
-        private static IEnumerable InvalidValue()
+        public static IEnumerable InvalidValue()
         {
-            yield return new TestCaseData(new BitmapMetadataBlob(new[] {Enum<TEnum, byte>.GetInvalidValue()}), null);
+            yield return new TestCaseData(new BitmapMetadataBlob(new[] {Enum<TEnum, byte>.GetInvalidValue()}));
         }
     }
 }

@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SensitivityTypeProcessor : EnumProcessor<SensitivityTypeEnum>, ISupportErrorableQueries
+    public class SensitivityTypeProcessor : EnumProcessor<SensitivityType>, ISupportErrorableQueries
     {
         public string Error => "Unknown sensitivity type value:{0:X4}";
 

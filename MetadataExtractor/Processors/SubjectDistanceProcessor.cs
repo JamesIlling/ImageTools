@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SubjectDistanceProcessor : EnumProcessor<SubjectDistanceEnum>, ISupportErrorableQueries
+    public class SubjectDistanceProcessor : EnumProcessor<SubjectDistance>, ISupportErrorableQueries
     {
         public string Error => "Unknown subject distance value:{0:X4}";
 

@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ThumbnailResolutionUnitProcessor : EnumProcessor<ResolutionUnitEnum>, ISupportErrorableQueries
+    public class ThumbnailResolutionUnitProcessor : EnumProcessor<ResolutionUnit>, ISupportErrorableQueries
     {
         public string Error => "Unknown thumbnail resolution unit value:{0:X4}";
 

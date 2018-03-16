@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum LightSourceEnum : ushort
+    public enum LightSource : ushort
     {
         Unknown = 0,
         Daylight,

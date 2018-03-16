@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum FiringModeEnum : ushort
+    public enum FiringMode : ushort
     {
         Unknown = 0x0000,
         CompulsoryFiring = 0x0008,

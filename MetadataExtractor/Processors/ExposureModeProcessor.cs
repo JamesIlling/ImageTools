@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureModeProcessor : EnumProcessor<ExposureModeEnum>, ISupportErrorableQueries
+    public class ExposureModeProcessor : EnumProcessor<ExposureMode>, ISupportErrorableQueries
     {
         public string Error => "Unknown exposure mode value:{0:X4}";
 

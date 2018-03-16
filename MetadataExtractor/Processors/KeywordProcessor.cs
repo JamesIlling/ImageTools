@@ -6,12 +6,9 @@
 
         public void Process(Metadata metadata, object property)
         {
-            if (property != null)
+            if (property != null && property is string[] strings)
             {
-                if (property is string[] strings)
-                {
-                    metadata.Keywords = strings;
-                }
+                metadata.Keywords = strings;
             }
         }
     }

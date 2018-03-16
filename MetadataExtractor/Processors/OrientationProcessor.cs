@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class OrientationProcessor : EnumProcessor<OrientationEnum>, ISupportErrorableQueries
+    public class OrientationProcessor : EnumProcessor<Orientation>, ISupportErrorableQueries
     {
         public string Error => "Unknown orientation value:{0:X4}";
 

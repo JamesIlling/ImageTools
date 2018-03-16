@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SharpnessProcessor : EnumProcessor<SharpnessEnum>, ISupportErrorableQueries
+    public class SharpnessProcessor : EnumProcessor<Sharpness>, ISupportErrorableQueries
     {
         public string Error => "Unknown sharpness value:{0:X4}";
 

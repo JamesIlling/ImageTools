@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class MeteringModeProcessor : EnumProcessor<MeteringModeEnum>, ISupportErrorableQueries
+    public class MeteringModeProcessor : EnumProcessor<MeteringMode>, ISupportErrorableQueries
     {
         public string Error => "Unknown metering mode value:{0:X4}";
 

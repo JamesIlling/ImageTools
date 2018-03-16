@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum YCbCrPositioningEnum : ushort
+    public enum YCbCrPositioning : ushort
     {
         Centered = 1,
         CoSited = 2

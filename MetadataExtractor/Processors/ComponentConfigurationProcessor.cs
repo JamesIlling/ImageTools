@@ -5,7 +5,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ComponentConfigurationProcessor : EnumProcessor<ComponentConfigurationEnum>, ISupportErrorableQueries
+    public class ComponentConfigurationProcessor : EnumProcessor<ComponentConfiguration>, ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=37121}";
 

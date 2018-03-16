@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ColourSpaceProcessor : EnumProcessor<ColourSpaceEnum>, ISupportErrorableQueries
+    public class ColourSpaceProcessor : EnumProcessor<ColourSpace>, ISupportErrorableQueries
     {
         public string Error => "Unknown colour space value:{0:X4}";
 

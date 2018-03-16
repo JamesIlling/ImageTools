@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class SensingMethodProcessor : EnumProcessor<SensingMethodEnum>, ISupportErrorableQueries
+    public class SensingMethodProcessor : EnumProcessor<SensingMethod>, ISupportErrorableQueries
     {
         public string Error => "Unknown sensing method value:{0:X4}";
 

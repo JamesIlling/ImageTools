@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class CustomRenderingProcessor : EnumProcessor<CustomRenderingEnum>, ISupportErrorableQueries
+    public class CustomRenderingProcessor : EnumProcessor<CustomRendering>, ISupportErrorableQueries
     {
         public string Error => "Unknown custom rendering value:{0:X4}";
 

@@ -6,7 +6,7 @@
     using TestBaseClasses;
 
     [TestFixture]
-    public class SharpnessProcessorTests : EnumTests<SharpnessProcessor, SharpnessEnum, ushort>
+    public class SharpnessProcessorTests : EnumTests<SharpnessProcessor, Sharpness>
     {
         public SharpnessProcessorTests()
             : base(x => x.Sharpness, "/app1/ifd/exif/{ushort=41994}")

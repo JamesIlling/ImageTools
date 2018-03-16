@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum OrientationEnum : ushort
+    public enum Orientation : ushort
     {
         Horizontal = 1,
         MirrorHorizontal = 2,

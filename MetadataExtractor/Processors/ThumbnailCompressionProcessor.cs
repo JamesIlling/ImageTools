@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ThumbnailCompressionProcessor : EnumProcessor<CompressionEnum>, ISupportErrorableQueries
+    public class ThumbnailCompressionProcessor : EnumProcessor<Compression>, ISupportErrorableQueries
     {
         public string Error => "Unknown thumbnail compression value:{0:X4}";
 

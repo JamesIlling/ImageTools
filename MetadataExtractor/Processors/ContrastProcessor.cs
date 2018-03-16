@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ContrastProcessor : EnumProcessor<ContrastEnum>, ISupportErrorableQueries
+    public class ContrastProcessor : EnumProcessor<Contrast>, ISupportErrorableQueries
     {
         public string Error => "Unknown contrast value:{0:X4}";
 

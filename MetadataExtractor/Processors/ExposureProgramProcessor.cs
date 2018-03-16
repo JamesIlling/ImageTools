@@ -3,7 +3,7 @@
     using Enums;
     using Unity.Attributes;
 
-    public class ExposureProgramProcessor : EnumProcessor<ExposureProgramEnum>, ISupportErrorableQueries
+    public class ExposureProgramProcessor : EnumProcessor<ExposureProgram>, ISupportErrorableQueries
     {
         public string Error => "Unknown exposure program value:{0:X4}";
 

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ColourSpaceEnum : ushort
+    public enum ColourSpace : ushort
     {
         Unknown = 0,
         sRGB = 1,

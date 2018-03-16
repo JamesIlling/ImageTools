@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum FileSourceEnum : byte
+    public enum FileSource : byte
     {
         FilmScanner = 1,
         ReflectionPrintScanner = 2,

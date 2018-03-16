@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class FocalPlaneResolutionUnitProcessorTests :
-        EnumTests<FocalPlaneResolutionUnitProcessor, ResolutionUnitEnum, ushort>
+        EnumTests<FocalPlaneResolutionUnitProcessor, ResolutionUnit>
     {
         public FocalPlaneResolutionUnitProcessorTests()
             : base(x => x.FocalPlaneResolutionUnit, "/app1/ifd/exif/{ushort=41488}")

@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ResolutionUnitEnum : ushort
+    public enum ResolutionUnit : ushort
     {
         Unknown = 0x00,
         NoUnitsOfMeasure = 0x01,

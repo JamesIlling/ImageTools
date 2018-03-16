@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum SharpnessEnum : ushort
+    public enum Sharpness : ushort
     {
         Normal,
         Soft,

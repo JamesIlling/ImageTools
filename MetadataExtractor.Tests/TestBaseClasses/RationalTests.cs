@@ -5,34 +5,11 @@
     using FluentAssertions;
     using NUnit.Framework;
 
-    public abstract class RationalTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
+    public abstract class RationalTests<TProcessor> : RationalProcessorTests<TProcessor, ulong> where TProcessor : ISupportQueries
     {
-        private readonly Func<Metadata, decimal?> _getMetadataElement;
-
         protected RationalTests(Func<Metadata, decimal?> getMetadataElement, string query)
-            : base(query)
-        {
-            _getMetadataElement = getMetadataElement;
-        }
-
-        [Test]
-        public void ExceptionThrownIfDenominatorIsZero()
-        {
-            const ulong input = 0ul;
-            var metadata = new Metadata();
-            Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, input));
-        }
-
-        [Test]
-        public void NoValueStoredIfPropertyIsNull()
-        {
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, null);
-
-            var result = _getMetadataElement(metadata);
-            result.Should().BeNull();
-        }
+            : base(getMetadataElement, query)
+        {}
 
         [TestCase(1u, 1u, 1)]
         [TestCase(1u, 2u, 0.5)]
@@ -50,7 +27,7 @@
 
             Processor.Process(metadata, input);
 
-            var result = _getMetadataElement(metadata);
+            var result = GetMetadataElement(metadata);
             result.Should().Be(expected);
         }
     }

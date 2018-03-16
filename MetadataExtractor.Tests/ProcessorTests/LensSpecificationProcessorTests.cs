@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using NUnit.Framework;
@@ -36,29 +37,7 @@
             int[] denominators = {1, 1, 2, int.MaxValue, 1};
             decimal?[] expected = {1, 2, 0.5m, 1, int.MaxValue};
 
-            for (var i = 0; i < numerators.Length; i++)
-            {
-                var numerator = numerators[i];
-                var denominator = denominators[i];
-                var data = new[]
-                {
-                    GetRational(numerator, denominator), GetRational(numerator, denominator),
-                    GetRational(numerator, denominator), GetRational(numerator, denominator)
-                };
-
-                yield return new TestCaseData(GetMaxAperture, data, expected[i]);
-                yield return new TestCaseData(GetMinAperture, data, expected[i]);
-                yield return new TestCaseData(GetMaxFocalLength, data, expected[i]);
-                yield return new TestCaseData(GetMinFocalLength, data, expected[i]);
-            }
-        }
-
-        private static void ConfigureMetadata()
-        {
-            GetMaxAperture = x => x.MaxFStop;
-            GetMinAperture = x => x.MinFStop;
-            GetMaxFocalLength = x => x.MaxFocalLength;
-            GetMinFocalLength = x => x.MinFocalLength;
+            return GenerateTests(numerators, denominators, expected);
         }
 
         private static IEnumerable SignData()
@@ -68,8 +47,21 @@
             int[] numerators = {1, 1, -1, -1};
             int[] denominators = {1, -1, 1, -1};
             decimal?[] expected = {1, -1, -1, 1};
+            return GenerateTests(numerators, denominators, expected);
+        }
 
-            for (var i = 0; i < numerators.Length; i++)
+
+        private static void ConfigureMetadata()
+        {
+            GetMaxAperture = x => x.MaxFStop;
+            GetMinAperture = x => x.MinFStop;
+            GetMaxFocalLength = x => x.MaxFocalLength;
+            GetMinFocalLength = x => x.MinFocalLength;
+        }
+
+        private static IEnumerable<TestCaseData> GenerateTests(IReadOnlyList<int> numerators, IReadOnlyList<int> denominators, IReadOnlyList<decimal?> expected)
+        {
+            for (var i = 0; i < numerators.Count; i++)
             {
                 var numerator = numerators[i];
                 var denominator = denominators[i];

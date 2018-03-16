@@ -132,6 +132,7 @@
     <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
     <Compile Include="TestBaseClasses\BitmapMetadataBlobEnumTests.cs" />
+    <Compile Include="TestBaseClasses\RationalProcessorTests.cs" />
     <Compile Include="TestClasses\DateTimeExtension.cs" />
     <Compile Include="TestBaseClasses\DateTimeSubSecondsTests.cs" />
     <Compile Include="TestBaseClasses\DateTimeTests.cs" />

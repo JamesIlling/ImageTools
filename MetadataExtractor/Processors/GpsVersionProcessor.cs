@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Media.Imaging;
-
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
+    using System;
+    using System.Windows.Media.Imaging;
+
     public class GpsVersionProcessor : ISupportQueries
     {
         public string Query => "/app1/ifd/gps/{ushort=0}";
+
         public void Process(Metadata metadata, object property)
         {
             if (property != null)

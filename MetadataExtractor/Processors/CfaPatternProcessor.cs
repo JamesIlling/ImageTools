@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
     using System;
+    using System.Linq;
     using System.Windows.Media.Imaging;
     using Enums;
 

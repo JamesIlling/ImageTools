@@ -21,7 +21,6 @@
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-         
             var metadata = new Metadata();
             _setMetadataElement(metadata, DateTime.Today.ToNearestSecond());
             Processor.Process(metadata, null);
@@ -57,7 +56,7 @@
         [TestCase("0", 0)]
         [TestCase("10", 10)]
         [TestCase("100", 100)]
-        public void ValidValueWrittenToMetadata(string input,int value)
+        public void ValidValueWrittenToMetadata(string input, int value)
         {
             var metadata = new Metadata();
             _setMetadataElement(metadata, DateTime.Today.ToNearestSecond());

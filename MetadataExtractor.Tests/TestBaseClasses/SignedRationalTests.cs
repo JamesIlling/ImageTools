@@ -20,14 +20,14 @@
         public void ExceptionThrownIfDenominatorIsZero()
         {
             const long input = 0L;
-         
+
             var metadata = new Metadata();
             Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, input));
         }
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()
-        {            
+        {
             var metadata = new Metadata();
 
             Processor.Process(metadata, null);
@@ -67,10 +67,10 @@
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = BitConverter.ToInt64(component.ToArray(), 0);
 
-            
+
             var metadata = new Metadata();
 
-           Processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);

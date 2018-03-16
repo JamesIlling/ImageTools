@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using MetadataExtractor.Enums;
-using Unity.Attributes;
-
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
+    using System;
+    using System.Collections.Generic;
+    using Enums;
+    using Unity.Attributes;
+
     public class FlashProcessor : EnumProcessor<StrobeReturnEnum>, ISupportErrorableQueries
     {
         private static readonly List<ushort> Valid = new List<ushort>

@@ -1,9 +1,9 @@
-﻿using System;
-using FluentAssertions;
-using NUnit.Framework;
-
-namespace MetadataExtractor.Tests.TestBaseClasses
+﻿namespace MetadataExtractor.Tests.TestBaseClasses
 {
+    using System;
+    using FluentAssertions;
+    using NUnit.Framework;
+
     public abstract class ShortTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {
         private readonly Func<Metadata, ushort?> _getMetadataElement;

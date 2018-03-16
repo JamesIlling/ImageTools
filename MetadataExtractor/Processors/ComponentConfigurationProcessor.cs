@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Windows.Media.Imaging;
-using MetadataExtractor.Enums;
-using Unity.Attributes;
-
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
-    public class ComponentConfigurationProcessor : EnumProcessor<ComponentConfigurationEnum>,ISupportErrorableQueries
+    using System.Linq;
+    using System.Windows.Media.Imaging;
+    using Enums;
+    using Unity.Attributes;
+
+    public class ComponentConfigurationProcessor : EnumProcessor<ComponentConfigurationEnum>, ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=37121}";
 
@@ -22,13 +22,13 @@ namespace MetadataExtractor.Processors
                 var values = blob?.GetBlobValue();
                 if (values?.Length == 4)
                 {
-                    var data  = values.Select(x => Process(x, Log, Error)).ToArray();
+                    var data = values.Select(x => Process(x, Log, Error)).ToArray();
                     if (data.All(x => x != null))
                     {
-                        metadata.ComponentConfiguration = data.Select(x=>x.Value).ToArray();
+                        metadata.ComponentConfiguration = data.Select(x => x.Value).ToArray();
                     }
                 }
             }
-        }        
-    }    
+        }
+    }
 }

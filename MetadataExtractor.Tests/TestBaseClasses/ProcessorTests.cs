@@ -15,6 +15,7 @@ namespace MetadataExtractor.Tests
         }
 
         protected ISupportQueries Processor { get; }
+
         private string Query { get; set; }
 
         [Test]

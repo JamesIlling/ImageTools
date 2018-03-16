@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
     using System.Text;
     using System.Windows.Media.Imaging;
@@ -8,6 +6,7 @@ namespace MetadataExtractor.Processors
     public class FlashPixVersionProcessor : ISupportQueries
     {
         public string Query => "/app1/ifd/exif/{ushort=40960}";
+
         public void Process(Metadata metadata, object property)
         {
             if (property != null)

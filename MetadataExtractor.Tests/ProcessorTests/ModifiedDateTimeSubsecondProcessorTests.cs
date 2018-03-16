@@ -8,8 +8,7 @@
     public class ModifiedDateTimeSubsecondProcessorTests : DateTimeSubSecondsTests<ModifiedDateTimeSubsecondProcessor>
     {
         public ModifiedDateTimeSubsecondProcessorTests()
-            : base(x=>x.ModifiedTime,(metadata,time)=>metadata.ModifiedTime = time, "/app1/ifd/exif/{ushort=37520}")
-        {
-        }
+            : base(x => x.ModifiedTime, (metadata, time) => metadata.ModifiedTime = time, "/app1/ifd/exif/{ushort=37520}")
+        {}
     }
 }

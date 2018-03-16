@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace MetadataExtractor
+﻿namespace MetadataExtractor
 {
+    using System;
+
     public static class ExifHelper
     {
         public static string GetString(object item)
@@ -41,7 +41,7 @@ namespace MetadataExtractor
         public static ushort? GetShort(object property)
         {
             if (property != null)
-            {              
+            {
                 return Convert.ToUInt16(property);
             }
             return null;

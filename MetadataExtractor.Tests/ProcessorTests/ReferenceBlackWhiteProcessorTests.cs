@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using DependencyFactory;
 using FluentAssertions;
 
 namespace MetadataExtractor.Tests.ProcessorTests

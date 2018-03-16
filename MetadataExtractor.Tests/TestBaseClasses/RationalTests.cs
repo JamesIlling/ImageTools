@@ -45,7 +45,7 @@
             var component = BitConverter.GetBytes(numerator).ToList();
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = BitConverter.ToUInt64(component.ToArray(), 0);
-            
+
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);

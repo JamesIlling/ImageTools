@@ -1,7 +1,7 @@
-﻿using System.Linq;
-
-namespace MetadataExtractor.Tests.TestClasses
+﻿namespace MetadataExtractor.Tests.TestClasses
 {
+    using System.Linq;
+
     public static class NameUtils
     {
         public static string GetNameFromProcessor(ISupportQueries processor)

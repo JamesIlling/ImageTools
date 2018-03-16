@@ -1,16 +1,15 @@
-﻿using FluentAssertions;
-using MetadataExtractor.Processors;
-using NUnit.Framework;
-
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
+    using FluentAssertions;
+    using NUnit.Framework;
+    using Processors;
+
     [TestFixture]
     public class KeywordProcessorTests : ProcessorTests<KeywordProcessor>
     {
         public KeywordProcessorTests()
             : base("System.Keywords")
-        {
-        }
+        {}
 
         [Test]
         public void NoValueStoredIfPropertyIfNotStringArray()

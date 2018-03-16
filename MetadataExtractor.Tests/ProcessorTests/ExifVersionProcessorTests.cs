@@ -15,7 +15,7 @@
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()
-        {   
+        {
             var metadata = new Metadata();
 
             Processor.Process(metadata, null);

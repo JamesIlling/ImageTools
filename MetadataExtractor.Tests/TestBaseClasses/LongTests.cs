@@ -1,10 +1,9 @@
-﻿using System;
-using DependencyFactory;
-using FluentAssertions;
-using NUnit.Framework;
-
-namespace MetadataExtractor.Tests.TestBaseClasses
+﻿namespace MetadataExtractor.Tests.TestBaseClasses
 {
+    using System;
+    using FluentAssertions;
+    using NUnit.Framework;
+
     public abstract class LongTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {
         private readonly Func<Metadata, uint?> _getMetadataElement;

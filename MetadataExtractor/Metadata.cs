@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MetadataExtractor
+﻿namespace MetadataExtractor
 {
     using System;
     using Enums;

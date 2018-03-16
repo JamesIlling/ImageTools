@@ -8,7 +8,8 @@
         {
             if (metadata.ModifiedTime != null)
             {
-                { var value = ExifHelper.GetString(property);
+                {
+                    var value = ExifHelper.GetString(property);
                     if (value != null)
                     {
                         var ms = double.TryParse(value, out double milliseconds);

@@ -6,7 +6,7 @@ namespace MetadataExtractor.Tests.TestBaseClasses
     {
         public static DateTime ToNearestSecond(this DateTime time)
         {
-            return new DateTime(time.Year,time.Month,time.Day,time.Hour,time.Minute,time.Second);
+            return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, time.Second);
         }
     }
 }

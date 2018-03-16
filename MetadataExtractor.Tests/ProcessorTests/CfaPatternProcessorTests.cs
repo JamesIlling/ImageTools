@@ -1,27 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Media.Imaging;
-using FluentAssertions;
-using MetadataExtractor.Enums;
-using MetadataExtractor.Processors;
-using NUnit.Framework;
-
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Media.Imaging;
+    using Enums;
+    using FluentAssertions;
+    using NUnit.Framework;
+    using Processors;
+
     [TestFixture]
     public class CfaPatternProcessorTests : ProcessorTests<CfaPatternProcessor>
     {
         public CfaPatternProcessorTests()
-            :base("/app1/ifd/exif/{ushort=41730}")
-        {   
-        }
+            : base("/app1/ifd/exif/{ushort=41730}")
+        {}
 
         [Test]
-        public void NoValueStoredIfPropertyIsNull()
-        {            
+        public void NoValueStoredIfInvalidGridSize()
+        {
+            var data = new List<byte>();
+            data.AddRange(BitConverter.GetBytes((ushort) 2));
+            data.AddRange(BitConverter.GetBytes((ushort) 2));
+
             var metadata = new Metadata();
-            Processor.Process(metadata, null);
+            Processor.Process(metadata, new BitmapMetadataBlob(data.ToArray()));
 
             var result = metadata.ColourFilterArrayPattern;
             result.Should().BeNull();
@@ -38,14 +41,10 @@ namespace MetadataExtractor.Tests.ProcessorTests
         }
 
         [Test]
-        public void NoValueStoredIfInvalidGridSize()
+        public void NoValueStoredIfPropertyIsNull()
         {
-            List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes((ushort)2));
-            data.AddRange(BitConverter.GetBytes((ushort)2));
-
             var metadata = new Metadata();
-            Processor.Process(metadata, new BitmapMetadataBlob(data.ToArray()));
+            Processor.Process(metadata, null);
 
             var result = metadata.ColourFilterArrayPattern;
             result.Should().BeNull();
@@ -54,9 +53,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
         [Test]
         public void ValueStoredIfBigEndianGridSize()
         {
-            List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes((ushort)2));
-            data.AddRange(BitConverter.GetBytes((ushort)2));
+            var data = new List<byte>();
+            data.AddRange(BitConverter.GetBytes((ushort) 2));
+            data.AddRange(BitConverter.GetBytes((ushort) 2));
             data.Add(0x00);
             data.Add(0x01);
             data.Add(0x02);
@@ -72,16 +71,16 @@ namespace MetadataExtractor.Tests.ProcessorTests
             Processor.Process(metadata, new BitmapMetadataBlob(data.ToArray()));
 
             var result = metadata.ColourFilterArrayPattern;
-            
+
             result.Should().BeEquivalentTo(expected);
         }
 
         [Test]
         public void ValueStoredIfLittleEndianGridSize()
         {
-            List<byte> data = new List<byte>();
-            data.AddRange(BitConverter.GetBytes((ushort)2).Reverse());
-            data.AddRange(BitConverter.GetBytes((ushort)2).Reverse());
+            var data = new List<byte>();
+            data.AddRange(BitConverter.GetBytes((ushort) 2).Reverse());
+            data.AddRange(BitConverter.GetBytes((ushort) 2).Reverse());
             data.Add(0x04);
             data.Add(0x05);
             data.Add(0x06);

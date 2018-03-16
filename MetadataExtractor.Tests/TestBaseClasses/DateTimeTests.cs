@@ -18,7 +18,6 @@
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            
             var metadata = new Metadata();
 
             Processor.Process(metadata, null);
@@ -31,7 +30,7 @@
         public void InvalidValueNotWrittenToMetadata()
         {
             var input = DateTime.UtcNow.ToNearestSecond().ToString("U");
-            
+
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);
@@ -43,10 +42,10 @@
         [Test]
         public void ValidValueWrittenToMetadata()
         {
-            var expected =DateTime.UtcNow.ToNearestSecond();
+            var expected = DateTime.UtcNow.ToNearestSecond();
 
             var input = expected.ToString(Format);
-            
+
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);

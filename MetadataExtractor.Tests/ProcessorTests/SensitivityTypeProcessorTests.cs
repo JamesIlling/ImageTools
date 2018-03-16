@@ -1,9 +1,8 @@
-﻿using MetadataExtractor.Tests.TestBaseClasses;
-
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using Processors;
+    using TestBaseClasses;
 
     public class SensitivityTypeProcessorTests : EnumTests<SensitivityTypeProcessor, SensitivityTypeEnum, ushort>
     {

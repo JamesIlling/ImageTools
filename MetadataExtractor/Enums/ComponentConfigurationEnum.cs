@@ -1,6 +1,6 @@
 ﻿namespace MetadataExtractor.Enums
 {
-    public enum ComponentConfigurationEnum: byte
+    public enum ComponentConfigurationEnum : byte
     {
         DoesNotExist = 0,
         Y,
@@ -8,6 +8,6 @@
         Cr,
         R,
         G,
-        B,
+        B
     }
 }

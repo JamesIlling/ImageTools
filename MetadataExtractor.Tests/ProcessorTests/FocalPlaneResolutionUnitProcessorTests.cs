@@ -1,10 +1,9 @@
-﻿using MetadataExtractor.Tests.TestBaseClasses;
-
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using NUnit.Framework;
     using Processors;
+    using TestBaseClasses;
 
     [TestFixture]
     public class FocalPlaneResolutionUnitProcessorTests :

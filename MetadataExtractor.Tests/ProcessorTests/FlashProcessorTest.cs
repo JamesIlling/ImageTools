@@ -1,7 +1,8 @@
 ﻿
+using MetadataExtractor.Tests.TestClasses;
+
 namespace MetadataExtractor.Tests.ProcessorTests
-{
-    using DependencyFactory;
+{    
     using FluentAssertions;
     using Enums;
     using Processors;
@@ -21,11 +22,11 @@ namespace MetadataExtractor.Tests.ProcessorTests
         
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueNotWrittenToMetadata(ushort value)
-        {
-            var processor = DependencyInjection.Resolve<FlashProcessor>();
+        {            
             var metadata = new Metadata();
 
-            processor.Process(metadata, value);
+            Processor.Process(metadata, value);
+
             metadata.FlashFired.Should().BeNull();
             metadata.FlashFunction.Should().BeNull();
             metadata.RedEyeReduction.Should().BeNull();
@@ -36,18 +37,15 @@ namespace MetadataExtractor.Tests.ProcessorTests
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(ushort value)
         {
-            var processor = DependencyInjection.Resolve<FlashProcessor>();
+            var processor = Processor as ISupportErrorableQueries;
             var testLogger = processor?.Log as TestLog;
-
             var metadata = new Metadata();
-
+            
             processor.Process(metadata, value);
-
-            processor.Should().NotBeNull();
-            testLogger.Should().NotBeNull();
+            
             testLogger.Messages.Count.Should().Be(1);
             var logEntry = testLogger.Messages.FirstOrDefault();
-            logEntry.Should().NotBeNull();
+            
             logEntry.Level.Should().Be("Warning");
             logEntry.Message.Should().Be(string.Format(processor.Error, value));
         }
@@ -55,14 +53,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
         [Test]
         public void ErrorMessageContainsTypeName()
         {
-            var processor = DependencyInjection.Resolve<FlashProcessor>();
+            var processor = Processor as ISupportErrorableQueries;
 
-            var name = processor.GetType().Name.Replace("Processor", "");
-            var toreplace = name.Where(char.IsUpper);
-            name =
-                toreplace.Aggregate(name, (current, item) => current.Replace(item.ToString(), " " + char.ToLower(item)))
-                    .Trim();
-
+            var name = NameUtils.GetNameFromProcessor(processor);
             var error = $"Unknown {name} value:{{0:X4}}";
             processor.Error.Should().Be(error);
         }
@@ -70,10 +63,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<FlashProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
             metadata.FlashFired.Should().BeNull();
             metadata.FlashFunction.Should().BeNull();
             metadata.RedEyeReduction.Should().BeNull();
@@ -111,9 +103,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
         public void ValidDataWrittenToMetadata(ushort value, bool flashFired, bool flashFunction, bool redEyeReduction,
             StrobeReturnEnum strobeReturn, FiringModeEnum firingMode)
         {
-            var processor = DependencyInjection.Resolve<FlashProcessor>();
+
             var metadata = new Metadata();
-            processor.Process(metadata, value);
+            Processor.Process(metadata, value);
             metadata.FlashFired.Should().Be(flashFired);
             metadata.FlashFunction.Should().Be(flashFunction);
             metadata.RedEyeReduction.Should().Be(redEyeReduction);
@@ -121,7 +113,7 @@ namespace MetadataExtractor.Tests.ProcessorTests
             metadata.FiringMode.Should().Be(firingMode);
         }
 
-        public static IEnumerable InvalidValue()
+        private static IEnumerable InvalidValue()
         {
             yield return new TestCaseData((ushort)0xff);
         }

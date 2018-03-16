@@ -4,7 +4,6 @@
     using System.Linq;
     using System.Collections;
     using System.Windows.Media.Imaging;
-    using DependencyFactory;
     using FluentAssertions;
     using Logging;
     using NUnit.Framework;
@@ -17,7 +16,7 @@
 
         private readonly Func<Metadata, TEnum?> _getMetadataElement;
 
-        public BitmapMetadataBlobEnumTests(Func<Metadata, TEnum?> getMetadataElement, string query)
+        protected BitmapMetadataBlobEnumTests(Func<Metadata, TEnum?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;
@@ -27,10 +26,10 @@
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueNotWrittenToMetadata(BitmapMetadataBlob input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
+            
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
@@ -40,7 +39,7 @@
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(BitmapMetadataBlob input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>() as ISupportErrorableQueries;
+            var processor = Processor as ISupportErrorableQueries;
             var testLogger = processor?.Log as TestLog;
 
             var metadata = new Metadata();
@@ -60,10 +59,10 @@
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
+            
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = _getMetadataElement(metadata);
             result.Should().BeNull();
@@ -73,10 +72,9 @@
         [TestCaseSource(nameof(ValidValues))]
         public void ValidValueWrittenToMetadata(BitmapMetadataBlob input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
@@ -85,17 +83,14 @@
         [Test]
         public void ErrorMessageContainsTypeName()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
-
-            var name = processor.GetType().Name.Replace("Processor", "");
-            var toreplace = name.Where(char.IsUpper);
-            name =
-                toreplace.Aggregate(name, (current, item) => current.Replace(item.ToString(), " " + char.ToLower(item)))
-                    .Trim();
-
+            var processor = Processor as ISupportErrorableQueries;
+            if (processor == null) Assert.Fail("Invalid Errorable Processor");
+            var name = NameUtils.GetNameFromProcessor(Processor);            
             var error = $"Unknown {name} value:{{0:X4}}";
             processor.Error.Should().Be(error);
         }
+
+
 
         public static IEnumerable ValidValues()
         {

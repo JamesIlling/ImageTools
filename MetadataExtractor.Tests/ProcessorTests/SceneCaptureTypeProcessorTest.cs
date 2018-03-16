@@ -1,9 +1,10 @@
-﻿namespace MetadataExtractor.Tests.ProcessorTests
+﻿using MetadataExtractor.Tests.TestBaseClasses;
+
+namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using NUnit.Framework;
     using Processors;
-    using TestBaseClasses;
 
     [TestFixture]
     public  class SceneCaptureTypeProcessorTest : EnumTests<SceneCaptureTypeProcessor, SceneCaptureTypeEnum,ushort>

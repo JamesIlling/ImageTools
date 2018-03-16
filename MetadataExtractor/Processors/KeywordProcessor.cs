@@ -8,7 +8,10 @@
         {
             if (property != null)
             {
-                metadata.Keywords = (string[]) property;
+                if (property is string[] strings)
+                {
+                    metadata.Keywords = strings;
+                }
             }
         }
     }

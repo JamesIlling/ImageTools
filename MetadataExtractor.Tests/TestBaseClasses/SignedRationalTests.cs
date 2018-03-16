@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using DependencyFactory;
     using FluentAssertions;
     using NUnit.Framework;
 
@@ -21,18 +20,17 @@
         public void ExceptionThrownIfDenominatorIsZero()
         {
             const long input = 0L;
-            var processor = DependencyInjection.Resolve<TProcessor>();
+         
             var metadata = new Metadata();
-            Assert.Throws(typeof(DivideByZeroException), () => processor.Process(metadata, input));
+            Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, input));
         }
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()
-        {
-            var processor = DependencyInjection.Resolve<TProcessor>();
+        {            
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = _getMetadataElement(metadata);
             result.Should().BeNull();
@@ -49,10 +47,10 @@
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = BitConverter.ToInt64(component.ToArray(), 0);
 
-            var processor = DependencyInjection.Resolve<TProcessor>();
+
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
@@ -69,10 +67,10 @@
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = BitConverter.ToInt64(component.ToArray(), 0);
 
-            var processor = DependencyInjection.Resolve<TProcessor>();
+            
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+           Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);

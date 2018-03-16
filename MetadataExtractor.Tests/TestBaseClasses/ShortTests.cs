@@ -1,5 +1,4 @@
 ﻿using System;
-using DependencyFactory;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -18,25 +17,23 @@ namespace MetadataExtractor.Tests.TestBaseClasses
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = _getMetadataElement(metadata);
             result.Should().BeNull();
         }
 
-        [TestCase((ushort)0, (ushort)0)]
-        [TestCase((ushort)1, (ushort)1)]
+        [TestCase((ushort) 0, (ushort) 0)]
+        [TestCase((ushort) 1, (ushort) 1)]
         [TestCase(ushort.MaxValue, ushort.MaxValue)]
         [TestCase(ushort.MinValue, ushort.MinValue)]
         public void ValidValueWrittenToMetadata(ushort input, ushort? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);

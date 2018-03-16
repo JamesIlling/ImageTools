@@ -1,4 +1,6 @@
-﻿namespace MetadataExtractor.Tests.ProcessorTests
+﻿using MetadataExtractor.Tests.TestBaseClasses;
+
+namespace MetadataExtractor.Tests.ProcessorTests
 {
     using Enums;
     using Processors;

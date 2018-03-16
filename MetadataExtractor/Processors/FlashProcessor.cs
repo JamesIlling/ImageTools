@@ -5,7 +5,7 @@ using Unity.Attributes;
 
 namespace MetadataExtractor.Processors
 {
-    public class FlashProcessor : EnumProcessor<StrobeReturnEnum>, ISupportQueries
+    public class FlashProcessor : EnumProcessor<StrobeReturnEnum>, ISupportErrorableQueries
     {
         private static readonly List<ushort> Valid = new List<ushort>
         {

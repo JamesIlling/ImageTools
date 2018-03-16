@@ -3,7 +3,6 @@
     using System;
     using System.Collections;
     using System.Linq;
-    using DependencyFactory;
     using FluentAssertions;
     using NUnit.Framework;
     using Processors;
@@ -24,10 +23,10 @@
         [TestCaseSource(nameof(Metadata))]
         public void NoValueStoredIfPropertyIsNull(Func<Metadata, decimal?> getMetadata)
         {
-            var processor = DependencyInjection.Resolve<LensSpecificationProcessor>();
+            
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             getMetadata(metadata).Should().BeNull();
         }
@@ -36,10 +35,10 @@
         [TestCaseSource(nameof(ValidData))]
         public void ValidValueWrittenToMetadata(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
         {
-            var processor = DependencyInjection.Resolve<LensSpecificationProcessor>();
+            
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = getMetadata(metadata);
             result.Should().Be(expected);
@@ -49,10 +48,9 @@
         [TestCaseSource(nameof(SignData))]
         public void SignsCancelOutCorrectly(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
         {
-            var processor = DependencyInjection.Resolve<LensSpecificationProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = getMetadata(metadata);
             result.Should().Be(expected);
@@ -91,7 +89,7 @@
             }
         }
 
-        public static void ConfigureMetadata()
+        private static void ConfigureMetadata()
         {
             GetMaxAperture = x => x.MaxFStop;
             GetMinAperture = x => x.MinFStop;
@@ -99,7 +97,7 @@
             GetMinFocalLength = x => x.MinFocalLength;
         }
 
-        public static IEnumerable SignData()
+        private static IEnumerable SignData()
         {
             ConfigureMetadata();
 

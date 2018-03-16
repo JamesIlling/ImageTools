@@ -84,6 +84,7 @@
     <Compile Include="ProcessorTests\CameraSerialProcessorTests.cs" />
     <Compile Include="ProcessorTests\CaptureDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\CaptureDateTimeSubSecondProcessor.cs" />
+    <Compile Include="ProcessorTests\CfaPatternProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
     <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
     <Compile Include="ProcessorTests\GammaProcessorTests.cs" />
     <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\KeywordProcessorTests.cs" />
     <Compile Include="ProcessorTests\LensSpecificationProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Logging\LogEntry.cs" />
     <Compile Include="Logging\TestLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\NameUtils.cs" />
     <Compile Include="TestClasses\TestProcessor.cs" />
     <Compile Include="TestClasses\TestProcessorLocator.cs" />
     <Compile Include="TestResources.cs" />

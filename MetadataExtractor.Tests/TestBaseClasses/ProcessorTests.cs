@@ -15,7 +15,7 @@ namespace MetadataExtractor.Tests
         }
 
         protected ISupportQueries Processor { get; }
-        protected string Query { get; set; }
+        private string Query { get; set; }
 
         [Test]
         public void QueryIsExpected()

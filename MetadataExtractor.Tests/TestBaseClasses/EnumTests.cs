@@ -1,21 +1,20 @@
-﻿namespace MetadataExtractor.Tests
-{
-    using System;
-    using System.Collections;
-    using System.Linq;
-    using DependencyFactory;
-    using FluentAssertions;
-    using Logging;
-    using NUnit.Framework;
-    using TestClasses;
+﻿using System;
+using System.Collections;
+using System.Linq;
+using FluentAssertions;
+using MetadataExtractor.Tests.Logging;
+using MetadataExtractor.Tests.TestClasses;
+using NUnit.Framework;
 
+namespace MetadataExtractor.Tests.TestBaseClasses
+{
     public abstract class EnumTests<TProcessor, TEnum, TBase> : ProcessorTests<TProcessor>
         where TProcessor : ISupportErrorableQueries
         where TEnum : struct, IConvertible
     {
         private readonly Func<Metadata, TEnum?> _getMetadataElement;
 
-        public EnumTests(Func<Metadata, TEnum?> getMetadataElement, string query)
+        protected EnumTests(Func<Metadata, TEnum?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;
@@ -26,10 +25,9 @@
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueNotWrittenToMetadata(TBase input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
@@ -39,7 +37,7 @@
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(TBase input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>() as ISupportErrorableQueries;
+            var processor = Processor as ISupportErrorableQueries;
             var testLogger = processor?.Log as TestLog;
 
             var metadata = new Metadata();
@@ -59,10 +57,9 @@
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = _getMetadataElement(metadata);
             result.Should().BeNull();
@@ -72,10 +69,9 @@
         [TestCaseSource(nameof(ValidValues))]
         public void ValidValueWrittenToMetadata(TBase input, TEnum? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);
@@ -84,21 +80,17 @@
         [Test]
         public void ErrorMessageContainsTypeName()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
+            var processor = Processor as ISupportErrorableQueries;
 
-            var name = processor.GetType().Name.Replace("Processor", "");
-            var toreplace = name.Where(char.IsUpper);
-            name =
-                toreplace.Aggregate(name, (current, item) => current.Replace(item.ToString(), " " + char.ToLower(item)))
-                    .Trim();
-
+            var name = NameUtils.GetNameFromProcessor(processor);
             var error = $"Unknown {name} value:{{0:X4}}";
             processor.Error.Should().Be(error);
         }
 
         public static IEnumerable ValidValues()
         {
-            return Enum<TEnum, TBase>.Values().Select(value => new TestCaseData(value, Enum<TEnum, TBase>.Value(value)));
+            return Enum<TEnum, TBase>.Values()
+                .Select(value => new TestCaseData(value, Enum<TEnum, TBase>.Value(value)));
         }
 
         public static IEnumerable InvalidValue()

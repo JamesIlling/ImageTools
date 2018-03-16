@@ -20,18 +20,17 @@ namespace MetadataExtractor.Tests.ProcessorTests
         public void ExceptionThrownIfDenominatorIsZero()
         {
             const ulong input = 0ul;
-            var processor = DependencyInjection.Resolve<ReferenceBlackWhiteProcessor>();
             var metadata = new Metadata();
-            Assert.Throws(typeof(DivideByZeroException), () => processor.Process(metadata, new[] {input}));
+            Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, new[] {input}));
         }
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<ReferenceBlackWhiteProcessor>();
+         
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = metadata.ReferenceBlackWhite;
             result.Should().BeNull();
@@ -49,10 +48,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = new[] {BitConverter.ToUInt64(component.ToArray(), 0)};
 
-            var processor = DependencyInjection.Resolve<ReferenceBlackWhiteProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = metadata.ReferenceBlackWhite.First();
             result.Should().Be(expected);

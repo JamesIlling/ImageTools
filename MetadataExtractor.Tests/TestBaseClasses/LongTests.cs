@@ -18,10 +18,9 @@ namespace MetadataExtractor.Tests.TestBaseClasses
         [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, null);
+            Processor.Process(metadata, null);
 
             var result = _getMetadataElement(metadata);
             result.Should().BeNull();
@@ -33,10 +32,9 @@ namespace MetadataExtractor.Tests.TestBaseClasses
         [TestCase(uint.MinValue, uint.MinValue)]
         public void ValidValueWrittenToMetadata(uint input, uint? expected)
         {
-            var processor = DependencyInjection.Resolve<TProcessor>();
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
             result.Should().Be(expected);

@@ -1,4 +1,6 @@
-﻿namespace MetadataExtractor
+﻿using System.Collections.Generic;
+
+namespace MetadataExtractor
 {
     using System;
     using Enums;
@@ -80,5 +82,7 @@
         public string Owner { get; set; }
         public decimal? Gamma { get; internal set; }
         public string FlashpixVersion { get; set; }
+        public Version GpsVersion { get; set; }
+        public ComponentConfigurationEnum[] ComponentConfiguration { get; set; }
     }
 }

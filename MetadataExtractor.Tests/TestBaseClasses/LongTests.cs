@@ -9,7 +9,7 @@ namespace MetadataExtractor.Tests.TestBaseClasses
     {
         private readonly Func<Metadata, uint?> _getMetadataElement;
 
-        public LongTests(Func<Metadata, uint?> getMetadataElement, string query)
+        protected LongTests(Func<Metadata, uint?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;

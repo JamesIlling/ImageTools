@@ -70,6 +70,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ComponentConfigurationEnum.cs" />
     <Compile Include="Enums\YCbCrPositioningEnum.cs" />
     <Compile Include="Enums\ContrastEnum.cs" />
     <Compile Include="Enums\CustomRenderingEnum.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Processors\GainControlProcessor.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="Processors\GammaProcessor.cs" />
+    <Compile Include="Processors\GpsVersionProcessor.cs" />
     <Compile Include="Processors\IsoProcessor.cs" />
     <Compile Include="ISupportErrorableQueries.cs" />
     <Compile Include="ISupportQueries.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Processors\ThumbnailSizeProcessor.cs" />
     <Compile Include="Processors\ThumbnailXResolutionProcessor.cs" />
     <Compile Include="Processors\ThumbnailYResolutionProcessor.cs" />
+    <Compile Include="Processors\ComponentConfigurationProcessor.cs" />
     <Compile Include="Processors\UserCommentProcessor.cs" />
     <Compile Include="Processors\WhiteBalanceProcessor.cs" />
     <Compile Include="Processors\XResolutionProcessor.cs" />

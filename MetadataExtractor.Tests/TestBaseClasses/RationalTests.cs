@@ -9,7 +9,7 @@
     {
         private readonly Func<Metadata, decimal?> _getMetadataElement;
 
-        public RationalTests(Func<Metadata, decimal?> getMetadataElement, string query)
+        protected RationalTests(Func<Metadata, decimal?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;

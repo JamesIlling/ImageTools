@@ -8,7 +8,7 @@ namespace MetadataExtractor.Tests.TestBaseClasses
     {
         private readonly Func<Metadata, string> _getMetadataElement;
 
-        public StringTests(Func<Metadata, string> getMetadataElement, string query)
+        protected StringTests(Func<Metadata, string> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;

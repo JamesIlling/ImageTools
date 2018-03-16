@@ -1,39 +1,18 @@
-﻿using System;
-using System.Linq;
-using FluentAssertions;
-
-namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.ProcessorTests
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
     using NUnit.Framework;
     using Processors;
+    using TestBaseClasses;
 
     [TestFixture]
     public class ReferenceBlackWhiteProcessorTests : ProcessorTests<ReferenceBlackWhiteProcessor>
     {
         public ReferenceBlackWhiteProcessorTests()
             : base("/app1/ifd/{ushort=532}")
-        {
-        }
-
-        [Test]
-        public void ExceptionThrownIfDenominatorIsZero()
-        {
-            const ulong input = 0ul;
-            var metadata = new Metadata();
-            Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, new[] {input}));
-        }
-
-        [Test]
-        public void NoValueStoredIfPropertyIsNull()
-        {
-         
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, null);
-
-            var result = metadata.ReferenceBlackWhite;
-            result.Should().BeNull();
-        }
+        {}
 
         [TestCase(1u, 1u, 1)]
         [TestCase(1u, 2u, 0.5)]
@@ -53,6 +32,25 @@ namespace MetadataExtractor.Tests.ProcessorTests
 
             var result = metadata.ReferenceBlackWhite.First();
             result.Should().Be(expected);
+        }
+
+        [Test]
+        public void ExceptionThrownIfDenominatorIsZero()
+        {
+            const ulong input = 0ul;
+            var metadata = new Metadata();
+            Assert.Throws(typeof(DivideByZeroException), () => Processor.Process(metadata, new[] {input}));
+        }
+
+        [Test]
+        public void NoValueStoredIfPropertyIsNull()
+        {
+            var metadata = new Metadata();
+
+            Processor.Process(metadata, null);
+
+            var result = metadata.ReferenceBlackWhite;
+            result.Should().BeNull();
         }
     }
 }

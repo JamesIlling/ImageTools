@@ -7,10 +7,9 @@
     using Logging;
     using NUnit.Framework;
     using Processors;
-    using TestClasses;
 
     [TestFixture]
-    public class FlashProcessorTest : ProcessorTests<FlashProcessor>
+    public class FlashProcessorTest : ErrorableProcessorTests<FlashProcessor>
     {
         public FlashProcessorTest()
             : base("/app1/ifd/exif/{ushort=37385}")
@@ -33,15 +32,21 @@
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(ushort value)
         {
-            var processor = Processor as ISupportErrorableQueries;
+            var processor = Processor;
             var testLogger = processor?.Log as TestLog;
+            Assert.NotNull(testLogger);
             var metadata = new Metadata();
+
+            if (processor == null)
+            {
+                Assert.Fail("Invalid processor");
+            }
 
             processor.Process(metadata, value);
 
             testLogger.Messages.Count.Should().Be(1);
             var logEntry = testLogger.Messages.FirstOrDefault();
-
+            Assert.NotNull(logEntry);
             logEntry.Level.Should().Be("Warning");
             logEntry.Message.Should().Be(string.Format(processor.Error, value));
         }
@@ -90,17 +95,7 @@
             yield return new TestCaseData((ushort) 0xff);
         }
 
-        [Test]
-        public void ErrorMessageContainsTypeName()
-        {
-            var processor = Processor as ISupportErrorableQueries;
-
-            var name = NameUtils.GetNameFromProcessor(processor);
-            var error = $"Unknown {name} value:{{0:X4}}";
-            processor.Error.Should().Be(error);
-        }
-
-        [Test]
+       [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
             var metadata = new Metadata();

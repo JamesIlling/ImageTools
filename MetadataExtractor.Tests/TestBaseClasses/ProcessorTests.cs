@@ -1,4 +1,4 @@
-namespace MetadataExtractor.Tests
+namespace MetadataExtractor.Tests.TestBaseClasses
 {
     using DependencyFactory;
     using FluentAssertions;
@@ -16,7 +16,7 @@ namespace MetadataExtractor.Tests
 
         protected ISupportQueries Processor { get; }
 
-        private string Query { get; set; }
+        private string Query { get; }
 
         [Test]
         public void QueryIsExpected()

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using FluentAssertions;
-using MetadataExtractor.Tests.Logging;
-using MetadataExtractor.Tests.TestClasses;
-using NUnit.Framework;
-
-namespace MetadataExtractor.Tests.TestBaseClasses
+﻿namespace MetadataExtractor.Tests.TestBaseClasses
 {
-    public abstract class EnumTests<TProcessor, TEnum, TBase> : ProcessorTests<TProcessor>
+    using System;
+    using System.Collections;
+    using System.Linq;
+    using FluentAssertions;
+    using Logging;
+    using NUnit.Framework;
+    using TestClasses;
+
+    public abstract class EnumTests<TProcessor, TEnum, TBase> : ErrorableProcessorTests<TProcessor>
         where TProcessor : ISupportErrorableQueries
         where TEnum : struct, IConvertible
     {
@@ -37,20 +37,19 @@ namespace MetadataExtractor.Tests.TestBaseClasses
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueLogged(TBase input, TEnum? expected)
         {
-            var processor = Processor as ISupportErrorableQueries;
-            var testLogger = processor?.Log as TestLog;
-
+            var testLogger = Processor.Log as TestLog;
+            Assert.NotNull(testLogger);
             var metadata = new Metadata();
 
-            processor.Process(metadata, input);
+            Processor.Process(metadata, input);
 
-            processor.Should().NotBeNull();
+            Processor.Should().NotBeNull();
             testLogger.Should().NotBeNull();
             testLogger.Messages.Count.Should().Be(1);
             var logEntry = testLogger.Messages.FirstOrDefault();
-            logEntry.Should().NotBeNull();
+            Assert.NotNull(logEntry);
             logEntry.Level.Should().Be("Warning");
-            logEntry.Message.Should().Be(string.Format(processor.Error, input));
+            logEntry.Message.Should().Be(string.Format(Processor.Error, input));
         }
 
 
@@ -77,23 +76,13 @@ namespace MetadataExtractor.Tests.TestBaseClasses
             result.Should().Be(expected);
         }
 
-        [Test]
-        public void ErrorMessageContainsTypeName()
-        {
-            var processor = Processor as ISupportErrorableQueries;
-
-            var name = NameUtils.GetNameFromProcessor(processor);
-            var error = $"Unknown {name} value:{{0:X4}}";
-            processor.Error.Should().Be(error);
-        }
-
-        public static IEnumerable ValidValues()
+        private static IEnumerable ValidValues()
         {
             return Enum<TEnum, TBase>.Values()
                 .Select(value => new TestCaseData(value, Enum<TEnum, TBase>.Value(value)));
         }
 
-        public static IEnumerable InvalidValue()
+        private static IEnumerable InvalidValue()
         {
             yield return new TestCaseData(Enum<TEnum, TBase>.GetInvalidValue(), null);
         }

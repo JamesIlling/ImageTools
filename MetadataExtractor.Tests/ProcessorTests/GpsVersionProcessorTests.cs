@@ -4,6 +4,7 @@
     using FluentAssertions;
     using NUnit.Framework;
     using Processors;
+    using TestBaseClasses;
 
     public class GpsVersionProcessorTests : ProcessorTests<GpsVersionProcessor>
     {

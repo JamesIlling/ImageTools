@@ -6,6 +6,7 @@
     using FluentAssertions;
     using NUnit.Framework;
     using Processors;
+    using TestBaseClasses;
 
     [TestFixture]
     public class LensSpecificationProcessorTests : ProcessorTests<LensSpecificationProcessor>
@@ -19,44 +20,7 @@
         private static Func<Metadata, decimal?> GetMinAperture { get; set; }
         private static Func<Metadata, decimal?> GetMaxAperture { get; set; }
 
-        [Test]
-        [TestCaseSource(nameof(Metadata))]
-        public void NoValueStoredIfPropertyIsNull(Func<Metadata, decimal?> getMetadata)
-        {
-            
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, null);
-
-            getMetadata(metadata).Should().BeNull();
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidData))]
-        public void ValidValueWrittenToMetadata(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
-        {
-            
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, input);
-
-            var result = getMetadata(metadata);
-            result.Should().Be(expected);
-        }
-
-        [Test]
-        [TestCaseSource(nameof(SignData))]
-        public void SignsCancelOutCorrectly(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
-        {
-            var metadata = new Metadata();
-
-            Processor.Process(metadata, input);
-
-            var result = getMetadata(metadata);
-            result.Should().Be(expected);
-        }
-
-        public static IEnumerable Metadata()
+        private static IEnumerable Metadata()
         {
             ConfigureMetadata();
             yield return new TestCaseData(GetMaxAperture);
@@ -65,12 +29,12 @@
             yield return new TestCaseData(GetMinFocalLength);
         }
 
-        public static IEnumerable ValidData()
+        private static IEnumerable ValidData()
         {
             ConfigureMetadata();
-            int[] numerators = { 1, 2, 1, int.MaxValue , int.MaxValue };
-            int[] denominators = { 1, 1, 2, int.MaxValue ,1};
-            decimal?[] expected = {1, 2, 0.5m,1, int.MaxValue };
+            int[] numerators = {1, 2, 1, int.MaxValue, int.MaxValue};
+            int[] denominators = {1, 1, 2, int.MaxValue, 1};
+            decimal?[] expected = {1, 2, 0.5m, 1, int.MaxValue};
 
             for (var i = 0; i < numerators.Length; i++)
             {
@@ -101,9 +65,9 @@
         {
             ConfigureMetadata();
 
-            int[] numerators = { 1, 1, -1, -1  };
-            int[] denominators = { 1, -1, 1, -1};
-            decimal?[] expected = { 1, -1, -1, 1};
+            int[] numerators = {1, 1, -1, -1};
+            int[] denominators = {1, -1, 1, -1};
+            decimal?[] expected = {1, -1, -1, 1};
 
             for (var i = 0; i < numerators.Length; i++)
             {
@@ -128,6 +92,41 @@
             component.AddRange(BitConverter.GetBytes(denominator));
             var input = BitConverter.ToInt64(component.ToArray(), 0);
             return input;
+        }
+
+        [Test]
+        [TestCaseSource(nameof(Metadata))]
+        public void NoValueStoredIfPropertyIsNull(Func<Metadata, decimal?> getMetadata)
+        {
+            var metadata = new Metadata();
+
+            Processor.Process(metadata, null);
+
+            getMetadata(metadata).Should().BeNull();
+        }
+
+        [Test]
+        [TestCaseSource(nameof(SignData))]
+        public void SignsCancelOutCorrectly(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
+        {
+            var metadata = new Metadata();
+
+            Processor.Process(metadata, input);
+
+            var result = getMetadata(metadata);
+            result.Should().Be(expected);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidData))]
+        public void ValidValueWrittenToMetadata(Func<Metadata, decimal?> getMetadata, long[] input, decimal? expected)
+        {
+            var metadata = new Metadata();
+
+            Processor.Process(metadata, input);
+
+            var result = getMetadata(metadata);
+            result.Should().Be(expected);
         }
     }
 }

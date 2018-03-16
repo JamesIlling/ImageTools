@@ -5,6 +5,7 @@
     using FluentAssertions;
     using NUnit.Framework;
     using Processors;
+    using TestBaseClasses;
 
     [TestFixture]
     public class ExifVersionProcessorTests : ProcessorTests<ExifVersionProcessor>

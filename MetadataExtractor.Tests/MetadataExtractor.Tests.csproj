@@ -88,12 +88,15 @@
     <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
     <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
     <Compile Include="ProcessorTests\FileSourceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FlashpixVersionProcessorTests.cs" />
     <Compile Include="ProcessorTests\FlashProcessorTest.cs" />
     <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GammaProcessorTests.cs" />
     <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
     <Compile Include="ProcessorTests\LensSpecificationProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
+    <Compile Include="ProcessorTests\OwnerNameProcessorTests.cs" />
     <Compile Include="ProcessorTests\PixelXDimensionProcessorTests.cs" />
     <Compile Include="ProcessorTests\PixelYDimensionProcessorTests.cs" />
     <Compile Include="ProcessorTests\SceneTypeProcessorTest.cs" />

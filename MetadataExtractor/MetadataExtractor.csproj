@@ -104,6 +104,7 @@
     <Compile Include="Enums\StrobeReturnEnum.cs" />
     <Compile Include="Enums\FiringModeEnum.cs" />
     <Compile Include="Processors\FileSourceProcessor.cs" />
+    <Compile Include="Processors\FlashPixVersionProcessor.cs" />
     <Compile Include="Processors\FlashProcessor.cs" />
     <Compile Include="Processors\FNumberProcessor.cs" />
     <Compile Include="Processors\FocalLengthProcessor.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Processors\FocalPlaneYResolutionProcessor.cs" />
     <Compile Include="Processors\GainControlProcessor.cs" />
     <Compile Include="ILog.cs" />
+    <Compile Include="Processors\GammaProcessor.cs" />
     <Compile Include="Processors\IsoProcessor.cs" />
     <Compile Include="ISupportErrorableQueries.cs" />
     <Compile Include="ISupportQueries.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Processors\ModifiedDateTimeProcessor.cs" />
     <Compile Include="Enums\OrientationEnum.cs" />
     <Compile Include="Processors\OrientationProcessor.cs" />
+    <Compile Include="Processors\OwnerNameProcessor.cs" />
     <Compile Include="Processors\PixelYDimensionProcessor.cs" />
     <Compile Include="Processors\PixelXDimensionProcessor.cs" />
     <Compile Include="Processors\RecommendedExposureIndexProcessor.cs" />

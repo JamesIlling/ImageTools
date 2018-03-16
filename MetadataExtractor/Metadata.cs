@@ -77,5 +77,8 @@
         public uint? ThumbnailOffset { get; set; }
         public FileSourceEnum? FileSource { get; set; }
         public string UserComment { get; set; }
+        public string Owner { get; set; }
+        public decimal? Gamma { get; internal set; }
+        public string FlashpixVersion { get; set; }
     }
 }

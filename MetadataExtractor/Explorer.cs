@@ -1,4 +1,6 @@
-﻿namespace MetadataExtractor
+﻿using System;
+
+namespace MetadataExtractor
 {
     using System.Collections.Generic;
     using System.IO;
@@ -23,14 +25,32 @@
         [Dependency]
         public IGetProcessors ProcessorLocator { get; set; }
 
-        public IEnumerable<MetadataItem> GetUnknownElements(Stream file)
+        public IEnumerable<MetadataItem> Explore(Stream stream, bool mapToProcessors, bool onlyUnknown)
         {
-            var bitmapMetadata = GetBitmapMetadata(file);
+            var bitmapMetadata = GetBitmapMetadata(stream);
             var properties = new List<MetadataItem>();
-            var existing = ProcessorLocator.GetAll<ISupportQueries>().Select(x => x.Query).ToList();
+            var existing = new List<string>();
+            if (onlyUnknown)
+            {
+                existing = ProcessorLocator.GetAll<ISupportQueries>().Select(x => x.Query).ToList();
+            }
+
             ProcessBitmapMetadata(bitmapMetadata, existing, properties);
-            return properties;
-        }
+
+            if (mapToProcessors)
+            {
+                var processors = ProcessorLocator.GetAll<ISupportErrorableQueries>();
+                foreach (var item in properties)
+                {
+                    var processor = processors.FirstOrDefault(x => x.Query == item.Query);
+                    if (processor!= null)
+                    {
+                        item.Query = processor.GetType().Name.Replace("Processor", string.Empty);
+                    }
+                }
+            }
+        return properties;
+        }    
 
         private static BitmapMetadata GetBitmapMetadata(Stream image)
         {

@@ -10,6 +10,6 @@ namespace MetadataExtractor
 
         public string Type { get; private set; }
 
-        public string Query { get; private set; }
+        public string Query { get; set; }
     }
 }

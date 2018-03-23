@@ -4,7 +4,7 @@
     using System.IO;
 
     public interface IExploreMetadata
-    {
-        IEnumerable<MetadataItem> GetUnknownElements(Stream file);
+    {        
+        IEnumerable<MetadataItem> Explore(Stream stream, bool mapToProcessors, bool onlyUnknown );
     }
 }

@@ -81,5 +81,7 @@
         public string FlashpixVersion { get; set; }
         public Version GpsVersion { get; set; }
         public ComponentConfiguration[] ComponentConfiguration { get; set; }
+        public decimal?[] WhitePoint { get; set; }
+        public decimal?[] Chromaticities { get; set; }
     }
 }

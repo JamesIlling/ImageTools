@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="ErrorableProcessorTests.cs" />
     <Compile Include="ProcessorTests\ApertureApexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ArrayOfRationalTests.cs" />
     <Compile Include="ProcessorTests\ArtistProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="ProcessorTests\CaptureDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\CaptureDateTimeSubSecondProcessor.cs" />
     <Compile Include="ProcessorTests\CfaPatternProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ChromaticitiesProcessorTests.cs" />
     <Compile Include="ProcessorTests\ComponentConfigurationProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
     <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="ProcessorTests\ThumbnailXResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\ThumbnailYResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\UserCommentProcessorTests.cs" />
+    <Compile Include="ProcessorTests\WhitePointProcessorTests.cs" />
     <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
     <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
     <Compile Include="TestBaseClasses\BitmapMetadataBlobEnumTests.cs" />

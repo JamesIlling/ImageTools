@@ -92,6 +92,7 @@
     <Compile Include="Processors\ApertureApexProcessor.cs" />
     <Compile Include="Enums\ColourFilterArray.cs" />
     <Compile Include="Processors\CfaPatternProcessor.cs" />
+    <Compile Include="Processors\ChromaciesProcessor.cs" />
     <Compile Include="Processors\ContrastProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeSubsecondProcessor.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Processors\ComponentConfigurationProcessor.cs" />
     <Compile Include="Processors\UserCommentProcessor.cs" />
     <Compile Include="Processors\WhiteBalanceProcessor.cs" />
+    <Compile Include="Processors\WhitePointProcessor.cs" />
     <Compile Include="Processors\XResolutionProcessor.cs" />
     <Compile Include="Processors\YCbCrPositioningProcessor.cs" />
     <Compile Include="Processors\YResolutionProcessor.cs" />

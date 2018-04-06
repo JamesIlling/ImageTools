@@ -12,7 +12,7 @@
     {
         public ExifVersionProcessorTests()
             : base("/app1/ifd/exif/{ushort=36864}")
-        {}
+        { }
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()

@@ -9,6 +9,6 @@
     {
         public FocalLengthProcessorTests()
             : base(x => x.FocalLength, "/app1/ifd/exif/{ushort=37386}")
-        {}
+        { }
     }
 }

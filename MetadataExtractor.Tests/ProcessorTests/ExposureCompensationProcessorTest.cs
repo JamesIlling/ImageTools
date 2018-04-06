@@ -9,6 +9,6 @@
     {
         public ExposureCompensationProcessorTest()
             : base(x => x.ExposureCompensation, "/app1/ifd/exif/{ushort=37380}")
-        {}
+        { }
     }
 }

@@ -10,6 +10,6 @@
     {
         public ExposureProgramProcessorTests()
             : base(x => x.ExposureProgram, "/app1/ifd/exif/{ushort=34850}")
-        {}
+        { }
     }
 }

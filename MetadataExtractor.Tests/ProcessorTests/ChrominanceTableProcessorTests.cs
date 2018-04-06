@@ -9,6 +9,6 @@
     {
         public ChrominanceTableProcessorTests()
             : base(x => x.ChrominanceTable, "/chrominance/TableEntry")
-        {}
+        { }
     }
 }

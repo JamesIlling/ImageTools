@@ -14,7 +14,7 @@
     {
         public LensSpecificationProcessorTests()
             : base("/app1/ifd/exif/{ushort=42034}")
-        {}
+        { }
 
         private static Func<Metadata, decimal?> GetMinFocalLength { get; set; }
         private static Func<Metadata, decimal?> GetMaxFocalLength { get; set; }

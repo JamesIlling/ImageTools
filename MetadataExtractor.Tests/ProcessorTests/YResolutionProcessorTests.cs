@@ -9,6 +9,6 @@
     {
         public YResolutionProcessorTests()
             : base(x => x.YResolution, "/app1/ifd/{ushort=283}")
-        {}
+        { }
     }
 }

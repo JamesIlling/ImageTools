@@ -9,6 +9,6 @@
     {
         public GammaProcessorTests()
             : base(x => x.Gamma, "/app1/ifd/exif/{ushort=42240}")
-        {}
+        { }
     }
 }

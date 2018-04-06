@@ -11,7 +11,7 @@
                 var value = ExifHelper.GetString(property);
                 if (value != null)
                 {
-                    var ms = double.TryParse(value, out double milliseconds);
+                    var ms = double.TryParse(value, out var milliseconds);
                     if (ms && milliseconds >= 0)
                     {
                         metadata.CaptureTime = metadata.CaptureTime.Value.AddMilliseconds(milliseconds);

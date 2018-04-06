@@ -11,6 +11,6 @@
             : base(
                 x => x.CaptureTime, (metadata, datetime) => metadata.CaptureTime = datetime,
                 "/app1/ifd/exif/{ushort=37521}")
-        {}
+        { }
     }
 }

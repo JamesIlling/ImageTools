@@ -9,6 +9,6 @@
     {
         public ThumbnailOffsetProcessorTests()
             : base(x => x.ThumbnailOffset, "/app1/thumb/{ushort=513}")
-        {}
+        { }
     }
 }

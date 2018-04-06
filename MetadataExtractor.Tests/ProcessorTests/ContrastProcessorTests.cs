@@ -10,6 +10,6 @@
     {
         public ContrastProcessorTests()
             : base(x => x.Contrast, "/app1/ifd/exif/{ushort=41992}")
-        {}
+        { }
     }
 }

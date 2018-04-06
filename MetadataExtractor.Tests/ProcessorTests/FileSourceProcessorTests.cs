@@ -10,6 +10,6 @@
     {
         public FileSourceProcessorTests()
             : base(x => x.FileSource, "/app1/ifd/exif/{ushort=41728}")
-        {}
+        { }
     }
 }

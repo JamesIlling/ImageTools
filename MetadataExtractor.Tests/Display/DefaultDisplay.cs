@@ -3,7 +3,7 @@ namespace MetadataExtractor.Tests.Display
     using System.Diagnostics.CodeAnalysis;
 
     [ExcludeFromCodeCoverage]
-    public class DefaultDisplay :IDisplay
+    public class DefaultDisplay : IDisplay
     {
         public bool Supported(object value)
         {

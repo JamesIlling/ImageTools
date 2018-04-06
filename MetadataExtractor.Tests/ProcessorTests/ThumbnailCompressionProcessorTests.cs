@@ -10,6 +10,6 @@
     {
         public ThumbnailCompressionProcessorTests()
             : base(x => x.ThumbnailCompression, "/app1/thumb/{ushort=259}")
-        {}
+        { }
     }
 }

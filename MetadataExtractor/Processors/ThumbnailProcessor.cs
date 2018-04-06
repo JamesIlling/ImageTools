@@ -4,6 +4,6 @@
     {
         public ThumbnailProcessor()
             : base("/app1/thumb/{}")
-        {}
+        { }
     }
 }

@@ -8,7 +8,7 @@ namespace MetadataExtractor
             Query = query;
         }
 
-        public string Type { get; private set; }
+        public string Type { get; }
 
         public string Query { get; set; }
     }

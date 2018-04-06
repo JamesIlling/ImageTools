@@ -9,6 +9,6 @@
     {
         public ModifiedDateTimeSubsecondProcessorTests()
             : base(x => x.ModifiedTime, (metadata, time) => metadata.ModifiedTime = time, "/app1/ifd/exif/{ushort=37520}")
-        {}
+        { }
     }
 }

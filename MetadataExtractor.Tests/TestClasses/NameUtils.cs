@@ -1,7 +1,7 @@
 ﻿namespace MetadataExtractor.Tests.TestClasses
 {
-    using System.Linq;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     [ExcludeFromCodeCoverage]
     public static class NameUtils

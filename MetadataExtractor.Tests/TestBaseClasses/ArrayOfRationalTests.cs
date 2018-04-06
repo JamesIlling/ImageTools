@@ -1,19 +1,19 @@
-﻿namespace MetadataExtractor.Tests.ProcessorTests
+﻿namespace MetadataExtractor.Tests.TestBaseClasses
 {
     using System;
     using System.Linq;
     using FluentAssertions;
     using NUnit.Framework;
-    using TestBaseClasses;
-    public class ArrayOfRationalTests<T> : ProcessorTests<T> where T : ISupportQueries
+
+    public abstract class ArrayOfRationalTests<T> : ProcessorTests<T> where T : ISupportQueries
     {
-        public ArrayOfRationalTests(Func<Metadata, decimal?[]> getMetadata, string query)
+        private readonly Func<Metadata, decimal?[]> _getMetadata;
+
+        protected ArrayOfRationalTests(Func<Metadata, decimal?[]> getMetadata, string query)
             : base(query)
         {
-            GetMetadata = getMetadata;
+            _getMetadata = getMetadata;
         }
-
-        private Func<Metadata, decimal?[]> GetMetadata;
 
         [Test]
         public void NoValueStoredIfPropertyIsNull()
@@ -22,7 +22,7 @@
 
             Processor.Process(metadata, null);
 
-            var result = GetMetadata(metadata);
+            var result = _getMetadata(metadata);
             result.Should().BeNull();
         }
 
@@ -36,13 +36,13 @@
         {
             var component = BitConverter.GetBytes(numerator).ToList();
             component.AddRange(BitConverter.GetBytes(denominator));
-            var input = new[]{BitConverter.ToUInt64(component.ToArray(),0)};
+            var input = new[] {BitConverter.ToUInt64(component.ToArray(), 0)};
 
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);
 
-            var result = GetMetadata(metadata).First();
+            var result = _getMetadata(metadata).First();
             result.Should().Be(expected);
         }
     }

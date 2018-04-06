@@ -9,6 +9,6 @@
     {
         public IsoProcessorTests()
             : base(x => x.Iso, "/app1/ifd/exif/{ushort=34855}")
-        {}
+        { }
     }
 }

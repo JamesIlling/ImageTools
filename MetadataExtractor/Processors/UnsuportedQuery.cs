@@ -2,7 +2,7 @@
 {
     public abstract class UnsuportedQuery : ISupportQueries
     {
-        public UnsuportedQuery(string query)
+        protected UnsuportedQuery(string query)
         {
             Query = query;
         }
@@ -10,6 +10,8 @@
         public string Query { get; }
 
         public void Process(Metadata metadata, object property)
-        {}
+        {
+            // No action for unsupported queries.
+        }
     }
 }

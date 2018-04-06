@@ -10,6 +10,6 @@
     {
         public ExposureModeProcessorTests()
             : base(x => x.ExposureMode, "/app1/ifd/exif/{ushort=41986}")
-        {}
+        { }
     }
 }

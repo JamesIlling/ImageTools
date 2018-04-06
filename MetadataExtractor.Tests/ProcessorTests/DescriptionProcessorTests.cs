@@ -9,6 +9,6 @@
     {
         public DescriptionProcessorTests()
             : base(x => x.Description, "/app1/ifd/{ushort=270}")
-        {}
+        { }
     }
 }

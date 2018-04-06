@@ -10,6 +10,6 @@
     {
         public ColourSpaceProcessorTests()
             : base(x => x.ColourSpace, "/app1/ifd/exif/{ushort=40961}")
-        {}
+        { }
     }
 }

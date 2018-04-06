@@ -9,6 +9,6 @@
     {
         public FocalLength35MmEquivalentProcessorTests()
             : base(x => x.FocalLengthIn35MmFormat, "/app1/ifd/exif/{ushort=41989}")
-        {}
+        { }
     }
 }

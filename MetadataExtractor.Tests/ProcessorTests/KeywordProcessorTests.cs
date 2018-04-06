@@ -10,7 +10,7 @@
     {
         public KeywordProcessorTests()
             : base("System.Keywords")
-        {}
+        { }
 
         [Test]
         public void NoValueStoredIfPropertyIfNotStringArray()

@@ -10,6 +10,6 @@
     {
         public OrientationProcessorTests()
             : base(x => x.Orientation, "/app1/ifd/{ushort=274}")
-        {}
+        { }
     }
 }

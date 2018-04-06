@@ -11,6 +11,6 @@
     {
         public FocalPlaneResolutionUnitProcessorTests()
             : base(x => x.FocalPlaneResolutionUnit, "/app1/ifd/exif/{ushort=41488}")
-        {}
+        { }
     }
 }

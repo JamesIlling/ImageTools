@@ -43,6 +43,7 @@
                     array[row, column] = (ColourFilterArray) grid[4 + row * width + column];
                 }
             }
+
             return array;
         }
 

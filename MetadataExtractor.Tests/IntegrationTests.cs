@@ -19,22 +19,22 @@
 
         [Test]
         [Ignore("Breaks coverage")]
+        public void CanProcessAcdSee()
+        {
+            var processor = new StringDisplayer();
+            var extractor = DependencyInjection.Resolve<IExtractMetadata>();
+            var metadata = extractor.ExtractMetadata(TestResources.AcdSeeJpeg());
+            File.WriteAllText("e:\\AcdSee.txt", processor.Read(metadata));
+        }
+
+        [Test]
+        [Ignore("Breaks coverage")]
         public void CanProcessEos5DMkIv()
         {
             var processor = new StringDisplayer();
             var extractor = DependencyInjection.Resolve<IExtractMetadata>();
             var metadata = extractor.ExtractMetadata(TestResources.Eos5DMkIVJpeg());
-            File.WriteAllText("e:\\Cannon4DMKIV.txt",processor.Read(metadata));
-        }
-
-        [Test]
-        [Ignore("Breaks coverage")]
-        public void CanProcessNikonD800()
-        {
-            var processor = new StringDisplayer();
-            var extractor = DependencyInjection.Resolve<IExtractMetadata>();
-            var metadata = extractor.ExtractMetadata(TestResources.D800EJpeg());
-            File.WriteAllText("e:\\NikonD800E.txt", processor.Read(metadata));
+            File.WriteAllText("e:\\Cannon4DMKIV.txt", processor.Read(metadata));
         }
 
         [Test]
@@ -49,12 +49,12 @@
 
         [Test]
         [Ignore("Breaks coverage")]
-        public void CanProcessAcdSee()
+        public void CanProcessNikonD800()
         {
             var processor = new StringDisplayer();
             var extractor = DependencyInjection.Resolve<IExtractMetadata>();
-            var metadata = extractor.ExtractMetadata(TestResources.AcdSeeJpeg());
-            File.WriteAllText("e:\\AcdSee.txt", processor.Read(metadata));
+            var metadata = extractor.ExtractMetadata(TestResources.D800EJpeg());
+            File.WriteAllText("e:\\NikonD800E.txt", processor.Read(metadata));
         }
     }
 }

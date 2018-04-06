@@ -10,6 +10,6 @@
     {
         public SensingMethodProcessorTests()
             : base(x => x.SensingMethod, "/app1/ifd/exif/{ushort=41495}")
-        {}
+        { }
     }
 }

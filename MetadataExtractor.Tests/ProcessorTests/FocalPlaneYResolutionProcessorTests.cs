@@ -9,6 +9,6 @@
     {
         public FocalPlaneYResolutionProcessorTests()
             : base(x => x.FocalPlaneYResolution, "/app1/ifd/exif/{ushort=41487}")
-        {}
+        { }
     }
 }

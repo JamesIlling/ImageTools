@@ -9,7 +9,6 @@
             if (property != null && string.IsNullOrEmpty(metadata.CameraSerialNumber))
             {
                 metadata.CameraSerialNumber = ExifHelper.GetString(property);
-
             }
         }
     }

@@ -9,6 +9,6 @@
     {
         public CopyrightProcessorTests()
             : base(x => x.Copyright, "/app1/ifd/{ushort=33432}")
-        {}
+        { }
     }
 }

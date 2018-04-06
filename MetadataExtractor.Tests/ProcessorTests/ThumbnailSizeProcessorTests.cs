@@ -9,6 +9,6 @@
     {
         public ThumbnailSizeProcessorTests()
             : base(x => x.ThumbnailSize, "/app1/thumb/{ushort=514}")
-        {}
+        { }
     }
 }

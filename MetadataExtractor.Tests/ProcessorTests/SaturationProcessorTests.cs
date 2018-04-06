@@ -11,6 +11,6 @@
     {
         public SaturationProcessorTests()
             : base(x => x.Saturation, "/app1/ifd/exif/{ushort=41993}")
-        {}
+        { }
     }
 }

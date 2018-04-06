@@ -1,8 +1,8 @@
 ﻿namespace MetadataExtractor.Tests.Display
 {
     using System.Collections.Generic;
-    using Enums;
     using System.Diagnostics.CodeAnalysis;
+    using Enums;
 
     [ExcludeFromCodeCoverage]
     public class ColourFilterArrayPatternDisplay : IDisplay
@@ -25,8 +25,10 @@
                 {
                     content.Add(array[row, column].ToString());
                 }
+
                 columns.Add($"[{string.Join(", ", content)}]");
             }
+
             return $"[{string.Join(", ", columns)}]";
         }
     }

@@ -10,6 +10,6 @@
     {
         public MeteringModeProcessorTests()
             : base(x => x.MeteringMode, "/app1/ifd/exif/{ushort=37383}")
-        {}
+        { }
     }
 }

@@ -10,6 +10,6 @@
     {
         public GainControlProcessorTests()
             : base(x => x.GainControl, "/app1/ifd/exif/{ushort=41991}")
-        {}
+        { }
     }
 }

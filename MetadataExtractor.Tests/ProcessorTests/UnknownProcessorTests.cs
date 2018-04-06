@@ -9,6 +9,6 @@
     {
         public UnknownProcessorTests()
             : base("/unknown/{}")
-        {}
+        { }
     }
 }

@@ -10,6 +10,6 @@
     {
         public YCbCrPositioningProcessorTests()
             : base(x => x.YCbCrPositioning, "/app1/ifd/{ushort=531}")
-        {}
+        { }
     }
 }

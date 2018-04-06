@@ -9,7 +9,7 @@
         private readonly ISupportQueries _item;
 
         public TestProcessorLocator()
-        {}
+        { }
 
         public TestProcessorLocator(ISupportQueries item)
         {
@@ -25,6 +25,7 @@
             {
                 return new List<T> {(T) _item};
             }
+
             return new List<T>();
         }
     }

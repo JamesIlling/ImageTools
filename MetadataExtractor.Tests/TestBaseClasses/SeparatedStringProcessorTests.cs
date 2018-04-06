@@ -10,8 +10,9 @@ namespace MetadataExtractor.Tests.ProcessorTests
     public abstract class SeparatedStringProcessorTests<T> : ProcessorTests<T> where T : ISupportQueries
     {
         private readonly Func<Metadata, string> _getMetadata;
-        public SeparatedStringProcessorTests(Func<Metadata,string> getMetadata,string query)
-            :base(query)
+
+        protected SeparatedStringProcessorTests(Func<Metadata, string> getMetadata, string query)
+            : base(query)
         {
             _getMetadata = getMetadata;
         }

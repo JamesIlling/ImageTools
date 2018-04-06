@@ -13,7 +13,7 @@
     {
         public FlashProcessorTest()
             : base("/app1/ifd/exif/{ushort=37385}")
-        {}
+        { }
 
         [TestCaseSource(nameof(InvalidValue))]
         public void InvalidValueNotWrittenToMetadata(ushort value)
@@ -89,7 +89,7 @@
             yield return new TestCaseData((ushort) 0xff);
         }
 
-       [Test]
+        [Test]
         public void NoValueStoredIfPropertyIsNull()
         {
             var metadata = new Metadata();

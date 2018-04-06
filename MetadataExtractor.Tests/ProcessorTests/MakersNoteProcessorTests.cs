@@ -9,6 +9,6 @@
     {
         public MakersNoteProcessorTests()
             : base("/app1/ifd/exif/{ushort=37500}")
-        {}
+        { }
     }
 }

@@ -9,6 +9,6 @@
     {
         public CameraSerialProcessorTests()
             : base(x => x.CameraSerialNumber, "/app1/ifd/{ushort=50735}")
-        {}
+        { }
     }
 }

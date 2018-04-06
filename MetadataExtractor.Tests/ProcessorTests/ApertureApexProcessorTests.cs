@@ -9,6 +9,6 @@
     {
         public ApertureApexProcessorTests()
             : base(x => x.ApertureApexValue, "/app1/ifd/exif/{ushort=37378}")
-        {}
+        { }
     }
 }

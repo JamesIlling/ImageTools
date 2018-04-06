@@ -47,13 +47,14 @@
                     }
                 }
             }
+
             return properties;
         }
 
         private static BitmapMetadata GetBitmapMetadata(Stream image)
         {
             var dec = new JpegBitmapDecoder(image, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnDemand);
-            var bitmapMetadata = (BitmapMetadata)dec.Frames[0].Metadata;
+            var bitmapMetadata = (BitmapMetadata) dec.Frames[0].Metadata;
             return bitmapMetadata;
         }
 

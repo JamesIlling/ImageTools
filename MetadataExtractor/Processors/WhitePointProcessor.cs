@@ -1,11 +1,9 @@
-﻿
-namespace MetadataExtractor.Processors
+﻿namespace MetadataExtractor.Processors
 {
     using System.Linq;
 
     public class WhitePointProcessor : ISupportQueries
     {
-
         public string Query => "/app1/ifd/{ushort=318}";
 
         public void Process(Metadata metadata, object property)
@@ -17,4 +15,3 @@ namespace MetadataExtractor.Processors
         }
     }
 }
-

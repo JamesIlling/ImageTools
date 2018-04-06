@@ -9,6 +9,6 @@
     {
         public EditingSoftwareProcessorTests()
             : base(x => x.EditingSoftware, "/app1/ifd/{ushort=305}")
-        {}
+        { }
     }
 }

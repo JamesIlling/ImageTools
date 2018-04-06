@@ -10,6 +10,6 @@
     {
         public LightSourceProcessorTests()
             : base(x => x.Lightsource, "/app1/ifd/exif/{ushort=37384}")
-        {}
+        { }
     }
 }

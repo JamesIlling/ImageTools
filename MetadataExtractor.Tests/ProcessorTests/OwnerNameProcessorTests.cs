@@ -9,6 +9,6 @@
     {
         public OwnerNameProcessorTests()
             : base(x => x.Owner, "/app1/ifd/exif/{ushort=42032}")
-        {}
+        { }
     }
 }

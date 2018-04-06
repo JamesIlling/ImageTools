@@ -10,7 +10,7 @@
     {
         protected SignedRationalTests(Func<Metadata, decimal?> getMetadataElement, string query)
             : base(getMetadataElement, query)
-        {}
+        { }
 
         [TestCase(1, 1, 1)]
         [TestCase(1, 2, 0.5)]

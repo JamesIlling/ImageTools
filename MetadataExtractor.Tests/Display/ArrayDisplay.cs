@@ -1,10 +1,10 @@
 ﻿namespace MetadataExtractor.Tests.Display
 {
-    using System.Linq;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     [ExcludeFromCodeCoverage]
-    public  class ArrayDisplay<T> : IDisplay
+    public class ArrayDisplay<T> : IDisplay
     {
         public bool Supported(object value)
         {

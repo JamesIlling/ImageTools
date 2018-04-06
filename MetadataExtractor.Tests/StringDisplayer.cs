@@ -1,11 +1,11 @@
 ﻿namespace MetadataExtractor.Tests
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Text;
     using Display;
     using Enums;
-    using System.Diagnostics.CodeAnalysis;
 
     [ExcludeFromCodeCoverage]
     public class StringDisplayer
@@ -26,6 +26,7 @@
             {
                 return text.ToString();
             }
+
             foreach (var property in typeof(T).GetProperties().OrderBy(x => x.Name))
             {
                 var value = property.GetValue(obj);
@@ -33,6 +34,7 @@
                 {
                     continue;
                 }
+
                 text.Append(property.Name);
                 text.Append(":");
 
@@ -45,6 +47,7 @@
                     }
                 }
             }
+
             return text.ToString();
         }
     }

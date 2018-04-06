@@ -9,6 +9,6 @@
     {
         public DigitalZoomRatioProcessorTests()
             : base(x => x.DigitalZoomRatio, "/app1/ifd/exif/{ushort=41988}")
-        {}
+        { }
     }
 }

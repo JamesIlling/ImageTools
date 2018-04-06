@@ -9,6 +9,6 @@
     {
         public RecommendedExposureIndexProcessorTests()
             : base(x => x.RecommendedExposureIndex, "/app1/ifd/exif/{ushort=34866}")
-        {}
+        { }
     }
 }

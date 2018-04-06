@@ -9,6 +9,6 @@
     {
         public ThumbnailXResolutionProcessorTests()
             : base(x => x.ThumbnailXResolution, "/app1/thumb/{ushort=282}")
-        {}
+        { }
     }
 }

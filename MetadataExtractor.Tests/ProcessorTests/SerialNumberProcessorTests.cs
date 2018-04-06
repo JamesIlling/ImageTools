@@ -9,6 +9,6 @@
     {
         public SerialNumberProcessorTests()
             : base(x => x.CameraSerialNumber, "/app1/ifd/exif/{ushort=42033}")
-        {}
+        { }
     }
 }

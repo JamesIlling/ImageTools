@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Reflection;
-    using System.Diagnostics.CodeAnalysis;
 
     [ExcludeFromCodeCoverage]
     public static class Enum<TEnum, TBase> where TEnum : struct, IConvertible
@@ -24,6 +24,7 @@
             {
                 throw new InvalidCastException("The specified Type is not an Enum");
             }
+
             try
             {
                 var all = Enumerable.Range(GetBaseMin(), GetBaseMax()).Select(ConvertToBase);
@@ -43,6 +44,7 @@
             {
                 return (TBase) converter.ConvertFrom(value);
             }
+
             converter = TypeDescriptor.GetConverter(typeof(int));
             if (converter.CanConvertTo(typeof(TBase)))
             {
@@ -78,6 +80,7 @@
                     return (TEnum) convertTo;
                 }
             }
+
             return null;
         }
     }

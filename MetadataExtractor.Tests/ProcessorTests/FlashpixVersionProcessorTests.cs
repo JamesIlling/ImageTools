@@ -7,9 +7,7 @@
     public class FlashpixVersionProcessorTests : SeparatedStringProcessorTests<FlashPixVersionProcessor>
     {
         public FlashpixVersionProcessorTests()
-            : base(x=>x.FlashpixVersion,"/app1/ifd/exif/{ushort=40960}")
-        {}
-
-
+            : base(x => x.FlashpixVersion, "/app1/ifd/exif/{ushort=40960}")
+        { }
     }
 }

@@ -14,6 +14,7 @@
                 var text = item as string;
                 return text?.Trim('\0');
             }
+
             return null;
         }
 
@@ -26,6 +27,7 @@
                 var denominator = value >> 32;
                 return nominator / (decimal) denominator;
             }
+
             return null;
         }
 
@@ -38,6 +40,7 @@
                 var denominator = Convert.ToInt32(value >> 32);
                 return nominator / (decimal) denominator;
             }
+
             return null;
         }
 
@@ -47,6 +50,7 @@
             {
                 return Convert.ToUInt16(property);
             }
+
             return null;
         }
 
@@ -56,18 +60,17 @@
             {
                 return (uint) property;
             }
+
             return null;
         }
 
         public static string GetStringFromBlob(object property)
         {
-            if (property != null)
+            if (property != null && property is BitmapMetadataBlob prop)
             {
-                if (property is BitmapMetadataBlob prop)
-                {
-                   return string.Join(".", Encoding.ASCII.GetString(prop.GetBlobValue()).ToArray().Select(x => x.ToString()));
-                }
+                return string.Join(".", Encoding.ASCII.GetString(prop.GetBlobValue()).Select(x => x.ToString()));
             }
+
             return null;
         }
     }

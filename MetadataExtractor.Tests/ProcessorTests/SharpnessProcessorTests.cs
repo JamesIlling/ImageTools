@@ -10,6 +10,6 @@
     {
         public SharpnessProcessorTests()
             : base(x => x.Sharpness, "/app1/ifd/exif/{ushort=41994}")
-        {}
+        { }
     }
 }

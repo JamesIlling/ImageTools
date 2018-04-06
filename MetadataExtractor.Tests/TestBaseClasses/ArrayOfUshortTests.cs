@@ -4,11 +4,11 @@
     using FluentAssertions;
     using NUnit.Framework;
 
-    public class ArrayOfUshortTests<T> : ProcessorTests<T> where T : ISupportQueries
+    public abstract class ArrayOfUshortTests<T> : ProcessorTests<T> where T : ISupportQueries
     {
         private readonly Func<Metadata, ushort[]> _getMetadata;
 
-        public ArrayOfUshortTests(Func<Metadata, ushort[]> getMetadata, string query)
+        protected ArrayOfUshortTests(Func<Metadata, ushort[]> getMetadata, string query)
             : base(query)
         {
             _getMetadata = getMetadata;

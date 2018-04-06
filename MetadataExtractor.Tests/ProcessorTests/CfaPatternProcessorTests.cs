@@ -15,7 +15,7 @@
     {
         public CfaPatternProcessorTests()
             : base("/app1/ifd/exif/{ushort=41730}")
-        {}
+        { }
 
         [Test]
         public void NoValueStoredIfInvalidGridSize()

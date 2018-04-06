@@ -9,6 +9,6 @@
     {
         public CameraManufacturerProcessorTests()
             : base(x => x.CameraManufacturer, "/app1/ifd/{ushort=271}")
-        {}
+        { }
     }
 }

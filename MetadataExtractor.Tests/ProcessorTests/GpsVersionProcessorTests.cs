@@ -6,27 +6,28 @@
     using Processors;
     using TestBaseClasses;
 
+    [TestFixture]
     public class GpsVersionProcessorTests : ProcessorTests<GpsVersionProcessor>
     {
         public GpsVersionProcessorTests()
             : base("/app1/ifd/gps/{ushort=0}")
-        {}
-
-        [Test]
-        public void NoValueStoredIfPropertyIsNull()
-        {
-            var metadata = new Metadata();
-            Processor.Process(metadata, null);
-
-            var result = metadata.GpsVersion;
-            result.Should().BeNull();
-        }
+        { }
 
         [Test]
         public void NoValueStoredIfPropertyIsNotBitmapMetadataBlob()
         {
             var metadata = new Metadata();
             Processor.Process(metadata, "test");
+
+            var result = metadata.GpsVersion;
+            result.Should().BeNull();
+        }
+
+        [Test]
+        public void NoValueStoredIfPropertyIsNull()
+        {
+            var metadata = new Metadata();
+            Processor.Process(metadata, null);
 
             var result = metadata.GpsVersion;
             result.Should().BeNull();

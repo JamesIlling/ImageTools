@@ -9,6 +9,6 @@
     {
         public CompressedBitsPerPixelProcessorTests()
             : base(x => x.CompressedBitsPerPixel, "/app1/ifd/exif/{ushort=37122}")
-        {}
+        { }
     }
 }

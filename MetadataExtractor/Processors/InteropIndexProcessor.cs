@@ -3,6 +3,7 @@
     public class InteropIndexProcessor : ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/interop/{ushort=1}";
+
         public void Process(Metadata metadata, object property)
         {
             if (property != null)

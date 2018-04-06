@@ -9,6 +9,6 @@
     {
         public ExposureTimeProcessorTests()
             : base(x => x.ExposureTime, "/app1/ifd/exif/{ushort=33434}")
-        {}
+        { }
     }
 }

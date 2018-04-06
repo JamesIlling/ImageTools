@@ -10,6 +10,6 @@
     {
         public WhiteBalanceProcessorTests()
             : base(x => x.WhiteBalance, "/app1/ifd/exif/{ushort=41987}")
-        {}
+        { }
     }
 }

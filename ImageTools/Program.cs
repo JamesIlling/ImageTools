@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using CommandLine;
-using DependencyFactory;
-using ImageTools.Options;
-using MetadataExtractor;
-using MetadataExtractor.Tests;
-
-namespace ImageTools
+﻿namespace ImageTools
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using CommandLine;
+    using DependencyFactory;
+    using MetadataExtractor;
+    using MetadataExtractor.Tests;
+    using Options;
     using Unity.Lifetime;
 
     internal static class Program
@@ -35,10 +34,12 @@ namespace ImageTools
                 {
                     continue;
                 }
+
                 var maxLength = items.Select(x => x.Type).Max(x => x.Length) + 1;
 
                 File.WriteAllLines(Path.Combine(opts.Folder, item.Key + ".txt"), items.Select(x => x.Type.PadRight(maxLength) + ":" + x.Query));
             }
+
             return true;
         }
 
@@ -55,6 +56,7 @@ namespace ImageTools
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -77,9 +79,11 @@ namespace ImageTools
                     {
                         Console.WriteLine(item.Type.PadRight(maxLength) + ":" + item.Query);
                     }
+
                     return true;
                 }
             }
+
             Console.WriteLine($"Unable to locate file {opts.File}");
             return false;
         }

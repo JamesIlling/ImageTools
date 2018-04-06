@@ -9,6 +9,6 @@
     {
         public PixelXDimensionProcessorTests()
             : base(x => x.Width, "/app1/ifd/exif/{ushort=40962}")
-        {}
+        { }
     }
 }

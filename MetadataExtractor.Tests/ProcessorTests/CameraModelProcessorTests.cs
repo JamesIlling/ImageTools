@@ -9,6 +9,6 @@
     {
         public CameraModelProcessorTests()
             : base(x => x.CameraModel, "/app1/ifd/{ushort=272}")
-        {}
+        { }
     }
 }

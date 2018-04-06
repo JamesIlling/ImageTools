@@ -10,6 +10,6 @@
     {
         public SceneTypeProcessorTest()
             : base(x => x.SceneType, "/app1/ifd/exif/{ushort=41729}")
-        {}
+        { }
     }
 }

@@ -9,6 +9,6 @@
     {
         public ThumbnailProcessorTests()
             : base("/app1/thumb/{}")
-        {}
+        { }
     }
 }

@@ -4,15 +4,14 @@
 
     public abstract class UnsupportedProcessorTests<T> : ProcessorTests<T> where T : ISupportQueries
     {
-        public UnsupportedProcessorTests(string query)
-            :base(query)
-        {
-        }
+        protected UnsupportedProcessorTests(string query)
+            : base(query)
+        { }
 
         [Test]
         public void EnsureProcessorDoesNotThrow()
         {
-            Assert.DoesNotThrow(()=>Processor.Process(new Metadata(), null));
+            Assert.DoesNotThrow(() => Processor.Process(new Metadata(), null));
         }
     }
 }

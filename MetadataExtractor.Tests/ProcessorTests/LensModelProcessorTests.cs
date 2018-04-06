@@ -9,6 +9,6 @@
     {
         public LensModelProcessorTests()
             : base(x => x.Lens, "/app1/ifd/exif/{ushort=42036}")
-        {}
+        { }
     }
 }

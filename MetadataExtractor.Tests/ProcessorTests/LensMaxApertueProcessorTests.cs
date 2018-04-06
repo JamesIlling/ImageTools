@@ -9,6 +9,6 @@
     {
         public LensMaxApertueProcessorTests()
             : base(x => x.LensMaxAperture, "/app1/ifd/exif/{ushort=37381}")
-        {}
+        { }
     }
 }

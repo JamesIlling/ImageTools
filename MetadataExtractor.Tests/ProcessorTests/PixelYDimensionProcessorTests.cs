@@ -9,6 +9,6 @@
     {
         public PixelYDimensionProcessorTests()
             : base(x => x.Height, "/app1/ifd/exif/{ushort=40963}")
-        {}
+        { }
     }
 }

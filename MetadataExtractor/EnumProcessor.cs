@@ -25,6 +25,7 @@
                     log?.Warning(string.Format(error, propertyValue));
                 }
             }
+
             return null;
         }
     }

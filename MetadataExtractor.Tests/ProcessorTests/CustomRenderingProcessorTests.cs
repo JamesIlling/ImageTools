@@ -10,6 +10,6 @@
     {
         public CustomRenderingProcessorTests()
             : base(x => x.CustomRendering, "/app1/ifd/exif/{ushort=41985}")
-        {}
+        { }
     }
 }

@@ -14,7 +14,7 @@
                 asms.GetTypes()
                     .Where(x => !x.IsAbstract && x.IsClass)
                     .Where(x => x.GetInterfaces().Contains(typeof(T)))
-                    .Select(implementation=> (T) DependencyInjection.Resolve(implementation));
+                    .Select(implementation => (T) DependencyInjection.Resolve(implementation));
         }
     }
 }

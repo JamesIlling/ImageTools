@@ -10,6 +10,6 @@
     {
         public SubjectDistanceProcessorTests()
             : base(x => x.SubjectDistance, "/app1/ifd/exif/{ushort=41996}")
-        {}
+        { }
     }
 }

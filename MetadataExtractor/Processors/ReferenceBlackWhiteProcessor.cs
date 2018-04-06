@@ -15,6 +15,7 @@
                 {
                     value.Add(ExifHelper.GetRational(item).Value);
                 }
+
                 metadata.ReferenceBlackWhite = value.ToArray();
             }
         }

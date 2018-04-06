@@ -10,23 +10,22 @@
     using Processors;
     using TestClasses;
 
+    [TestFixture]
     public class ComponentConfigurationProcessorTests : ErrorableProcessorTests<ComponentConfigurationProcessor>
     {
         public ComponentConfigurationProcessorTests()
             : base("/app1/ifd/exif/{ushort=37121}")
-        {}
+        { }
 
-        [Test]
-        [TestCaseSource(nameof(InvalidValue))]
-        public void InvalidValueNotWrittenToMetadata(byte input)
+        private static IEnumerable ValidValues()
         {
-            var metadata = new Metadata();
-            var data = new BitmapMetadataBlob(new byte[] {input, 0x00, 0x00, 0x00});
+            return Enum<ComponentConfiguration, byte>.Values()
+                .Select(value => new TestCaseData(value, Enum<ComponentConfiguration, byte>.Value(value)));
+        }
 
-            Processor.Process(metadata, data);
-
-            var result = metadata.ComponentConfiguration;
-            result.Should().BeNull();
+        private static IEnumerable InvalidValue()
+        {
+            yield return new TestCaseData(Enum<ComponentConfiguration, byte>.GetInvalidValue());
         }
 
         [Test]
@@ -46,6 +45,19 @@
             Assert.NotNull(logEntry);
             logEntry.Level.Should().Be("Warning");
             logEntry.Message.Should().Be(string.Format(processor.Error, input));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(InvalidValue))]
+        public void InvalidValueNotWrittenToMetadata(byte input)
+        {
+            var metadata = new Metadata();
+            var data = new BitmapMetadataBlob(new byte[] {input, 0x00, 0x00, 0x00});
+
+            Processor.Process(metadata, data);
+
+            var result = metadata.ComponentConfiguration;
+            result.Should().BeNull();
         }
 
 
@@ -71,17 +83,6 @@
 
             var result = metadata.ComponentConfiguration.First();
             result.Should().Be(expected);
-        }       
-
-        private static IEnumerable ValidValues()
-        {
-            return Enum<ComponentConfiguration, byte>.Values()
-                .Select(value => new TestCaseData(value, Enum<ComponentConfiguration, byte>.Value(value)));
-        }
-
-        private static IEnumerable InvalidValue()
-        {
-            yield return new TestCaseData(Enum<ComponentConfiguration, byte>.GetInvalidValue());
         }
     }
 }

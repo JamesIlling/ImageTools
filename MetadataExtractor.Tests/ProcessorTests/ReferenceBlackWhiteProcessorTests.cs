@@ -12,7 +12,7 @@
     {
         public ReferenceBlackWhiteProcessorTests()
             : base("/app1/ifd/{ushort=532}")
-        {}
+        { }
 
         [TestCase(1u, 1u, 1)]
         [TestCase(1u, 2u, 0.5)]

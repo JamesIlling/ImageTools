@@ -83,5 +83,12 @@
         public ComponentConfiguration[] ComponentConfiguration { get; set; }
         public decimal?[] WhitePoint { get; set; }
         public decimal?[] Chromaticities { get; set; }
+        public decimal?[] YCbCrCoeffients { get; set; }
+        public decimal? CompressedBitsPerPixel { get; set; }
+        public ushort[] LuminanceTable { get; set; }
+        public ushort[] ChrominanceTable { get; set; }
+        public string Interop { get; set; }
+        public string InteropVersion { get; set; }
+        public YCbCrPositioning? ThumbnailYCbCrPositioning { get; set; }
     }
 }

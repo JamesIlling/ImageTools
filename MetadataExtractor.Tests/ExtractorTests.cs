@@ -15,7 +15,7 @@
             var test = extractor.ProcessorLocator as TestProcessorLocator;
 
             extractor.ExtractMetadata(TestResources.LightroomJpeg());
-            var items = test.GetAll<ISupportQueries>();
+            var items = test.GetAll<ISupportQueries>().ToList();
             items.Count.Should().Be(1);
             items.Cast<TestProcessor>().First().Called.Should().BeTrue();
         }

@@ -77,9 +77,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Display\ArrayDisplay.cs" />
+    <Compile Include="Display\ColourFilterArrayPatternDisplay.cs" />
+    <Compile Include="Display\DefaultDisplay.cs" />
     <Compile Include="ErrorableProcessorTests.cs" />
+    <Compile Include="IDisplay.cs" />
+    <Compile Include="IntegrationTests.cs" />
+    <Compile Include="MetadataItemTests.cs" />
     <Compile Include="ProcessorTests\ApertureApexProcessorTests.cs" />
-    <Compile Include="ProcessorTests\ArrayOfRationalTests.cs" />
+    <Compile Include="ProcessorTests\ChrominanceTableProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CompressedBitsPerPixelProcessorTests.cs" />
+    <Compile Include="ProcessorTests\InteropVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LuminanceTableProcessorTests.cs" />
+    <Compile Include="ProcessorTests\MakersNoteProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailProcessorTests.cs" />
+    <Compile Include="ProcessorTests\UnknownProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\ArrayOfUshortTests.cs" />
+    <Compile Include="TestBaseClasses\UnsupportedProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\SeparatedStringProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailYCbCrPositioningProcessorTests.cs" />
+    <Compile Include="ProcessorTests\YCbCrCoeffientProcessorTests.cs" />
+    <Compile Include="StringDisplayer.cs" />
+    <Compile Include="TestBaseClasses\ArrayOfRationalTests.cs" />
     <Compile Include="ProcessorTests\ArtistProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
     <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />

@@ -9,18 +9,20 @@ using MetadataExtractor.Tests;
 
 namespace ImageTools
 {
+    using Unity.Lifetime;
+
     internal static class Program
     {
         private static void Main(string[] args)
         {
             RegisterDependencies();
 
-            Parser.Default.ParseArguments<ExploreOptions, ExtractOptions,TestOptions>(args)
+            Parser.Default.ParseArguments<ExploreOptions, ExtractOptions, TestOptions>(args)
                 .MapResult(
                     (ExploreOptions opts) => Explore(opts),
                     (ExtractOptions opts) => Extract(opts),
                     (TestOptions opts) => ExploreTestData(opts),
-                    errs=>false);
+                    errs => false);
         }
 
         private static bool ExploreTestData(TestOptions opts)
@@ -29,10 +31,13 @@ namespace ImageTools
             foreach (var item in TestResources.All())
             {
                 var items = explorer.Explore(item.Value, false, true).ToList();
-
+                if (!items.Any())
+                {
+                    continue;
+                }
                 var maxLength = items.Select(x => x.Type).Max(x => x.Length) + 1;
-                     
-                File.WriteAllLines(Path.Combine(opts.Folder,item.Value+".txt"),items.Select(x => x.Type.PadRight(maxLength) + ":" + x.Query));
+
+                File.WriteAllLines(Path.Combine(opts.Folder, item.Key + ".txt"), items.Select(x => x.Type.PadRight(maxLength) + ":" + x.Query));
             }
             return true;
         }
@@ -82,11 +87,11 @@ namespace ImageTools
 
         private static void RegisterDependencies()
         {
-            DependencyInjection.RegisterType<ILog, ConsoleLog>();
-            DependencyInjection.RegisterType<IGetProcessors, ReflectionHelper>();
-            DependencyInjection.RegisterType<IDisplay, ConsoleDisplayer>();
-            DependencyInjection.RegisterType<IExploreMetadata, Explorer>();
-            DependencyInjection.RegisterType<IExtractMetadata, Extractor>();
+            DependencyInjection.RegisterType<ILog, ConsoleLog>(new SingletonLifetimeManager());
+            DependencyInjection.RegisterType<IGetProcessors, ReflectionHelper>(new SingletonLifetimeManager());
+            DependencyInjection.RegisterType<IDisplay, ConsoleDisplayer>(new SingletonLifetimeManager());
+            DependencyInjection.RegisterType<IExploreMetadata, Explorer>(new SingletonLifetimeManager());
+            DependencyInjection.RegisterType<IExtractMetadata, Extractor>(new SingletonLifetimeManager());
         }
     }
 }

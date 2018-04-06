@@ -93,6 +93,8 @@
     <Compile Include="Enums\ColourFilterArray.cs" />
     <Compile Include="Processors\CfaPatternProcessor.cs" />
     <Compile Include="Processors\ChromaciesProcessor.cs" />
+    <Compile Include="Processors\ChrominanceTableProcessor.cs" />
+    <Compile Include="Processors\CompressedBitsPerPixelProcessor.cs" />
     <Compile Include="Processors\ContrastProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeProcessor.cs" />
     <Compile Include="Processors\CreationDateTimeSubsecondProcessor.cs" />
@@ -118,6 +120,8 @@
     <Compile Include="ILog.cs" />
     <Compile Include="Processors\GammaProcessor.cs" />
     <Compile Include="Processors\GpsVersionProcessor.cs" />
+    <Compile Include="Processors\InteropIndexProcessor.cs" />
+    <Compile Include="Processors\InteropVersionProcessor.cs" />
     <Compile Include="Processors\IsoProcessor.cs" />
     <Compile Include="ISupportErrorableQueries.cs" />
     <Compile Include="ISupportQueries.cs" />
@@ -142,6 +146,8 @@
     <Compile Include="Processors\ExposureTimeProcessor.cs" />
     <Compile Include="Processors\LensSpecificationProcessor.cs" />
     <Compile Include="Processors\LightSourceProcessor.cs" />
+    <Compile Include="Processors\LuminanceTableProcessor.cs" />
+    <Compile Include="Processors\MakersNoteProcessor.cs" />
     <Compile Include="Processors\MeteringModeProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeSubsecondProcessor.cs" />
     <Compile Include="Processors\ModifiedDateTimeProcessor.cs" />
@@ -169,15 +175,20 @@
     <Compile Include="Enums\WhiteBalance.cs" />
     <Compile Include="Processors\ThumbnailCompressionProcessor.cs" />
     <Compile Include="Processors\ThumbnailOffsetProcessor.cs" />
+    <Compile Include="Processors\ThumbnailProcessor.cs" />
     <Compile Include="Processors\ThumbnailResolutionUnitProcessor.cs" />
     <Compile Include="Processors\ThumbnailSizeProcessor.cs" />
     <Compile Include="Processors\ThumbnailXResolutionProcessor.cs" />
     <Compile Include="Processors\ThumbnailYResolutionProcessor.cs" />
     <Compile Include="Processors\ComponentConfigurationProcessor.cs" />
+    <Compile Include="Processors\UnknownProcessor.cs" />
+    <Compile Include="Processors\UnsuportedQuery.cs" />
     <Compile Include="Processors\UserCommentProcessor.cs" />
     <Compile Include="Processors\WhiteBalanceProcessor.cs" />
     <Compile Include="Processors\WhitePointProcessor.cs" />
     <Compile Include="Processors\XResolutionProcessor.cs" />
+    <Compile Include="Processors\YCbCrCoeffientProcessor.cs" />
+    <Compile Include="Processors\ThumbnailYCbCrPositioningProcessor.cs" />
     <Compile Include="Processors\YCbCrPositioningProcessor.cs" />
     <Compile Include="Processors\YResolutionProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

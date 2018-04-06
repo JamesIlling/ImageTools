@@ -1,6 +1,9 @@
 ﻿namespace MetadataExtractor
 {
     using System;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Media.Imaging;
 
     public static class ExifHelper
     {
@@ -52,6 +55,18 @@
             if (property != null)
             {
                 return (uint) property;
+            }
+            return null;
+        }
+
+        public static string GetStringFromBlob(object property)
+        {
+            if (property != null)
+            {
+                if (property is BitmapMetadataBlob prop)
+                {
+                   return string.Join(".", Encoding.ASCII.GetString(prop.GetBlobValue()).ToArray().Select(x => x.ToString()));
+                }
             }
             return null;
         }

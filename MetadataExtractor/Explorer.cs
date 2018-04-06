@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MetadataExtractor
+﻿namespace MetadataExtractor
 {
     using System.Collections.Generic;
     using System.IO;
@@ -43,20 +41,19 @@ namespace MetadataExtractor
                 foreach (var item in properties)
                 {
                     var processor = processors.FirstOrDefault(x => x.Query == item.Query);
-                    if (processor!= null)
+                    if (processor != null)
                     {
                         item.Query = processor.GetType().Name.Replace("Processor", string.Empty);
                     }
                 }
             }
-        return properties;
-        }    
+            return properties;
+        }
 
         private static BitmapMetadata GetBitmapMetadata(Stream image)
         {
-            var dec = new JpegBitmapDecoder(image, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
-            var frame = dec.Frames[0];
-            var bitmapMetadata = (BitmapMetadata) frame.Metadata;
+            var dec = new JpegBitmapDecoder(image, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnDemand);
+            var bitmapMetadata = (BitmapMetadata)dec.Frames[0].Metadata;
             return bitmapMetadata;
         }
 

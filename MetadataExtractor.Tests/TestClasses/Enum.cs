@@ -5,7 +5,9 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Reflection;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public static class Enum<TEnum, TBase> where TEnum : struct, IConvertible
 
     {

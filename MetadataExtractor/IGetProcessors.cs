@@ -4,6 +4,6 @@ namespace MetadataExtractor
 
     public interface IGetProcessors
     {
-        List<T> GetAll<T>();
+        IEnumerable<T> GetAll<T>();
     }
 }

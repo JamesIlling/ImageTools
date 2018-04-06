@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public class TestLog : ILog
     {
         public List<LogEntry> Messages { get; } = new List<LogEntry>();

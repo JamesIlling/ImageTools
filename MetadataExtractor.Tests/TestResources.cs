@@ -4,7 +4,9 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Diagnostics.CodeAnalysis;
 
+    [ExcludeFromCodeCoverage]
     public static class TestResources
     {
         private const string LightroomJpegPath = "MetadataExtractor.Tests.Resources.Lightroom.jpg";

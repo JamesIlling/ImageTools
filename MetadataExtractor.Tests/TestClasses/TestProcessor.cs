@@ -1,5 +1,8 @@
 ﻿namespace MetadataExtractor.Tests.TestClasses
 {
+    using System.Diagnostics.CodeAnalysis;
+
+    [ExcludeFromCodeCoverage]
     internal class TestProcessor : ISupportQueries
     {
         public bool Called { get; private set; }

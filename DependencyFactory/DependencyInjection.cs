@@ -2,6 +2,7 @@
 {
     using System;
     using Unity;
+    using Unity.Lifetime;
 
     public static class DependencyInjection
     {
@@ -10,6 +11,11 @@
         public static void RegisterType<TInterface, TType>() where TType : TInterface
         {
             Container.RegisterType<TInterface, TType>();
+        }
+
+        public static void RegisterType<TInterface, TType>(LifetimeManager manager) where TType : TInterface
+        {
+            Container.RegisterType<TInterface, TType>(manager);
         }
 
         public static TType Resolve<TType>()

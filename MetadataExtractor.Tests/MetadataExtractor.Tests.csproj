@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{109A0943-EEB0-49E7-A577-4BE4CAF7063A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetadataExtractor.Tests</RootNamespace>
+    <AssemblyName>MetadataExtractor.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.0.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.5.8.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.3.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.8\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Display\ArrayDisplay.cs" />
+    <Compile Include="Display\ColourFilterArrayPatternDisplay.cs" />
+    <Compile Include="Display\DefaultDisplay.cs" />
+    <Compile Include="ErrorableProcessorTests.cs" />
+    <Compile Include="IDisplay.cs" />
+    <Compile Include="IntegrationTests.cs" />
+    <Compile Include="MetadataItemTests.cs" />
+    <Compile Include="ProcessorTests\ApertureApexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ChrominanceTableProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CompressedBitsPerPixelProcessorTests.cs" />
+    <Compile Include="ProcessorTests\InteropVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LuminanceTableProcessorTests.cs" />
+    <Compile Include="ProcessorTests\MakersNoteProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailProcessorTests.cs" />
+    <Compile Include="ProcessorTests\UnknownProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\ArrayOfUshortTests.cs" />
+    <Compile Include="TestBaseClasses\UnsupportedProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\SeparatedStringProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailYCbCrPositioningProcessorTests.cs" />
+    <Compile Include="ProcessorTests\YCbCrCoeffientProcessorTests.cs" />
+    <Compile Include="StringDisplayer.cs" />
+    <Compile Include="TestBaseClasses\ArrayOfRationalTests.cs" />
+    <Compile Include="ProcessorTests\ArtistProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CameraManufacturerProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CameraModelProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CameraSerialProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CaptureDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CaptureDateTimeSubSecondProcessor.cs" />
+    <Compile Include="ProcessorTests\CfaPatternProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ChromaticitiesProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ComponentConfigurationProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CreationDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CreationDateTimeSubSecondTests.cs" />
+    <Compile Include="ProcessorTests\ExifVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FileSourceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FlashpixVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FlashProcessorTest.cs" />
+    <Compile Include="ProcessorTests\FocalLength35MmEquivalentProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GammaProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GpsVersionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\IsoProcessorTests.cs" />
+    <Compile Include="ProcessorTests\KeywordProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensSpecificationProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ModifiedDateTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ModifiedDateTimeSubsecondProcessorTests.cs" />
+    <Compile Include="ProcessorTests\OwnerNameProcessorTests.cs" />
+    <Compile Include="ProcessorTests\PixelXDimensionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\PixelYDimensionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SceneTypeProcessorTest.cs" />
+    <Compile Include="ProcessorTests\ThumbnailOffsetProcessorTests.cs" />
+    <Compile Include="ProcessorTests\RecommendedExposureIndexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CopyrightProcessorTests.cs" />
+    <Compile Include="ProcessorTests\DescriptionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\DigitalZoomRatioProcessorTests.cs" />
+    <Compile Include="ProcessorTests\EditingSoftwareProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ExposureCompensationProcessorTest.cs" />
+    <Compile Include="ProcessorTests\ExposureTimeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FNumberProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalLengthProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneYResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneXResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensManufacturerProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensMaxApertueProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensModelProcessorTests.cs" />
+    <Compile Include="ProcessorTests\LensSerialProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ReferenceBlackWhiteProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SerialNumberProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SharpnessProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ShutterSpeedApexProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailSizeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailXResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailYResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\UserCommentProcessorTests.cs" />
+    <Compile Include="ProcessorTests\WhitePointProcessorTests.cs" />
+    <Compile Include="ProcessorTests\YResolutionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\XResolutionProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\BitmapMetadataBlobEnumTests.cs" />
+    <Compile Include="TestBaseClasses\RationalProcessorTests.cs" />
+    <Compile Include="TestClasses\DateTimeExtension.cs" />
+    <Compile Include="TestBaseClasses\DateTimeSubSecondsTests.cs" />
+    <Compile Include="TestBaseClasses\DateTimeTests.cs" />
+    <Compile Include="TestBaseClasses\ShortTests.cs" />
+    <Compile Include="TestBaseClasses\LongTests.cs" />
+    <Compile Include="TestBaseClasses\EnumTests.cs" />
+    <Compile Include="ProcessorTests\SensingMethodProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ColourSpaceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ContrastProcessorTests.cs" />
+    <Compile Include="ProcessorTests\CustomRenderingProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ExposureModeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ExposureProgramProcessorTests.cs" />
+    <Compile Include="ProcessorTests\FocalPlaneResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\GainControlProcessorTEsts.cs" />
+    <Compile Include="ProcessorTests\LightSourceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\MeteringModeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\OrientationProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SaturationProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SceneCaptureTypeProcessorTest.cs" />
+    <Compile Include="ProcessorTests\SensitivityTypeProcessorTests.cs" />
+    <Compile Include="ProcessorTests\SubjectDistanceProcessorTEsts.cs" />
+    <Compile Include="ProcessorTests\ThumbnailCompressionProcessorTests.cs" />
+    <Compile Include="ProcessorTests\ThumbnailResolutionUnitProcessorTests.cs" />
+    <Compile Include="ProcessorTests\WhiteBalanceProcessorTests.cs" />
+    <Compile Include="ProcessorTests\YCbCrPositioningProcessorTests.cs" />
+    <Compile Include="TestBaseClasses\SignedRationalTests.cs" />
+    <Compile Include="TestBaseClasses\RationalTests.cs" />
+    <Compile Include="TestBaseClasses\StringTests.cs" />
+    <Compile Include="TestClasses\Enum.cs" />
+    <Compile Include="ExtractorTests.cs" />
+    <Compile Include="TestBaseClasses\ProcessorTests.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\TestLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\NameUtils.cs" />
+    <Compile Include="TestClasses\TestProcessor.cs" />
+    <Compile Include="TestClasses\TestProcessorLocator.cs" />
+    <Compile Include="TestResources.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DependencyFactory\DependencyFactory.csproj">
+      <Project>{947656D4-A13B-475E-AAF3-D3570264D040}</Project>
+      <Name>DependencyFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetadataExtractor\MetadataExtractor.csproj">
+      <Project>{0A5E5F36-5B73-4B5A-9D3B-9B3EED0C0C2A}</Project>
+      <Name>MetadataExtractor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Lightroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ACDSee.jpg" />
+    <EmbeddedResource Include="Resources\D800e.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Eos5DMkIV.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.9.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+</Project>

@@ -4,11 +4,11 @@
     using FluentAssertions;
     using NUnit.Framework;
 
-    public abstract class ShortTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
+    public abstract class DecimalsFromUshortTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {
-        private readonly Func<Metadata, ushort?> _getMetadataElement;
+        private readonly Func<Metadata, decimal?> _getMetadataElement;
 
-        protected ShortTests(Func<Metadata, ushort?> getMetadataElement, string query)
+        protected DecimalsFromUshortTests(Func<Metadata, decimal?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;
@@ -37,7 +37,7 @@
             Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
-            result.Should().Be(input);
+            result.Should().Be(Convert.ToDecimal(input));
         }
     }
 }

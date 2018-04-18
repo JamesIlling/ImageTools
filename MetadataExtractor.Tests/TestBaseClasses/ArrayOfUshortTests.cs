@@ -36,6 +36,7 @@
             result.Should().BeNull();
         }
 
+        [Test]
         [TestCase((ushort) 1, (ushort) 2, (ushort) 3)]
         [TestCase(ushort.MaxValue, ushort.MinValue, ushort.MaxValue)]
         public void ValidValueWrittenToMetadata(params ushort[] input)

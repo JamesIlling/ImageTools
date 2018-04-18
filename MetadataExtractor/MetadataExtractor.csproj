@@ -125,6 +125,13 @@
     <Compile Include="Processors\IsoProcessor.cs" />
     <Compile Include="ISupportErrorableQueries.cs" />
     <Compile Include="ISupportQueries.cs" />
+    <Compile Include="Processors\JfifThumbnailProcessor.cs" />
+    <Compile Include="Processors\JfifThumbnailYProcessor.cs" />
+    <Compile Include="Processors\JfifThumbnailXProcessor.cs" />
+    <Compile Include="Processors\JfifUnitProcessor.cs" />
+    <Compile Include="Processors\JfifVersionProcessor.cs" />
+    <Compile Include="Processors\JfifYResolutionProcessor.cs" />
+    <Compile Include="Processors\JfifXResolutionProcessor.cs" />
     <Compile Include="Processors\KeywordProcessor.cs" />
     <Compile Include="Processors\LensMaxApertueProcessor.cs" />
     <Compile Include="Processors\LensManufacturerProcessor.cs" />

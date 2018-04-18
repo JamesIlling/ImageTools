@@ -26,6 +26,7 @@
             result.Should().BeNull();
         }
 
+        [Test]
         [TestCase(1u, 1u, 1)]
         [TestCase(1u, 2u, 0.5)]
         [TestCase(2u, 1u, 2)]

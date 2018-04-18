@@ -49,6 +49,16 @@
 
         [Test]
         [Ignore("Breaks coverage")]
+        public void CanProcessLytro()
+        {
+            var processor = new StringDisplayer();
+            var extractor = DependencyInjection.Resolve<IExtractMetadata>();
+            var metadata = extractor.ExtractMetadata(TestResources.LytroJpeg());
+            File.WriteAllText("e:\\Lytro.txt", processor.Read(metadata));
+        }
+
+        [Test]
+        [Ignore("Breaks coverage")]
         public void CanProcessNikonD800()
         {
             var processor = new StringDisplayer();

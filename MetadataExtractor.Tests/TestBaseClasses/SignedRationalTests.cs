@@ -12,6 +12,7 @@
             : base(getMetadataElement, query)
         { }
 
+        [Test]
         [TestCase(1, 1, 1)]
         [TestCase(1, 2, 0.5)]
         [TestCase(2, 1, 2)]

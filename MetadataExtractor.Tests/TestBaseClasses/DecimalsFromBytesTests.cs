@@ -4,11 +4,11 @@
     using FluentAssertions;
     using NUnit.Framework;
 
-    public abstract class ShortTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
+    public abstract class DecimalsFromBytesTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {
-        private readonly Func<Metadata, ushort?> _getMetadataElement;
+        private readonly Func<Metadata, decimal?> _getMetadataElement;
 
-        protected ShortTests(Func<Metadata, ushort?> getMetadataElement, string query)
+        protected DecimalsFromBytesTests(Func<Metadata, decimal?> getMetadataElement, string query)
             : base(query)
         {
             _getMetadataElement = getMetadataElement;
@@ -25,19 +25,18 @@
             result.Should().BeNull();
         }
 
-        [Test]
-        [TestCase((ushort) 0)]
-        [TestCase((ushort) 1)]
-        [TestCase(ushort.MaxValue)]
-        [TestCase(ushort.MinValue)]
-        public void ValidValueWrittenToMetadata(ushort input)
+        [TestCase((byte) 0)]
+        [TestCase((byte) 1)]
+        [TestCase(byte.MaxValue)]
+        [TestCase(byte.MinValue)]
+        public void ValidValueWrittenToMetadata(byte input)
         {
             var metadata = new Metadata();
 
             Processor.Process(metadata, input);
 
             var result = _getMetadataElement(metadata);
-            result.Should().Be(input);
+            result.Should().Be(Convert.ToDecimal(input));
         }
     }
 }

@@ -13,7 +13,10 @@
         public Metadata ExtractMetadata(Stream image)
         {
             var bitmapMetadata = GetBitmapMetadata(image);
-            var processors = ProcessorLocator.GetAll<ISupportQueries>().OrderBy(x => x.Query);
+            var processors = ProcessorLocator.GetAll<ISupportQueries>()
+                .Where(x => bitmapMetadata.ContainsQuery(x.Query))
+                .OrderBy(x => x.Query);
+
             var metadata = new Metadata();
             foreach (var processor in processors)
             {

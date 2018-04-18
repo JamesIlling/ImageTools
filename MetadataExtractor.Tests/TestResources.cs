@@ -12,7 +12,7 @@
         private const string LightroomJpegPath = "MetadataExtractor.Tests.Resources.Lightroom.jpg";
         private const string AcdSeeJpegPath = "MetadataExtractor.Tests.Resources.ACDSee.jpg";
         private const string D800EJpegPath = "MetadataExtractor.Tests.Resources.D800e.jpg";
-        private const string Eos5DMkIVPath = "MetadataExtractor.Tests.Resources.Eos5DMkIV.jpg";
+        private const string Eos5dMkIvJpegPath = "MetadataExtractor.Tests.Resources.Eos5DMkIV.jpg";
 
         public static Dictionary<string, Stream> All()
         {
@@ -35,7 +35,7 @@
         public static Stream Eos5DMkIVJpeg()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            return assembly.GetManifestResourceStream(Eos5DMkIVPath);
+            return assembly.GetManifestResourceStream(Eos5dMkIvJpegPath);
         }
 
         public static Stream D800EJpeg()

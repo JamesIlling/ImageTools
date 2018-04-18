@@ -40,6 +40,7 @@
             result.Should().BeNull();
         }
 
+        [Test]
         [TestCase("NotANumber")]
         [TestCase("-100")]
         public void InvalidValueNotWrittenToMetadata(string input)
@@ -53,6 +54,7 @@
             result?.Millisecond.Should().Be(0);
         }
 
+        [Test]
         [TestCase("0", 0)]
         [TestCase("10", 10)]
         [TestCase("100", 100)]

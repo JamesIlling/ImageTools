@@ -25,6 +25,7 @@
             result.Should().BeNull();
         }
 
+        [Test]
         [TestCase(0u, 0u)]
         [TestCase(1u, 1u)]
         [TestCase(uint.MaxValue, uint.MaxValue)]

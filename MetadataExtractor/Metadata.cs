@@ -90,5 +90,6 @@
         public string Interop { get; set; }
         public string InteropVersion { get; set; }
         public YCbCrPositioning? ThumbnailYCbCrPositioning { get; set; }
+        public string JfifVersion { get; set; }
     }
 }

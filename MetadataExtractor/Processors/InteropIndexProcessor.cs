@@ -1,5 +1,7 @@
 ﻿namespace MetadataExtractor.Processors
 {
+    using Unity.Attributes;
+
     public class InteropIndexProcessor : ISupportErrorableQueries
     {
         public string Query => "/app1/ifd/exif/interop/{ushort=1}";
@@ -28,6 +30,8 @@
         }
 
         public string Error => "Unknown interop index value:{0}";
+
+        [Dependency]
         public ILog Log { get; set; }
     }
 }

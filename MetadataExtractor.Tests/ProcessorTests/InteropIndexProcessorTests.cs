@@ -53,7 +53,7 @@
         public void NullValueNotWrittenToMetadata()
         {
             var metadata = new Metadata();
-            Processor.Process(metadata, "Invalid");
+            Processor.Process(metadata, null)
 
             var result = metadata.Interop;
             result.Should().BeNull();

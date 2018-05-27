@@ -38,7 +38,7 @@
         }
 
         [Test]
-        [Ignore("Breaks coverage")]
+        //[Ignore("Breaks coverage")]
         public void CanProcessLightroom()
         {
             var processor = new StringDisplayer();

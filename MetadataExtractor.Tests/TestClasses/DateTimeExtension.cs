@@ -1,4 +1,4 @@
-namespace MetadataExtractor.Tests.TestBaseClasses
+namespace MetadataExtractor.Tests.TestClasses
 {
     using System;
 

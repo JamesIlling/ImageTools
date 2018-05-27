@@ -3,6 +3,7 @@
     using System;
     using FluentAssertions;
     using NUnit.Framework;
+    using TestClasses;
 
     public abstract class DateTimeTests<TProcessor> : ProcessorTests<TProcessor> where TProcessor : ISupportQueries
     {

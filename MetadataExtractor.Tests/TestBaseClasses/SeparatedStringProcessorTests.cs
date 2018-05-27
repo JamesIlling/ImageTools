@@ -1,11 +1,10 @@
-namespace MetadataExtractor.Tests.ProcessorTests
+namespace MetadataExtractor.Tests.TestBaseClasses
 {
     using System;
     using System.Text;
     using System.Windows.Media.Imaging;
     using FluentAssertions;
     using NUnit.Framework;
-    using TestBaseClasses;
 
     public abstract class SeparatedStringProcessorTests<T> : ProcessorTests<T> where T : ISupportQueries
     {
